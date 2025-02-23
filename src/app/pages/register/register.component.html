@@ -1,0 +1,36 @@
+<p>register works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmitRegister()">
+  <label for="username">Username : </label>
+  <input type="text" id="username" formControlName="username" />
+
+  <label for="email">email : </label>
+  <input type="email" id="email" formControlName="email" />
+
+  @if (form.controls['email'].invalid && form.controls['email'].dirty &&
+  form.controls['email'].touched) {
+
+  <div>{{ form.controls["email"].hasError("email") }}</div>
+  }
+
+  <label for="password">Password : </label>
+  <input type="password" id="password" formControlName="password" />
+
+  <label for="passwordConfirmed">passwordConfirmed : </label>
+  <input
+    type="password"
+    id="passwordConfirmed"
+    formControlName="passwordConfirmed"
+  />
+
+  <label for="firstName">FirstName : </label>
+  <input type="text" id="firstName" formControlName="firstName" />
+
+  <label for="lastName">LastName : </label>
+  <input type="text" id="lastName" formControlName="lastName" />
+
+  <label for="birthAt">Naissance : </label>
+  <input type="date" id="birthAt" formControlName="birthAt" />
+
+  <button type="submit" [disabled]="form.valid">Submit</button>
+</form>
+<a [routerLink]="['/login']" routerLinkActive="router-link-active"> Login</a>

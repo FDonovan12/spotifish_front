@@ -1,0 +1,13 @@
+<div class="auto-grid button-group">
+  @if (token$ | async) {
+  <a routerLink="/music/list"> Music </a>
+  <a routerLink="/">Home</a>
+  <button (click)="disconect()">Deconnexion</button>
+  } @else {
+
+  <a routerLink="/register"> Register </a>
+  @if(isVisible$ | async) {
+
+  <a routerLink="/login"> Login </a>
+  } }
+</div>
