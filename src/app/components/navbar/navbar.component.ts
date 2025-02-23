@@ -24,13 +24,10 @@ export class NavbarComponent implements OnInit {
     isVisible$!: Observable<boolean>;
 
     ngOnInit(): void {
-        this.token$ = this.authService.token$;
+        // this.token$ = this.authService.token$;
         this.isVisible$ = this.router.events.pipe(
             filter((event) => event instanceof NavigationEnd),
-            map(
-                (event: NavigationEnd) =>
-                    !NO_NAVABAR_URLS.some((url) => event.url.includes(url))
-            )
+            map((event: NavigationEnd) => !NO_NAVABAR_URLS.some((url) => event.url.includes(url)))
         );
 
         this.router.events.subscribe((event) => {

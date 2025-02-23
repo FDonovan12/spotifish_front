@@ -23,21 +23,20 @@ export class AuthService {
 
     private keepConnected: boolean = false;
 
-    get token(): string | null {
+    get token(): string {
         const accessTokenIsValid = !this.isTokenExpired(this.accessToken$.value || '');
         const refreshTokenIsValid = !this.isTokenExpired(this.refreshToken$.value || '');
-
         if (accessTokenIsValid) {
-            return this.accessToken$.value;
+            return this.accessToken$.value || '';
         }
         console.log('accessToken expired');
         if (refreshTokenIsValid) {
             this.refreshToken();
-            return this.refreshToken$.value;
+            return this.refreshToken$.value || '';
         }
         console.log('refreshToken expired');
-        this.router.navigateByUrl('/login');
-        return null;
+        this.disconnect();
+        return '';
     }
 
     get token$(): Observable<string | null> {
@@ -59,16 +58,13 @@ export class AuthService {
     }
 
     async refreshToken() {
-        console.log('refreshToken');
         const url = `${this.rootUrl}/${this.resource}/refresh`;
-        console.log(this.refreshToken$.value);
         const observable$: Observable<UserLoginResponse> = this.httpClient.post<UserLoginResponse>(url, { refreshToken: this.refreshToken$.value });
         return this.stockToken(observable$);
     }
 
     async stockToken(observable$: Observable<UserLoginResponse>) {
         return lastValueFrom(observable$).then((res) => {
-            console.log(res);
             this.accessToken$.next(res.accessToken);
             this.refreshToken$.next(res.refreshToken);
             if (this.keepConnected) {

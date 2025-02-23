@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = () => {
     const router: Router = inject(Router);
     if (!authService.token) {
         console.log('redirect home -> login');
-        return router.navigateByUrl('/login');
+        authService.disconnect();
     }
     return true;
 };
@@ -17,7 +17,6 @@ export const noAuthGuard: CanActivateFn = () => {
     const router: Router = inject(Router);
     if (authService.token) {
         console.log('redirect login -> home');
-        console.log(authService.token);
         return router.navigateByUrl('/');
     }
     return true;
