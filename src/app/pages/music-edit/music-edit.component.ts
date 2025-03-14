@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MusicFormComponent } from '../../components/music-form/music-form.component';
 import { NgIf } from '@angular/common';
 import { MusicEditInput } from '../../entities/music';
+import { Body } from '../../entities/response';
 
 @Component({
     selector: 'app-music-edit',
@@ -16,7 +17,7 @@ export class MusicEditComponent {
     @Input() slug?: string;
     private readonly musicService: MusicService = inject(MusicService);
 
-    music?: MusicEditInput;
+    music?: Body<MusicEditInput>;
 
     async ngOnInit(): Promise<void> {
         this.music = await this.musicService.show(this.slug || '');
