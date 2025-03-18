@@ -1,8 +1,24 @@
-export interface UserDummy {
-    username: string;
+import { ContributorBase, ContributorOutputBase } from './contributor';
+import { LikeableItemBase } from './likeable-item';
+import { PermissionEntity } from './permission-entity';
+import { UserLikeableItemBase, UserLikeableItemOutputBase } from './user-likeable-item';
+
+export interface UserBase extends LikeableItemBase {
+    email: string;
     password: string;
-    accessToken: string;
+    firstName: string;
+    lastName: string;
+    birthAt: Date;
+    createdAt: Date;
+    userLikeableitems: UserLikeableItemBase[];
+    contributors: ContributorBase[];
 }
+
+export interface UserOutputBase extends UserBase, PermissionEntity {
+    userLikeableitems: UserLikeableItemOutputBase[];
+    contributors: ContributorOutputBase[];
+}
+
 export interface UserLoginResponse {
     accessToken: string;
     refreshToken: string;
@@ -22,8 +38,6 @@ export namespace UserRegisterInput {
     export function formDate(birthAt: Date): string {
         console.log(birthAt);
         console.log(typeof birthAt);
-        return `${birthAt.getFullYear()}-${
-            birthAt.getMonth() + 1
-        }-${birthAt.getDay()}`;
+        return `${birthAt.getFullYear()}-${birthAt.getMonth() + 1}-${birthAt.getDay()}`;
     }
 }
