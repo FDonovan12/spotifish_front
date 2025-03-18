@@ -26,6 +26,8 @@ export class AuthService {
     get token(): string {
         const accessTokenIsValid = !this.isTokenExpired(this.accessToken$.value || '');
         const refreshTokenIsValid = !this.isTokenExpired(this.refreshToken$.value || '');
+        console.log('accessTokenIsValid : ', accessTokenIsValid);
+        console.log('refreshTokenIsValid : ', refreshTokenIsValid);
         if (accessTokenIsValid) {
             return this.accessToken$.value || '';
         }

@@ -1,0 +1,103 @@
+{
+    "code": 200,
+    "body": [
+        {
+            "data": {
+                "uuid": "592a7354-2259-4b54-8dcf-3af4d3137b2b",
+                "name": "M Mathéo Da silva",
+                "slug": "592a7354-2259-4b54-8dcf-3af4d3137b2b",
+                "path": "https://www.ambre-arnaud.eu/",
+                "duration": 0,
+                "image": "https://www.laura-caron.fr/?quaerat=libero&est=aperiam#modi",
+                "createdAt": "2016-11-15",
+                "numberOfListen": 15,
+                "type": "Song"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "592a7354-2259-4b54-8dcf-3af4d3137b2b"
+            }
+        },
+        {
+            "data": {
+                "uuid": "764f6d19-815e-4c13-aacd-b117965c9310",
+                "name": "Mlle Louna Simon",
+                "slug": "764f6d19-815e-4c13-aacd-b117965c9310",
+                "path": "http://www.jules-fournier.bzh:21972/laudantium",
+                "duration": 0,
+                "image": "https://www.xn--tho-guillot-cbb.name/suscipit/officiis",
+                "createdAt": "2016-08-13",
+                "numberOfListen": 17,
+                "type": "Song"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "764f6d19-815e-4c13-aacd-b117965c9310"
+            }
+        },
+        {
+            "data": {
+                "uuid": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6",
+                "name": "M Julie Arnaud",
+                "slug": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6",
+                "path": "https://www.xn--chlo-fleury-ebb.name/nulla/laboreest#delectus",
+                "duration": 0,
+                "image": "https://www.manon-marchand.com:56788/#est",
+                "createdAt": "2022-11-26",
+                "numberOfListen": 16,
+                "type": "Song"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6"
+            }
+        },
+        {
+            "data": {
+                "uuid": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                "name": "Colin Raphaël",
+                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                "path": "https://www.arthur-xn--lopz-dpa.alsace:18997/adipisci?maiores=saepe&et=ex",
+                "duration": 0,
+                "image": "https://www.xn--lo-masson-b4a.info:62486/?qui=enim&perferendis=eum#sed",
+                "createdAt": "2016-04-20",
+                "numberOfListen": 14,
+                "type": "Song"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3"
+            }
+        },
+        {
+            "data": {
+                "uuid": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                "name": "Elisa Pierre",
+                "slug": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                "path": "https://www.justine-bourgeois.bzh/ducimus?ad=in&molestiae=omnis",
+                "duration": 0,
+                "image": "https://www.adam-marie.com/aut/aut",
+                "createdAt": "2016-01-12",
+                "numberOfListen": 10,
+                "type": "Song"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd"
+            }
+        }
+    ],
+    "pagesElement": 5,
+    "currentPages": 1,
+    "previousPage": null,
+    "firstPage": null,
+    "nextPage": null,
+    "lastPage": null,
+    "totalPages": 1,
+    "totalElements": 5
+}

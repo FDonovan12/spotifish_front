@@ -1,8 +1,7 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MusicCreateInput, MusicEditInput } from '../../entities/music';
-import { Body } from '../../entities/response';
+import { SongBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-form',
@@ -12,23 +11,22 @@ import { Body } from '../../entities/response';
     styleUrl: './music-form.component.css',
 })
 export class MusicFormComponent implements OnInit {
-    @Input() musicToEdit?: Body<MusicEditInput>;
-    @Output() formSubimtted: EventEmitter<MusicEditInput | MusicCreateInput> = new EventEmitter();
+    @Input() musicToEdit?: SongBase;
+    @Output() formSubimtted: EventEmitter<SongBase | SongBase> = new EventEmitter();
     private readonly musicService: MusicService = inject(MusicService);
 
     form!: FormGroup;
 
     ngOnInit(): void {
         this.form = new FormGroup({
-            name: new FormControl<string>(this.musicToEdit?.data.name || '', [Validators.required]),
-            description: new FormControl<string>(this.musicToEdit?.data.description || '', [Validators.required]),
-            image: new FormControl<string>(this.musicToEdit?.data.image || '', [Validators.required]),
+            name: new FormControl<string>(this.musicToEdit?.name || '', [Validators.required]),
+            image: new FormControl<string>(this.musicToEdit?.image || '', [Validators.required]),
         });
     }
 
     async onFormSubmit(): Promise<void> {
         if (this.form.valid) {
-            const musicInput: MusicEditInput | MusicCreateInput = {
+            const musicInput: SongBase | SongBase = {
                 ...this.form.value,
             };
             this.formSubimtted.emit(musicInput);

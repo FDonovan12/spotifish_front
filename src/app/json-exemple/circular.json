@@ -1,0 +1,581 @@
+{
+    "code": 200,
+    "body": [
+        {
+            "data": {
+                "uuid": "2e0e9d2b-bcb7-4373-aeba-ae3fcc301895",
+                "name": "Mme Alexis Roussel",
+                "slug": "2e0e9d2b-bcb7-4373-aeba-ae3fcc301895",
+                "description": "Yeah, well, history is gonna change.",
+                "image": "https://www.adam-mathieu.org/",
+                "createdAt": "2025-03-12T15:04:31.708239",
+                "isPrivate": false,
+                "contributors": [],
+                "songPlaylists": [],
+                "type": "Playlist"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "2e0e9d2b-bcb7-4373-aeba-ae3fcc301895"
+            }
+        },
+        {
+            "data": {
+                "uuid": "90791c09-92d8-4411-99db-651b3a411cf7",
+                "name": "Alexandre Olivier",
+                "slug": "90791c09-92d8-4411-99db-651b3a411cf7",
+                "description": "Calvin? Wh... Why do you keep calling me Calvin?",
+                "image": "https://www.emilie-schmitt.eu/voluptatem?sapiente=excepturi&quia=enim#pariatur",
+                "createdAt": "2025-03-12T15:04:31.738633",
+                "isPrivate": false,
+                "contributors": [
+                    {
+                        "data": {
+                            "isOwner": true,
+                            "stillContributing": true,
+                            "slug": "90791c09-92d8-4411-99db-651b3a411cf7-c99b1b7a-8dfe-496a-92e6-4f8a6c5a3a07",
+                            "type": "Contributor"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "30d230b7-de4f-4fe1-8178-a3b706b1f0ac"
+                        }
+                    },
+                    {
+                        "data": {
+                            "isOwner": true,
+                            "stillContributing": true,
+                            "slug": "90791c09-92d8-4411-99db-651b3a411cf7-6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                            "type": "Contributor"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "2d41620e-cd0a-4b40-81d4-3277cd25360e"
+                        }
+                    }
+                ],
+                "songPlaylists": [
+                    {
+                        "data": {
+                            "position": 1,
+                            "createdAt": "2025-03-12T15:04:32.437597",
+                            "song": {
+                                "data": {
+                                    "uuid": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                                    "name": "Colin Raphaël",
+                                    "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                                    "path": "https://www.arthur-xn--lopz-dpa.alsace:18997/adipisci?maiores=saepe&et=ex",
+                                    "duration": 0,
+                                    "image": "https://www.xn--lo-masson-b4a.info:62486/?qui=enim&perferendis=eum#sed",
+                                    "createdAt": "2016-04-20",
+                                    "numberOfListen": 14,
+                                    "songArtists": [
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Roche Lena",
+                                                        "slug": "2f301013-3962-4eec-9669-620413e13309",
+                                                        "type": "Artist"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "2f301013-3962-4eec-9669-620413e13309"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-2f301013-3962-4eec-9669-620413e13309",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "f85a0a0b-0d2b-45e5-93fa-403acea547db"
+                                            }
+                                        },
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Olivier Adrien",
+                                                        "slug": "6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                        "type": "Artist"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "6af7b2ea-7f95-4da1-b8e2-884187530aca"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "b98b0237-bc48-4351-a938-7bcc487e6d21"
+                                            }
+                                        },
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Dr Louna Gaillard",
+                                                        "slug": "da4edb6a-5af7-453b-a8cb-80be49ea387a",
+                                                        "type": "Moderator"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "da4edb6a-5af7-453b-a8cb-80be49ea387a"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-da4edb6a-5af7-453b-a8cb-80be49ea387a",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "46b48be1-b99f-45ec-8840-0521d84c5fed"
+                                            }
+                                        }
+                                    ],
+                                    "musicalGenres": [],
+                                    "type": "Song"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3"
+                                }
+                            },
+                            "contributor": {
+                                "data": {
+                                    "isOwner": true,
+                                    "stillContributing": true,
+                                    "slug": "90791c09-92d8-4411-99db-651b3a411cf7-c99b1b7a-8dfe-496a-92e6-4f8a6c5a3a07",
+                                    "type": "Contributor"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "30d230b7-de4f-4fe1-8178-a3b706b1f0ac"
+                                }
+                            },
+                            "slug": "null",
+                            "type": "SongPlaylist"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "4"
+                        }
+                    }
+                ],
+                "type": "Playlist"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "90791c09-92d8-4411-99db-651b3a411cf7"
+            }
+        },
+        {
+            "data": {
+                "uuid": "914e6454-1170-4b87-80f9-fd2e41ac79da",
+                "name": "Mme Justine Dumont",
+                "slug": "914e6454-1170-4b87-80f9-fd2e41ac79da",
+                "description": "Well, you're safe and sound now, back in good old 1955.",
+                "image": "https://www.lola-richard.alsace:391/inventore/quisrepellat?non=quo&quae=autem#est",
+                "createdAt": "2025-03-12T15:04:31.730486",
+                "isPrivate": false,
+                "contributors": [
+                    {
+                        "data": {
+                            "isOwner": true,
+                            "stillContributing": true,
+                            "slug": "914e6454-1170-4b87-80f9-fd2e41ac79da-8fb2d016-6387-41a6-860e-a3c6482999f6",
+                            "type": "Contributor"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "68e18678-cf3d-4075-b2ee-b94a9a825041"
+                        }
+                    }
+                ],
+                "songPlaylists": [],
+                "type": "Playlist"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "914e6454-1170-4b87-80f9-fd2e41ac79da"
+            }
+        },
+        {
+            "data": {
+                "uuid": "aee23a3e-883e-4eba-963f-6d365d75d308",
+                "name": "Valentin Aubry",
+                "slug": "aee23a3e-883e-4eba-963f-6d365d75d308",
+                "description": "Calvin? Wh... Why do you keep calling me Calvin?",
+                "image": "https://www.rayan-leclerc.alsace/saepe",
+                "createdAt": "2025-03-12T15:04:31.716408",
+                "isPrivate": false,
+                "contributors": [
+                    {
+                        "data": {
+                            "isOwner": true,
+                            "stillContributing": true,
+                            "slug": "aee23a3e-883e-4eba-963f-6d365d75d308-360dc6ac-37e5-4e26-9e6b-e61e0c6a6acd",
+                            "type": "Contributor"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "a6a0ba09-781a-454b-9093-ffa78278fc10"
+                        }
+                    }
+                ],
+                "songPlaylists": [
+                    {
+                        "data": {
+                            "position": 1,
+                            "createdAt": "2025-03-12T15:04:32.359113",
+                            "song": {
+                                "data": {
+                                    "uuid": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                                    "name": "Elisa Pierre",
+                                    "slug": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                                    "path": "https://www.justine-bourgeois.bzh/ducimus?ad=in&molestiae=omnis",
+                                    "duration": 0,
+                                    "image": "https://www.adam-marie.com/aut/aut",
+                                    "createdAt": "2016-01-12",
+                                    "numberOfListen": 10,
+                                    "songArtists": [],
+                                    "musicalGenres": [],
+                                    "type": "Song"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd"
+                                }
+                            },
+                            "contributor": {
+                                "data": {
+                                    "isOwner": true,
+                                    "stillContributing": true,
+                                    "slug": "aee23a3e-883e-4eba-963f-6d365d75d308-360dc6ac-37e5-4e26-9e6b-e61e0c6a6acd",
+                                    "type": "Contributor"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "a6a0ba09-781a-454b-9093-ffa78278fc10"
+                                }
+                            },
+                            "slug": "null",
+                            "type": "SongPlaylist"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "1"
+                        }
+                    }
+                ],
+                "type": "Playlist"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "aee23a3e-883e-4eba-963f-6d365d75d308"
+            }
+        },
+        {
+            "data": {
+                "uuid": "f36ec633-5942-43e9-9f0c-77c453d6b609",
+                "name": "Dr Carla Marchand",
+                "slug": "f36ec633-5942-43e9-9f0c-77c453d6b609",
+                "description": "Let me show you my plan for sending you home. Please excuse the crudity of this model. I didn't have time to build it to scale or paint it.",
+                "image": "https://www.justine-xn--prvost-cva.name:42341/amet",
+                "createdAt": "2025-03-12T15:04:31.724098",
+                "isPrivate": false,
+                "contributors": [
+                    {
+                        "data": {
+                            "isOwner": true,
+                            "stillContributing": true,
+                            "slug": "f36ec633-5942-43e9-9f0c-77c453d6b609-8fb2d016-6387-41a6-860e-a3c6482999f6",
+                            "type": "Contributor"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "2ad21b85-8f4f-4fe1-989f-7ff4e58c9f2d"
+                        }
+                    }
+                ],
+                "songPlaylists": [
+                    {
+                        "data": {
+                            "position": 1,
+                            "createdAt": "2025-03-12T15:04:32.39665",
+                            "song": {
+                                "data": {
+                                    "uuid": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                                    "name": "Colin Raphaël",
+                                    "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3",
+                                    "path": "https://www.arthur-xn--lopz-dpa.alsace:18997/adipisci?maiores=saepe&et=ex",
+                                    "duration": 0,
+                                    "image": "https://www.xn--lo-masson-b4a.info:62486/?qui=enim&perferendis=eum#sed",
+                                    "createdAt": "2016-04-20",
+                                    "numberOfListen": 14,
+                                    "songArtists": [
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Roche Lena",
+                                                        "slug": "2f301013-3962-4eec-9669-620413e13309",
+                                                        "type": "Artist"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "2f301013-3962-4eec-9669-620413e13309"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-2f301013-3962-4eec-9669-620413e13309",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "f85a0a0b-0d2b-45e5-93fa-403acea547db"
+                                            }
+                                        },
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Olivier Adrien",
+                                                        "slug": "6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                        "type": "Artist"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "6af7b2ea-7f95-4da1-b8e2-884187530aca"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "b98b0237-bc48-4351-a938-7bcc487e6d21"
+                                            }
+                                        },
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Dr Louna Gaillard",
+                                                        "slug": "da4edb6a-5af7-453b-a8cb-80be49ea387a",
+                                                        "type": "Moderator"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "da4edb6a-5af7-453b-a8cb-80be49ea387a"
+                                                    }
+                                                },
+                                                "slug": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3-da4edb6a-5af7-453b-a8cb-80be49ea387a",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "46b48be1-b99f-45ec-8840-0521d84c5fed"
+                                            }
+                                        }
+                                    ],
+                                    "musicalGenres": [],
+                                    "type": "Song"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "b4ec2912-7470-4dca-b67a-ecb6bfbc33f3"
+                                }
+                            },
+                            "contributor": {
+                                "data": {
+                                    "isOwner": true,
+                                    "stillContributing": true,
+                                    "slug": "f36ec633-5942-43e9-9f0c-77c453d6b609-8fb2d016-6387-41a6-860e-a3c6482999f6",
+                                    "type": "Contributor"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "2ad21b85-8f4f-4fe1-989f-7ff4e58c9f2d"
+                                }
+                            },
+                            "slug": "null",
+                            "type": "SongPlaylist"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "2"
+                        }
+                    },
+                    {
+                        "data": {
+                            "position": 1,
+                            "createdAt": "2025-03-12T15:04:32.415025",
+                            "song": {
+                                "data": {
+                                    "uuid": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6",
+                                    "name": "M Julie Arnaud",
+                                    "slug": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6",
+                                    "path": "https://www.xn--chlo-fleury-ebb.name/nulla/laboreest#delectus",
+                                    "duration": 0,
+                                    "image": "https://www.manon-marchand.com:56788/#est",
+                                    "createdAt": "2022-11-26",
+                                    "numberOfListen": 16,
+                                    "songArtists": [
+                                        {
+                                            "data": {
+                                                "isPrincipalArtist": true,
+                                                "artist": {
+                                                    "data": {
+                                                        "name": "Olivier Adrien",
+                                                        "slug": "6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                        "type": "Artist"
+                                                    },
+                                                    "permission": {
+                                                        "canEdit": true,
+                                                        "canDelete": true,
+                                                        "idEntity": "6af7b2ea-7f95-4da1-b8e2-884187530aca"
+                                                    }
+                                                },
+                                                "slug": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6-6af7b2ea-7f95-4da1-b8e2-884187530aca",
+                                                "type": "SongArtist"
+                                            },
+                                            "permission": {
+                                                "canEdit": true,
+                                                "canDelete": true,
+                                                "idEntity": "71e1b668-8cc2-409e-b096-9eca12b1314f"
+                                            }
+                                        }
+                                    ],
+                                    "musicalGenres": [],
+                                    "type": "Song"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "8d5a323f-f5de-4b72-96e4-c8e8d406faa6"
+                                }
+                            },
+                            "contributor": {
+                                "data": {
+                                    "isOwner": true,
+                                    "stillContributing": true,
+                                    "slug": "f36ec633-5942-43e9-9f0c-77c453d6b609-8fb2d016-6387-41a6-860e-a3c6482999f6",
+                                    "type": "Contributor"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "2ad21b85-8f4f-4fe1-989f-7ff4e58c9f2d"
+                                }
+                            },
+                            "slug": "null",
+                            "type": "SongPlaylist"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "3"
+                        }
+                    },
+                    {
+                        "data": {
+                            "position": 1,
+                            "createdAt": "2025-03-12T15:04:32.459837",
+                            "song": {
+                                "data": {
+                                    "uuid": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                                    "name": "Elisa Pierre",
+                                    "slug": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd",
+                                    "path": "https://www.justine-bourgeois.bzh/ducimus?ad=in&molestiae=omnis",
+                                    "duration": 0,
+                                    "image": "https://www.adam-marie.com/aut/aut",
+                                    "createdAt": "2016-01-12",
+                                    "numberOfListen": 10,
+                                    "songArtists": [],
+                                    "musicalGenres": [],
+                                    "type": "Song"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "ba28ffc7-3440-44f6-81a0-58c3cdaca6bd"
+                                }
+                            },
+                            "contributor": {
+                                "data": {
+                                    "isOwner": true,
+                                    "stillContributing": true,
+                                    "slug": "f36ec633-5942-43e9-9f0c-77c453d6b609-8fb2d016-6387-41a6-860e-a3c6482999f6",
+                                    "type": "Contributor"
+                                },
+                                "permission": {
+                                    "canEdit": true,
+                                    "canDelete": true,
+                                    "idEntity": "2ad21b85-8f4f-4fe1-989f-7ff4e58c9f2d"
+                                }
+                            },
+                            "slug": "null",
+                            "type": "SongPlaylist"
+                        },
+                        "permission": {
+                            "canEdit": true,
+                            "canDelete": true,
+                            "idEntity": "5"
+                        }
+                    }
+                ],
+                "type": "Playlist"
+            },
+            "permission": {
+                "canEdit": true,
+                "canDelete": true,
+                "idEntity": "f36ec633-5942-43e9-9f0c-77c453d6b609"
+            }
+        }
+    ],
+    "pagesElement": 5,
+    "currentPages": 1,
+    "previousPage": null,
+    "firstPage": null,
+    "nextPage": null,
+    "lastPage": null,
+    "totalPages": 1,
+    "totalElements": 5
+}

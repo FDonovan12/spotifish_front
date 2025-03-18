@@ -11,12 +11,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     const router: Router = inject(Router);
 
     let toHandle = req;
-
+    console.log('security', !NO_BEARER_URLS.some((url) => req.url.includes(url)));
     if (!NO_BEARER_URLS.some((url) => req.url.includes(url))) {
         console.log(req.url);
         if (authService.token) {
             toHandle = req.clone({
-                headers: req.headers.set('Autorization', `Bearer ${authService.token}`),
+                headers: req.headers.set('Authorization', `Bearer ${authService.token}`),
             });
         } else {
             authService.disconnect();

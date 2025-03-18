@@ -1,8 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { RouterLink } from '@angular/router';
-import { MusicListOutput } from '../../entities/music';
-import { Body } from '../../entities/response';
+import { SongBase, SongOutputBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-list',
@@ -14,7 +13,7 @@ import { Body } from '../../entities/response';
 export class MusicListComponent implements OnInit {
     private readonly musicService: MusicService = inject(MusicService);
 
-    musics!: Body<MusicListOutput>[];
+    musics!: SongOutputBase[];
 
     ngOnInit(): void {
         this.musicService.list().then((res) => (this.musics = res));

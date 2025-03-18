@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { lastValueFrom, Observable } from 'rxjs';
-import { CustomResponse, CustomListResponse, Body } from '../../entities/response';
-import { MusicCreateInput, MusicEditInput, MusicListOutput, MusicShowOutput } from '../../entities/music';
+import { CustomResponse, CustomListResponse } from '../../entities/response';
+import { SongBase, SongOutputBase } from '../../entities/song';
 
 @Injectable({
     providedIn: 'root',
@@ -13,30 +13,25 @@ export class MusicService {
     private readonly rootUrl: string = environment.API_URL;
     private readonly resource: string = 'song';
 
-    async list(): Promise<Body<MusicListOutput>[]> {
-        const http$: Observable<CustomListResponse<MusicListOutput>> = this.httpClient.get<CustomListResponse<MusicListOutput>>(
+    async list(): Promise<SongOutputBase[]> {
+        const http$: Observable<CustomListResponse<SongOutputBase>> = this.httpClient.get<CustomListResponse<SongOutputBase>>(
             `${this.rootUrl}/${this.resource}`
         );
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async show(slug: string): Promise<Body<MusicShowOutput>> {
-        const http$: Observable<CustomResponse<MusicShowOutput>> = this.httpClient.get<CustomResponse<MusicShowOutput>>(
-            `${this.rootUrl}/${this.resource}/${slug}`
-        );
+    async show(slug: string): Promise<SongBase> {
+        const http$: Observable<CustomResponse<SongBase>> = this.httpClient.get<CustomResponse<SongBase>>(`${this.rootUrl}/${this.resource}/${slug}`);
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async create(music: MusicCreateInput): Promise<Body<MusicShowOutput>> {
-        const http$: Observable<CustomResponse<MusicShowOutput>> = this.httpClient.post<CustomResponse<MusicShowOutput>>(
-            `${this.rootUrl}/${this.resource}/new`,
-            music
-        );
+    async create(music: SongBase): Promise<SongBase> {
+        const http$: Observable<CustomResponse<SongBase>> = this.httpClient.post<CustomResponse<SongBase>>(`${this.rootUrl}/${this.resource}/new`, music);
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async update(music: MusicEditInput, slug: string): Promise<Body<MusicShowOutput>> {
-        const http$: Observable<CustomResponse<MusicShowOutput>> = this.httpClient.put<CustomResponse<MusicShowOutput>>(
+    async update(music: SongBase, slug: string): Promise<SongBase> {
+        const http$: Observable<CustomResponse<SongBase>> = this.httpClient.put<CustomResponse<SongBase>>(
             `${this.rootUrl}/${this.resource}/edit/${slug}`,
             music
         );
