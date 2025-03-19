@@ -3,6 +3,7 @@ import { PlaylistService } from '../../services/playlist/playlist.service';
 import { DatePipe } from '@angular/common';
 import { SongBase } from '../../entities/song';
 import { PlaylistOutputBase } from '../../entities/playlist';
+import { AlbumOutputShow } from '../../entities/album';
 
 @Component({
     selector: 'app-storage-song',
@@ -12,7 +13,7 @@ import { PlaylistOutputBase } from '../../entities/playlist';
     styleUrl: './storage-song.component.css',
 })
 export class StorageSongComponent {
-    @Input() storageSong?: PlaylistOutputBase;
+    @Input() storageSong?: PlaylistOutputBase | AlbumOutputShow;
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
 

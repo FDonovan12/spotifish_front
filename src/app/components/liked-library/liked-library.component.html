@@ -1,5 +1,8 @@
-@for (likeableItem of likeableItems; track $index) {
-<span>{{ likeableItem.name }}</span>
-<span> : </span>
-<span>{{ likeableItem.type }} </span>
+@if (numberOfLikedSong != undefined) { numberOfLikedSong {{ numberOfLikedSong }}
+} @for (likeableItem of likeableItems; track $index) {
+<div>
+    <span>{{ likeableItem.name }}</span>
+    <span> : </span>
+    <span>{{ likeableItem.type }} </span>
+</div>
 }

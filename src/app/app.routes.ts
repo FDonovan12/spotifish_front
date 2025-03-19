@@ -8,6 +8,8 @@ import { MusicListComponent } from './pages/music-list/music-list.component';
 import { MusicDetailComponent } from './pages/music-detail/music-detail.component';
 import { MusicEditComponent } from './pages/music-edit/music-edit.component';
 import { MusicCreateComponent } from './pages/music-create/music-create.component';
+import { PlaylistShowComponent } from './pages/playlist-show/playlist-show.component';
+import { AlbumShowComponent } from './pages/album-show/album-show.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +32,14 @@ export const routes: Routes = [
             { path: ':slug', component: MusicDetailComponent },
             { path: 'edit/:slug', component: MusicEditComponent },
         ],
+    },
+    {
+        path: 'playlist',
+        children: [{ path: ':slug', component: PlaylistShowComponent }],
+    },
+    {
+        path: 'album',
+        children: [{ path: ':slug', component: AlbumShowComponent }],
     },
     {
         path: 'not-found',

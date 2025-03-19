@@ -19,4 +19,9 @@ export class LikedItemService {
         );
         return lastValueFrom(http$).then((res) => res.body);
     }
+
+    meSongNumber(): number | PromiseLike<number> {
+        const http$: Observable<CustomResponse<number>> = this.httpClient.get<CustomResponse<number>>(`${this.rootUrl}/${this.resource}/me/songs-number`);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
 }

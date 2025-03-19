@@ -12,10 +12,12 @@ import { LikeableItemBase, LikeableItemOutputBase } from '../../entities/likeabl
 export class LikedLibraryComponent {
     private readonly likedItemService: LikedItemService = inject(LikedItemService);
 
+    numberOfLikedSong!: number;
     likeableItems!: LikeableItemOutputBase[];
 
     async ngOnInit(): Promise<void> {
         this.likeableItems = await this.likedItemService.me();
+        this.numberOfLikedSong = await this.likedItemService.meSongNumber();
         console.log(this.likeableItems);
     }
 }
