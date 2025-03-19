@@ -1,12 +1,22 @@
-<table>
-    <head>
+<table class="table-song-storage">
+    <thead>
         <tr>
+            <th>#</th>
             <th>Titre</th>
-            <th>Ajouter le</th>
+            <th>Date d'ajout</th>
             <th>Like</th>
+            <th>Durée</th>
         </tr>
-    </head>
-    @for (songPlaylist of playlist?.songPlaylists; track $index) {
-    <div></div>
-    }
+    </thead>
+    <tbody>
+        @for (songPlaylist of playlist?.songPlaylists; track $index) {
+        <tr>
+            <td>{{ songPlaylist.position }}</td>
+            <td>{{ songPlaylist.song.name }}</td>
+            <td>{{ songPlaylist.createdAt | date }}</td>
+            <td><app-like-button [likeableItem]="songPlaylist.song"></app-like-button></td>
+            <td>{{ songPlaylist.song.duration }}</td>
+        </tr>
+        }
+    </tbody>
 </table>
