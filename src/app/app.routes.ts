@@ -10,6 +10,8 @@ import { MusicEditComponent } from './pages/music-edit/music-edit.component';
 import { MusicCreateComponent } from './pages/music-create/music-create.component';
 import { PlaylistShowComponent } from './pages/playlist-show/playlist-show.component';
 import { AlbumShowComponent } from './pages/album-show/album-show.component';
+import { SearchComponent } from './pages/search/search.component';
+import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +42,14 @@ export const routes: Routes = [
     {
         path: 'album',
         children: [{ path: ':slug', component: AlbumShowComponent }],
+    },
+    {
+        path: 'search',
+        children: [{ path: ':search', component: SearchComponent }],
+    },
+    {
+        path: 'library',
+        component: LikedLibraryComponent,
     },
     {
         path: 'not-found',

@@ -1,1 +1,22 @@
-<p>album-show works!</p>
+<table class="table-song-storage">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Like</th>
+            <th>Durée</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (songAlbum of album?.songAlbums; track $index) {
+        <tr>
+            <td>{{ songAlbum.position }}</td>
+            <td>{{ songAlbum.song.name }}</td>
+            <td>
+                <app-like-button [likeableItem]="songAlbum.song"></app-like-button>
+            </td>
+            <td>{{ songAlbum.song.duration }}</td>
+        </tr>
+        }
+    </tbody>
+</table>

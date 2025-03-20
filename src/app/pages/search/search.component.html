@@ -1,0 +1,41 @@
+@if (result) { @if (result.artists) {
+<section>
+    <h2>Artiste</h2>
+    @for (artist of result.artists; track $index) {
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        {{ artist.name }}
+    </div>
+    }
+</section>
+} @if (result.songs) {
+<section>
+    <h2>Musique</h2>
+    @for (song of result.songs; track $index) {
+    <div>
+        {{ song.name }}
+    </div>
+    }
+</section>
+} @if (result.albums) {
+<section>
+    <h2>Albums</h2>
+    @for (album of result.albums; track $index) {
+    <div>
+        {{ album.name }}
+    </div>
+    }
+</section>
+} @if (result.playlists) {
+<section>
+    <h2>Playlist</h2>
+    @for (playlist of result.playlists; track $index) {
+    <div>
+        {{ playlist.name }}
+    </div>
+    }
+</section>
+} }

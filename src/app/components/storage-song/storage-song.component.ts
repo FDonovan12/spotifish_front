@@ -19,7 +19,6 @@ export class StorageSongComponent {
 
     async ngOnInit(): Promise<void> {
         this.storageSong = await this.playlistService.show('90791c09-92d8-4411-99db-651b3a411cf7');
-        console.log(this.storageSong);
     }
 
     getPrincipalArtist(song: SongBase) {

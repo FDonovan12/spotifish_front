@@ -5,7 +5,6 @@ import { SongAlbumBase, SongAlbumOutputBase } from './song-album';
 
 export interface AlbumOutputBase extends LikeableItemBase, PermissionEntity {
     image: string;
-    createdAt: Date;
 }
 
 export interface AlbumBase extends AlbumOutputBase {}

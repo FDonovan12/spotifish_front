@@ -27,7 +27,7 @@ export class LoginComponent {
                 await this.authService.login(username, password, keepConnected);
                 this.router.navigateByUrl('/');
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
     }

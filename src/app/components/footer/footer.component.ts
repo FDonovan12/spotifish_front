@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { SongOutputBase } from '../../entities/song';
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+    selector: 'footer[app-footer]',
+    standalone: true,
+    imports: [],
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.css',
 })
 export class FooterComponent {
-
+    private readonly service: Service = inject(Service);
 }

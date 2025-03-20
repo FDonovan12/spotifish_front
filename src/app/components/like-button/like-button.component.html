@@ -1,9 +1,7 @@
-@if (likeableItem().isLiked.liked) {
-<button (click)="dislike(likeableItem().slug)">
-    <i class="fa-solid fa-heart"></i>
+<button
+    (click)="interact(likeableItem().slug)"
+    (mouseover)="over()"
+    (mouseleave)="leave()">
+    <fa-icon [icon]="getIcon()"></fa-icon>
 </button>
-} @else {
-<button (click)="like(likeableItem().slug)">
-    <i class="fa-regular fa-heart"></i>
-</button>
-}
+{{ likeableItem().isLiked.liked }}

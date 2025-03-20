@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { LikedItemService } from '../../services/likeable-item/likeable-item.service';
+import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
 import { LikeableItemBase, LikeableItemOutputBase } from '../../entities/likeable-item';
 
 @Component({
@@ -10,14 +10,13 @@ import { LikeableItemBase, LikeableItemOutputBase } from '../../entities/likeabl
     styleUrl: './liked-library.component.css',
 })
 export class LikedLibraryComponent {
-    private readonly likedItemService: LikedItemService = inject(LikedItemService);
+    private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
 
     numberOfLikedSong!: number;
     likeableItems!: LikeableItemOutputBase[];
 
     async ngOnInit(): Promise<void> {
-        this.likeableItems = await this.likedItemService.me();
-        this.numberOfLikedSong = await this.likedItemService.meSongNumber();
-        console.log(this.likeableItems);
+        this.likeableItems = await this.likeableItemService.me();
+        this.numberOfLikedSong = await this.likeableItemService.meSongNumber();
     }
 }
