@@ -1,1 +1,11 @@
-footer works!
+footer works! {{ song()?.name }}
+<span (click)="decrement()">decrement</span>
+<span (click)="increment()">increment</span>
+
+<audio
+    [src]="srcSong()"
+    controls
+    autoplay
+    (ended)="increment()"
+></audio>
+{{ song()?.path }}

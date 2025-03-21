@@ -10,13 +10,13 @@ import { PlaylistOutputBase } from '../../entities/playlist';
 })
 export class PlaylistService {
     private readonly httpClient: HttpClient = inject(HttpClient);
-    private readonly rootUrl: string = environment.API_URL;
+    private readonly apiUrl: string = environment.API_URL;
     private readonly resource: string = 'playlist';
 
     async show(slug: string): Promise<PlaylistOutputBase> {
-        const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.get<CustomResponse<PlaylistOutputBase>>(
-            `${this.rootUrl}/${this.resource}/${slug}`
-        );
+        const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.get<
+            CustomResponse<PlaylistOutputBase>
+        >(`${this.apiUrl}/${this.resource}/${slug}`);
         return lastValueFrom(http$).then((res) => res.body);
     }
 }

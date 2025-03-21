@@ -1,13 +1,20 @@
 <p>music-form works!</p>
-<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
-  <label for="name">Name : </label>
-  <input type="text" id="name" formControlName="name" />
+<form
+    [formGroup]="form"
+    (ngSubmit)="onFormSubmit()"
+>
+    <label for="name">Name : </label>
+    <input
+        type="text"
+        id="name"
+        formControlName="name"
+    />
+    <label for="createdAt">Date de creation : </label>
+    <input
+        type="date"
+        id="createdAt"
+        formControlName="createdAt"
+    />
 
-  <label for="description">Description : </label>
-  <input type="text" id="description" formControlName="description" />
-
-  <label for="image">Image : </label>
-  <input type="text" id="image" formControlName="image" />
-
-  <button type="submit">Submit</button>
+    <button type="submit">Submit</button>
 </form>

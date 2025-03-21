@@ -23,3 +23,10 @@ export interface SongOutputBase extends SongBase, PermissionEntity {
     songPlaylists: SongPlaylistOutputBase[];
     musicalGenres: MusicalGenreOutputBase[];
 }
+
+export interface SongCreate {
+    songArtists: SongArtistOutputBase[];
+    songAlbums: SongAlbumOutputBase[];
+    songPlaylists: SongPlaylistOutputBase[];
+    musicalGenres: MusicalGenreOutputBase[];
+}

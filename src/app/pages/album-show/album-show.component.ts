@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { LikeButtonComponent } from '../../components/like-button/like-button.component';
-import { AlbumService } from '../../services/album-service/album.service';
+import { AlbumService } from '../../services/album/album.service';
 import { AlbumOutputShow } from '../../entities/album';
 
 @Component({

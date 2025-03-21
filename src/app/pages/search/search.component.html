@@ -2,10 +2,6 @@
 <section>
     <h2>Artiste</h2>
     @for (artist of result.artists; track $index) {
-    <br />
-    <br />
-    <br />
-    <br />
     <div>
         {{ artist.name }}
     </div>
@@ -24,7 +20,7 @@
 <section>
     <h2>Albums</h2>
     @for (album of result.albums; track $index) {
-    <div>
+    <div (click)="changeMusic(album)">
         {{ album.name }}
     </div>
     }

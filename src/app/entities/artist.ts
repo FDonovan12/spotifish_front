@@ -10,7 +10,7 @@ export interface ArtistOutputBase extends UserOutputBase {}
 
 export interface ArtistOutputList extends ArtistOutputBase {}
 export interface ArtistOutputShow extends ArtistOutputBase {
-    songArtists: SongArtistBase[];
+    songArtists: SongArtistOutputBase[];
     albums: AlbumOutputBase[];
 }
 

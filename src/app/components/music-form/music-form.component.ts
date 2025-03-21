@@ -20,7 +20,7 @@ export class MusicFormComponent implements OnInit {
     ngOnInit(): void {
         this.form = new FormGroup({
             name: new FormControl<string>(this.musicToEdit?.name || '', [Validators.required]),
-            image: new FormControl<string>(this.musicToEdit?.image || '', [Validators.required]),
+            createdAt: new FormControl<Date>(this.musicToEdit?.createdAt || new Date(), [Validators.required]),
         });
     }
 

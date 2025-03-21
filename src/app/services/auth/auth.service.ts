@@ -1,5 +1,5 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { inject, Injectable, OnInit, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { UserLoginResponse, UserRegisterInput } from '../../entities/user';
@@ -12,10 +12,8 @@ import { jwtDecode, JwtPayload } from 'jwt-decode';
 export class AuthService {
     private readonly httpClient: HttpClient = inject(HttpClient);
     private readonly router: Router = inject(Router);
-    private readonly rootUrl: string = environment.API_URL;
+    private readonly apiUrl: string = environment.API_URL;
     private readonly resource: string = 'security';
-
-    test = signal('');
 
     private accessToken$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
@@ -50,7 +48,7 @@ export class AuthService {
 
     async login(username: string, password: string, keepConnected: boolean): Promise<void> {
         this.keepConnected = keepConnected;
-        const url = `${this.rootUrl}/${this.resource}/login`;
+        const url = `${this.apiUrl}/${this.resource}/login`;
         const observable$: Observable<UserLoginResponse> = this.httpClient.post<UserLoginResponse>(url, {
             username,
             password,
@@ -59,7 +57,7 @@ export class AuthService {
     }
 
     async refreshToken() {
-        const url = `${this.rootUrl}/${this.resource}/refresh`;
+        const url = `${this.apiUrl}/${this.resource}/refresh`;
         const observable$: Observable<UserLoginResponse> = this.httpClient.post<UserLoginResponse>(url, {
             refreshToken: this.refreshToken$.value,
         });
@@ -77,11 +75,6 @@ export class AuthService {
         });
     }
 
-    // stockToken(accessToken: string, refreshToken: string) {
-    //     this.accessToken$.next(accessToken);
-    //     this.refreshToken$.next(refreshToken);
-    // }
-
     disconnect() {
         this.accessToken$.next(null);
         this.refreshToken$.next(null);
@@ -91,7 +84,7 @@ export class AuthService {
     }
 
     async register(user: UserRegisterInput): Promise<void> {
-        const url = `${this.rootUrl}/${this.resource}/register`;
+        const url = `${this.apiUrl}/${this.resource}/register`;
         const observable$: Observable<void> = this.httpClient.post<void>(url, user);
         return lastValueFrom(observable$);
     }

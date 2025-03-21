@@ -18,6 +18,6 @@ export class MusicCreateComponent {
 
     async onMusicSubmitted(musicInput: SongBase | SongBase): Promise<void> {
         await this.musicService.create(musicInput);
-        this.router.navigateByUrl(`/power/${musicInput.slug}`);
+        this.router.navigateByUrl(`/music/${musicInput.slug}`);
     }
 }
