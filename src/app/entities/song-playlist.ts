@@ -14,3 +14,8 @@ export interface SongPlaylistOutputBase extends SongPlaylistBase, PermissionEnti
     song: SongOutputBase;
     playlist: PlaylistOutputBase;
 }
+
+export interface SongPlaylistInput {
+    songSlug: string;
+    playlistSlug: string;
+}

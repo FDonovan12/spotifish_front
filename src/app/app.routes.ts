@@ -13,6 +13,7 @@ import { AlbumShowComponent } from './pages/album-show/album-show.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
 import { UploadSongComponent } from './pages/upload-song/upload-song.component';
+import { PlaylistCreateComponent } from './pages/playlist-create/playlist-create.component';
 
 export const routes: Routes = [
     {
@@ -38,7 +39,10 @@ export const routes: Routes = [
     },
     {
         path: 'playlist',
-        children: [{ path: ':slug', component: PlaylistShowComponent }],
+        children: [
+            { path: ':slug', component: PlaylistShowComponent },
+            { path: 'create', component: PlaylistCreateComponent },
+        ],
     },
     {
         path: 'album',

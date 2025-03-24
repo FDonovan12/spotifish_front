@@ -27,8 +27,8 @@ export class MusicService {
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async create(music: SongBase): Promise<SongBase> {
-        const http$: Observable<CustomResponse<SongBase>> = this.httpClient.post<CustomResponse<SongBase>>(
+    async create(music: SongBase): Promise<SongOutputBase> {
+        const http$: Observable<CustomResponse<SongOutputBase>> = this.httpClient.post<CustomResponse<SongOutputBase>>(
             `${this.apiUrl}/${this.resource}/new`,
             music
         );

@@ -1,12 +1,13 @@
 <div class="auto-grid button-group">
     @if (token$ | async) {
     <a routerLink="/music/list"> Music </a>
-    <a routerLink="/">Home</a>
+    <a routerLink="/library">Bibliotéque</a>
     <input
         id="searchInput"
         type="text"
         placeholder="Rechercher..."
-        (input)="submitSearch($event)" />
+        (input)="submitSearch($event)"
+    />
     <button (click)="disconect()">Deconnexion</button>
     } @else {
 

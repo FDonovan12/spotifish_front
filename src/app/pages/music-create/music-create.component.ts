@@ -3,7 +3,7 @@ import { MusicService } from '../../services/music/music.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MusicFormComponent } from '../../components/music-form/music-form.component';
 import { Router } from '@angular/router';
-import { SongBase } from '../../entities/song';
+import { SongBase, SongOutputBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-create',
@@ -17,7 +17,7 @@ export class MusicCreateComponent {
     private readonly router: Router = inject(Router);
 
     async onMusicSubmitted(musicInput: SongBase | SongBase): Promise<void> {
-        await this.musicService.create(musicInput);
-        this.router.navigateByUrl(`/music/${musicInput.slug}`);
+        const newMusic: SongOutputBase = await this.musicService.create(musicInput);
+        this.router.navigateByUrl(`/upload/${newMusic.slug}`);
     }
 }

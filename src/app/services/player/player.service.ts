@@ -5,6 +5,7 @@ import { AlbumOutputBase, AlbumOutputList, AlbumOutputShow } from '../../entitie
 import { ArtistOutputBase, ArtistOutputShow } from '../../entities/artist';
 import { AlbumService } from '../album/album.service';
 import { PlaylistService } from '../playlist/playlist.service';
+import { ArtisteService } from '../Artiste/artiste.service';
 
 @Injectable({
     providedIn: 'root',
@@ -16,6 +17,7 @@ export class PlayerService {
 
     private readonly albumService: AlbumService = inject(AlbumService);
     private readonly playlistService: PlaylistService = inject(PlaylistService);
+    private readonly artisteService: ArtisteService = inject(ArtisteService);
 
     public get getSong() {
         return this.currentSong;
@@ -51,6 +53,12 @@ export class PlayerService {
         this.fromList(songs);
     }
 
+    public async fromArtist(artistbase: ArtistOutputBase) {
+        const artist: ArtistOutputShow = await this.artisteService.show(artistbase.slug);
+        const songs = artist.songArtists.map((songArtist) => songArtist.song);
+        this.fromList(songs);
+    }
+
     public increment() {
         this.currentNumber.update((value) => (value + 1) % this.currentListenList().length);
         this.fromNumber();
@@ -60,12 +68,4 @@ export class PlayerService {
         this.currentNumber.update((value) => (value || this.currentListenList().length) - 1);
         this.fromNumber();
     }
-
-    // public fromArtist(artistbase: ArtistOutputBase) {
-    //     const album: AlbumOutputShow = await this.art.show(albumBase.slug);
-    //     const songs = album.songAlbums.map((songAlbum) => songAlbum.song);
-    //     this.setList(songs);
-    //     this.setSong(songs[0]);
-    //     this.currentNumber.set(0);
-    // }
 }

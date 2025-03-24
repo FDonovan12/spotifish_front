@@ -1,0 +1,29 @@
+<div class="popup">
+    <h3>Creation Playlist</h3>
+    <form
+        [formGroup]="form"
+        (ngSubmit)="onFormSubmit()"
+    >
+        <label for="name">Name : </label>
+        <input
+            type="text"
+            id="name"
+            formControlName="name"
+        />
+        <label for="description">Description : </label>
+        <input
+            type="text"
+            id="description"
+            formControlName="description"
+        />
+        <label for="isPrivate">Privée : </label>
+        <input
+            type="checkbox"
+            id="isPrivate"
+            formControlName="isPrivate"
+        />
+
+        <button type="submit">Submit</button>
+    </form>
+    <button (click)="close()">Fermer</button>
+</div>

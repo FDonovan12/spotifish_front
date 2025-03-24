@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable, lastValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { CustomResponse } from '../../entities/response';
-import { PlaylistOutputBase } from '../../entities/playlist';
+import { PlaylistBase, PlaylistOutputBase } from '../../entities/playlist';
 
 @Injectable({
     providedIn: 'root',
@@ -17,6 +17,21 @@ export class PlaylistService {
         const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.get<
             CustomResponse<PlaylistOutputBase>
         >(`${this.apiUrl}/${this.resource}/${slug}`);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    async me(): Promise<PlaylistOutputBase[]> {
+        const http$: Observable<CustomResponse<PlaylistOutputBase[]>> = this.httpClient.get<
+            CustomResponse<PlaylistOutputBase[]>
+        >(`${this.apiUrl}/${this.resource}/mine/me`);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    async new(playlistInput: PlaylistBase): Promise<PlaylistOutputBase> {
+        console.log(playlistInput);
+        const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.post<
+            CustomResponse<PlaylistOutputBase>
+        >(`${this.apiUrl}/${this.resource}/new`, playlistInput);
         return lastValueFrom(http$).then((res) => res.body);
     }
 }

@@ -2,7 +2,7 @@
 <section>
     <h2>Artiste</h2>
     @for (artist of result.artists; track $index) {
-    <div>
+    <div (click)="playerService.fromArtist(artist)">
         {{ artist.name }}
     </div>
     }
@@ -13,6 +13,12 @@
     @for (song of result.songs; track $index) {
     <div>
         {{ song.name }}
+        <span>
+            <app-add-to-playlist
+                [song]="song"
+                play
+            ></app-add-to-playlist>
+        </span>
     </div>
     }
 </section>
@@ -20,7 +26,7 @@
 <section>
     <h2>Albums</h2>
     @for (album of result.albums; track $index) {
-    <div (click)="changeMusic(album)">
+    <div (click)="playerService.fromAlbum(album)">
         {{ album.name }}
     </div>
     }
@@ -29,7 +35,7 @@
 <section>
     <h2>Playlist</h2>
     @for (playlist of result.playlists; track $index) {
-    <div>
+    <div (click)="playerService.fromPlaylist(playlist)">
         {{ playlist.name }}
     </div>
     }

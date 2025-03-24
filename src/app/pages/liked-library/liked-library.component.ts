@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
-import { LikeableItemBase, LikeableItemOutputBase } from '../../entities/likeable-item';
+import { PopupService } from '../../services/popup/popup.service';
 
 @Component({
     selector: 'app-liked-library',
@@ -10,7 +11,10 @@ import { LikeableItemBase, LikeableItemOutputBase } from '../../entities/likeabl
     styleUrl: './liked-library.component.css',
 })
 export class LikedLibraryComponent {
+    @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
+
     private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
+    private readonly popupService: PopupService = inject(PopupService);
 
     numberOfLikedSong!: number;
     likeableItems!: LikeableItemOutputBase[];
@@ -18,5 +22,13 @@ export class LikedLibraryComponent {
     async ngOnInit(): Promise<void> {
         this.likeableItems = await this.likeableItemService.me();
         this.numberOfLikedSong = await this.likeableItemService.meSongNumber();
+    }
+
+    ngAfterViewInit() {
+        this.popupService.setViewContainerRef(this.popupContainer);
+    }
+
+    openCreatePlaylist() {
+        this.popupService.openPlaylistCreate();
     }
 }

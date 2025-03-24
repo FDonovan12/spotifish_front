@@ -1,4 +1,5 @@
-@if (numberOfLikedSong != undefined) { numberOfLikedSong {{ numberOfLikedSong }}
+@if (numberOfLikedSong != undefined) { numberOfLikedSong
+{{ numberOfLikedSong }}
 } @for (likeableItem of likeableItems; track $index) {
 <div>
     <span>{{ likeableItem.name }}</span>
@@ -6,3 +7,6 @@
     <span>{{ likeableItem.type }} </span>
 </div>
 }
+
+<div (click)="openCreatePlaylist()">creation playlist</div>
+<ng-container #popupContainer></ng-container>

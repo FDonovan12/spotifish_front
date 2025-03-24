@@ -1,23 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LikedLibraryComponent } from './liked-library.component';
+import { LikedLibraryComponent } from './LikedLibraryComponent';
 
 describe('LikedLibraryComponent', () => {
-  let component: LikedLibraryComponent;
-  let fixture: ComponentFixture<LikedLibraryComponent>;
+    let component: LikedLibraryComponent;
+    let fixture: ComponentFixture<LikedLibraryComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [LikedLibraryComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [LikedLibraryComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(LikedLibraryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(LikedLibraryComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
