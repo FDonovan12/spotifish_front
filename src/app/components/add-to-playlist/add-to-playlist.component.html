@@ -1,4 +1,3 @@
-<div (click)="openMenu()">Ajouter</div>
 @if (isVisible) {
 <select (change)="addToPlaylist(song, $event)">
     <option [value]="">Ajouter dans une playlist</option>
@@ -6,12 +5,6 @@
     <option [value]="playlist.slug">{{ playlist.name }}</option>
     }
 </select>
-<!-- <datalist id="playlists">
-    @for (playlist of playlists(); track $index) {
-    <option
-        [value]="playlist.name"
-        (click)="addToPlaylist(song, playlist)"
-    ></option>
-    }
-</datalist> -->
+} @else {
+<span (click)="openMenu()"><i class="fa-solid fa-ellipsis-vertical"></i></span>
 }

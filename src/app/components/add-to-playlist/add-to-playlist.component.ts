@@ -32,6 +32,7 @@ export class AddToPlaylistComponent {
         const playlist = playlistEvent.target as HTMLInputElement;
         const songPlaylistInput: SongPlaylistInput = { songSlug: song.slug, playlistSlug: playlist.value };
         this.songPlaylistService.new(songPlaylistInput);
+        this.isVisible = false;
     }
 
     openMenu() {

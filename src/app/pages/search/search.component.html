@@ -2,9 +2,7 @@
 <section>
     <h2>Artiste</h2>
     @for (artist of result.artists; track $index) {
-    <div (click)="playerService.fromArtist(artist)">
-        {{ artist.name }}
-    </div>
+    <div>{{ artist.name }}<app-change-playlist-player [artist]="artist"></app-change-playlist-player></div>
     }
 </section>
 } @if (result.songs) {
@@ -14,10 +12,7 @@
     <div>
         {{ song.name }}
         <span>
-            <app-add-to-playlist
-                [song]="song"
-                play
-            ></app-add-to-playlist>
+            <app-add-to-playlist [song]="song"></app-add-to-playlist>
         </span>
     </div>
     }
@@ -26,18 +21,14 @@
 <section>
     <h2>Albums</h2>
     @for (album of result.albums; track $index) {
-    <div (click)="playerService.fromAlbum(album)">
-        {{ album.name }}
-    </div>
+    <div>{{ album.name }}<app-change-playlist-player [album]="album"></app-change-playlist-player></div>
     }
 </section>
 } @if (result.playlists) {
 <section>
     <h2>Playlist</h2>
     @for (playlist of result.playlists; track $index) {
-    <div (click)="playerService.fromPlaylist(playlist)">
-        {{ playlist.name }}
-    </div>
+    <div>{{ playlist.name }}<app-change-playlist-player [playlist]="playlist"></app-change-playlist-player></div>
     }
 </section>
 } }

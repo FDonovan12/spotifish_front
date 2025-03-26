@@ -6,11 +6,12 @@ import { AlbumOutputList, AlbumOutputShow } from '../../entities/album';
 import { PopupService } from '../../services/popup/popup.service';
 import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-playlist.component';
 import { PlaylistOutputBase } from '../../entities/playlist';
+import { ChangePlaylistPlayerComponent } from '../../components/change-playlist-player/change-playlist-player.component';
 
 @Component({
     selector: 'app-search',
     standalone: true,
-    imports: [AddToPlaylistComponent],
+    imports: [AddToPlaylistComponent, ChangePlaylistPlayerComponent],
     templateUrl: './search.component.html',
     styleUrl: './search.component.css',
 })
@@ -19,21 +20,10 @@ export class SearchComponent {
     @Input() search?: string;
 
     private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
-    readonly playerService: PlayerService = inject(PlayerService);
 
     result!: MapLikeableItem;
 
     async ngOnChanges(): Promise<void> {
         this.result = await this.likeableItemService.search(this.search || '');
     }
-
-    changeMusicFromAlbum(album: AlbumOutputShow | AlbumOutputList) {
-        this.playerService.fromAlbum(album);
-    }
-
-    changeMusicFromPlaylist(playlist: PlaylistOutputBase) {
-        this.playerService.fromPlaylist(playlist);
-    }
-
-    addToPlaylist() {}
 }
