@@ -109,6 +109,11 @@ export class AuthService {
         return expirationDate ? expirationDate < new Date() : true;
     }
 
+    public get isArtist(): boolean {
+        const decoded = this.decodeToken(this.token);
+        return decoded?.isArtist;
+    }
+
     get user() {
         const decoded = this.decodeToken(this.token || '');
         return null;

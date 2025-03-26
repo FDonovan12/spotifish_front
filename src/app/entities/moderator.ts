@@ -1,6 +1,6 @@
 import { ArtistBase } from './artist';
-import { PermissionEntity } from './permission-entity';
+import { SluggerEntity } from './slugger-entity';
 
 export interface ModeratorBase extends ArtistBase {}
 
-export interface ModeratorOutputBase extends ModeratorBase, PermissionEntity {}
+export interface ModeratorOutputBase extends ModeratorBase, SluggerEntity {}

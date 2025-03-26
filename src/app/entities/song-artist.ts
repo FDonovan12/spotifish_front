@@ -1,5 +1,5 @@
 import { ArtistBase, ArtistOutputBase } from './artist';
-import { PermissionEntity } from './permission-entity';
+import { SluggerEntity } from './slugger-entity';
 import { SongBase, SongOutputBase } from './song';
 
 export interface SongArtistBase {
@@ -9,7 +9,7 @@ export interface SongArtistBase {
     slug: string;
 }
 
-export interface SongArtistOutputBase extends SongArtistBase, PermissionEntity {
+export interface SongArtistOutputBase extends SongArtistBase, SluggerEntity {
     song: SongOutputBase;
     artist: ArtistOutputBase;
 }

@@ -2,9 +2,7 @@
 {{ numberOfLikedSong }}
 } @for (likeableItem of likeableItems; track $index) {
 <div>
-    <span>{{ likeableItem.name }}</span>
-    <span> : </span>
-    <span>{{ likeableItem.type }} </span>
+    <app-link-show [entity]="likeableItem">{{ likeableItem.name }}</app-link-show>
 </div>
 }
 

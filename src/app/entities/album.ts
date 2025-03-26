@@ -1,9 +1,8 @@
 import { ArtistOutputBase } from './artist';
-import { LikeableItemBase } from './likeable-item';
-import { PermissionEntity } from './permission-entity';
-import { SongAlbumBase, SongAlbumOutputBase } from './song-album';
+import { LikeableItemOutputBase } from './likeable-item';
+import { SongAlbumOutputBase } from './song-album';
 
-export interface AlbumOutputBase extends LikeableItemBase, PermissionEntity {
+export interface AlbumOutputBase extends LikeableItemOutputBase {
     image: string;
 }
 

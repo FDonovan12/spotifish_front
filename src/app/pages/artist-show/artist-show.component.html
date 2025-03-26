@@ -1,0 +1,8 @@
+<h1>
+    {{ artist.name }}
+</h1>
+<div>
+    @for (album of artist.albums; track $index) {
+    <app-link-show [entity]="album">{{ album.name }}</app-link-show>
+    }
+</div>

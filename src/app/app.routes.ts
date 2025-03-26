@@ -14,6 +14,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
 import { UploadSongComponent } from './pages/upload-song/upload-song.component';
 import { PlaylistCreateComponent } from './pages/playlist-create/playlist-create.component';
+import { ArtistShowComponent } from './pages/artist-show/artist-show.component';
 
 export const routes: Routes = [
     {
@@ -47,6 +48,10 @@ export const routes: Routes = [
     {
         path: 'album',
         children: [{ path: ':slug', component: AlbumShowComponent }],
+    },
+    {
+        path: 'artist',
+        children: [{ path: ':slug', component: ArtistShowComponent }],
     },
     {
         path: 'search',

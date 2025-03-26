@@ -2,11 +2,12 @@ import { Component, inject, ViewChild, ViewContainerRef } from '@angular/core';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
 import { PopupService } from '../../services/popup/popup.service';
+import { LinkShowComponent } from '../../components/link-show/link-show.component';
 
 @Component({
     selector: 'app-liked-library',
     standalone: true,
-    imports: [],
+    imports: [LinkShowComponent],
     templateUrl: './liked-library.component.html',
     styleUrl: './liked-library.component.css',
 })

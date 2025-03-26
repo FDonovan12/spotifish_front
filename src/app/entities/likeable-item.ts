@@ -1,4 +1,4 @@
-import { PermissionEntity } from './permission-entity';
+import { SluggerEntity } from './slugger-entity';
 
 export interface LikeableItemBase {
     name: string;
@@ -6,7 +6,7 @@ export interface LikeableItemBase {
     isLiked: isLiked;
 }
 
-export interface LikeableItemOutputBase extends PermissionEntity, LikeableItemBase {}
+export interface LikeableItemOutputBase extends SluggerEntity, LikeableItemBase {}
 
 interface isLiked {
     liked: boolean;

@@ -15,7 +15,7 @@ export class AlbumShowComponent {
 
     private readonly albumService: AlbumService = inject(AlbumService);
 
-    album?: AlbumOutputShow;
+    album!: AlbumOutputShow;
 
     async ngOnInit(): Promise<void> {
         this.album = await this.albumService.show(this.slug || '');

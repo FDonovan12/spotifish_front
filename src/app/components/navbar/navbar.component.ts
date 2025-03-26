@@ -14,7 +14,7 @@ const NO_NAVABAR_URLS = ['login'];
     styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
-    private readonly authService: AuthService = inject(AuthService);
+    readonly authService: AuthService = inject(AuthService);
     private readonly router: Router = inject(Router);
 
     isLoginPage: boolean | undefined;

@@ -1,6 +1,6 @@
 import { ContributorBase, ContributorOutputBase } from './contributor';
 import { LikeableItemBase } from './likeable-item';
-import { PermissionEntity } from './permission-entity';
+import { SluggerEntity } from './slugger-entity';
 import { UserLikeableItemBase, UserLikeableItemOutputBase } from './user-likeable-item';
 
 export interface UserBase extends LikeableItemBase {
@@ -14,7 +14,7 @@ export interface UserBase extends LikeableItemBase {
     contributors: ContributorBase[];
 }
 
-export interface UserOutputBase extends UserBase, PermissionEntity {
+export interface UserOutputBase extends UserBase, SluggerEntity {
     userLikeableitems: UserLikeableItemOutputBase[];
     contributors: ContributorOutputBase[];
 }
