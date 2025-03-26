@@ -19,7 +19,7 @@ export class AuthService {
 
     private refreshToken$: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
-    private keepConnected: boolean = false;
+    private keepConnected: boolean = true;
 
     get token(): string {
         const accessTokenIsValid = !this.isTokenExpired(this.accessToken$.value || '');
@@ -42,12 +42,14 @@ export class AuthService {
     constructor() {
         const accessToken = localStorage.getItem(environment.ACCESS_TOKEN_LOCAL_STORAGE);
         const refreshToken = localStorage.getItem(environment.REFRESH_TOKEN_LOCAL_STORAGE);
+        this.keepConnected = !!localStorage.getItem(environment.KEEP_CONNECTED_LOCAL_STORAGE);
         this.accessToken$.next(accessToken);
         this.refreshToken$.next(refreshToken);
     }
 
     async login(username: string, password: string, keepConnected: boolean): Promise<void> {
         this.keepConnected = keepConnected;
+        localStorage.setItem(environment.KEEP_CONNECTED_LOCAL_STORAGE, 'true');
         const url = `${this.apiUrl}/${this.resource}/login`;
         const observable$: Observable<UserLoginResponse> = this.httpClient.post<UserLoginResponse>(url, {
             username,
@@ -80,6 +82,7 @@ export class AuthService {
         this.refreshToken$.next(null);
         localStorage.removeItem(environment.ACCESS_TOKEN_LOCAL_STORAGE);
         localStorage.removeItem(environment.REFRESH_TOKEN_LOCAL_STORAGE);
+        localStorage.removeItem(environment.KEEP_CONNECTED_LOCAL_STORAGE);
         this.router.navigateByUrl('/login');
     }
 
