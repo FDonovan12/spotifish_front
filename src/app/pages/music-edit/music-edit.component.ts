@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, Signal } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { MusicFormComponent } from '../../components/music-form/music-form.component';
 import { NgIf } from '@angular/common';
@@ -12,13 +12,14 @@ import { SongBase } from '../../entities/song';
     styleUrl: './music-edit.component.css',
 })
 export class MusicEditComponent {
-    @Input() slug?: string;
+    slug: Signal<string> = input.required();
+
     private readonly musicService: MusicService = inject(MusicService);
 
     music?: SongBase;
 
     async ngOnInit(): Promise<void> {
-        this.music = await this.musicService.show(this.slug || '');
+        this.music = await this.musicService.show(this.slug());
     }
     onMusicSubmitted(music: SongBase) {
         throw new Error('Method not implemented.');

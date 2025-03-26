@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, input, Input, OnInit, Signal } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { SongBase } from '../../entities/song';
 
@@ -10,12 +10,13 @@ import { SongBase } from '../../entities/song';
     styleUrl: './music-detail.component.css',
 })
 export class MusicDetailComponent implements OnInit {
-    @Input() slug?: string;
+    slug: Signal<string> = input.required();
+
     private readonly musicService: MusicService = inject(MusicService);
 
     music: SongBase | undefined;
 
     async ngOnInit(): Promise<void> {
-        this.music = await this.musicService.show(this.slug || '');
+        this.music = await this.musicService.show(this.slug());
     }
 }

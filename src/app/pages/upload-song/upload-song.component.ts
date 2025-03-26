@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, Signal, signal } from '@angular/core';
 import { UploadService } from '../../services/upload/upload.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
     styleUrl: './upload-song.component.css',
 })
 export class UploadSongComponent {
-    @Input() slug!: string;
+    slug: Signal<string> = input.required();
+
     file: File | null = null;
     private readonly uploadService: UploadService = inject(UploadService);
     private readonly router: Router = inject(Router);
@@ -24,7 +25,7 @@ export class UploadSongComponent {
             alert('Veuillez sélectionner un fichier !');
             return;
         }
-        this.uploadService.song(this.file, this.slug);
-        this.router.navigateByUrl('music/' + this.slug);
+        this.uploadService.song(this.file, this.slug());
+        this.router.navigateByUrl('music/' + this.slug());
     }
 }

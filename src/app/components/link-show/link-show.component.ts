@@ -1,10 +1,11 @@
 import { Component, computed, input, InputSignal, Signal } from '@angular/core';
 import { SluggerEntity } from '../../entities/slugger-entity';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-link-show',
     standalone: true,
-    imports: [],
+    imports: [RouterLink],
     templateUrl: './link-show.component.html',
     styleUrl: './link-show.component.css',
 })

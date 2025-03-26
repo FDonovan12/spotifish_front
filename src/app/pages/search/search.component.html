@@ -2,7 +2,10 @@
 <section>
     <h2>Artiste</h2>
     @for (artist of result.artists; track $index) {
-    <div>{{ artist.name }}<app-change-playlist-player [artist]="artist"></app-change-playlist-player></div>
+    <div>
+        <app-link-show [entity]="artist">{{ artist.name }}</app-link-show>
+        <app-change-playlist-player [artist]="artist"></app-change-playlist-player>
+    </div>
     }
 </section>
 } @if (result.songs) {
@@ -21,14 +24,20 @@
 <section>
     <h2>Albums</h2>
     @for (album of result.albums; track $index) {
-    <div>{{ album.name }}<app-change-playlist-player [album]="album"></app-change-playlist-player></div>
+    <div>
+        <app-link-show [entity]="album">{{ album.name }}</app-link-show>
+        <app-change-playlist-player [album]="album"></app-change-playlist-player>
+    </div>
     }
 </section>
 } @if (result.playlists) {
 <section>
     <h2>Playlist</h2>
     @for (playlist of result.playlists; track $index) {
-    <div>{{ playlist.name }}<app-change-playlist-player [playlist]="playlist"></app-change-playlist-player></div>
+    <div>
+        <app-link-show [entity]="playlist">{{ playlist.name }}</app-link-show>
+        <app-change-playlist-player [playlist]="playlist"></app-change-playlist-player>
+    </div>
     }
 </section>
 } }

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, Signal } from '@angular/core';
 import { LikeButtonComponent } from '../../components/like-button/like-button.component';
 import { AlbumService } from '../../services/album/album.service';
 import { AlbumOutputShow } from '../../entities/album';
@@ -11,13 +11,13 @@ import { AlbumOutputShow } from '../../entities/album';
     styleUrl: './album-show.component.css',
 })
 export class AlbumShowComponent {
-    @Input() slug?: string;
+    slug: Signal<string> = input.required();
 
     private readonly albumService: AlbumService = inject(AlbumService);
 
     album!: AlbumOutputShow;
 
     async ngOnInit(): Promise<void> {
-        this.album = await this.albumService.show(this.slug || '');
+        this.album = await this.albumService.show(this.slug());
     }
 }

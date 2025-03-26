@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, Signal } from '@angular/core';
 import { PlaylistService } from '../../services/playlist/playlist.service';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { DatePipe } from '@angular/common';
@@ -12,13 +12,13 @@ import { LikeButtonComponent } from '../../components/like-button/like-button.co
     styleUrl: './playlist-show.component.css',
 })
 export class PlaylistShowComponent {
-    @Input() slug?: string;
+    slug: Signal<string> = input.required();
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
 
     playlist?: PlaylistOutputBase;
 
     async ngOnInit(): Promise<void> {
-        this.playlist = await this.playlistService.show(this.slug || '');
+        this.playlist = await this.playlistService.show(this.slug());
     }
 }

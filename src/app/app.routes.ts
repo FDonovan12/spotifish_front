@@ -15,6 +15,7 @@ import { LikedLibraryComponent } from './pages/liked-library/liked-library.compo
 import { UploadSongComponent } from './pages/upload-song/upload-song.component';
 import { PlaylistCreateComponent } from './pages/playlist-create/playlist-create.component';
 import { ArtistShowComponent } from './pages/artist-show/artist-show.component';
+import { SongsLikedComponent } from './pages/songs-liked/songs-liked.component';
 
 export const routes: Routes = [
     {
@@ -59,7 +60,10 @@ export const routes: Routes = [
     },
     {
         path: 'library',
-        component: LikedLibraryComponent,
+        children: [
+            { path: '', component: LikedLibraryComponent },
+            { path: 'songs', component: SongsLikedComponent },
+        ],
     },
     {
         path: 'upload',

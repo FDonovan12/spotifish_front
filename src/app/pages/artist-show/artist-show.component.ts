@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, Signal } from '@angular/core';
 import { ArtistOutputShow } from '../../entities/artist';
 import { ArtisteService } from '../../services/Artiste/artiste.service';
 import { LinkShowComponent } from '../../components/link-show/link-show.component';
@@ -11,13 +11,13 @@ import { LinkShowComponent } from '../../components/link-show/link-show.componen
     styleUrl: './artist-show.component.css',
 })
 export class ArtistShowComponent {
-    @Input() slug?: string;
+    slug: Signal<string> = input.required();
 
     private readonly artisteService: ArtisteService = inject(ArtisteService);
 
     artist!: ArtistOutputShow;
 
     async ngOnInit(): Promise<void> {
-        this.artist = await this.artisteService.show(this.slug || '');
+        this.artist = await this.artisteService.show(this.slug());
     }
 }
