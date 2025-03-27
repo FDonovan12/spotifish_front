@@ -117,6 +117,11 @@ export class AuthService {
         return decoded?.isArtist;
     }
 
+    public get userSlug(): string {
+        const decoded = this.decodeToken(this.token);
+        return decoded?.slug;
+    }
+
     get user() {
         const decoded = this.decodeToken(this.token || '');
         return null;

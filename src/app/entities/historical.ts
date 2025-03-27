@@ -10,7 +10,9 @@ export interface ContributorBase {
     slug: string;
 }
 
-export interface ContributorOutputBase extends ContributorBase, PermissionEntity {
-    user: UserOutputBase;
-    song: SongOutputBase;
+export interface HistoricalInput {
+    numberOflisten: number;
+    listenAt: Date;
+    userSlug: string;
+    songSlug: string;
 }

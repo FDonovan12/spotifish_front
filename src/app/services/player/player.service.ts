@@ -6,6 +6,8 @@ import { ArtistOutputBase, ArtistOutputShow } from '../../entities/artist';
 import { AlbumService } from '../album/album.service';
 import { PlaylistService } from '../playlist/playlist.service';
 import { ArtisteService } from '../Artiste/artiste.service';
+import { LikeableItemOutputBase } from '../../entities/likeable-item';
+import { LikeableItemService } from '../likeable-item/likeable-item.service';
 
 @Injectable({
     providedIn: 'root',
@@ -18,6 +20,7 @@ export class PlayerService {
     private readonly albumService: AlbumService = inject(AlbumService);
     private readonly playlistService: PlaylistService = inject(PlaylistService);
     private readonly artisteService: ArtisteService = inject(ArtisteService);
+    private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
 
     public get getSong() {
         return this.currentSong;
@@ -57,6 +60,12 @@ export class PlayerService {
         const artist: ArtistOutputShow = await this.artisteService.show(artistbase.slug);
         const songs = artist.songArtists.map((songArtist) => songArtist.song);
         this.fromList(songs);
+    }
+
+    public async fromLikeableItem(likeableItemBase: LikeableItemOutputBase) {
+        if (likeableItemBase.type === 'album') return this.fromAlbum(likeableItemBase as AlbumOutputBase);
+        if (likeableItemBase.type === 'artist') return this.fromArtist(likeableItemBase as ArtistOutputBase);
+        if (likeableItemBase.type === 'playlist') return this.fromPlaylist(likeableItemBase as PlaylistOutputBase);
     }
 
     public increment() {

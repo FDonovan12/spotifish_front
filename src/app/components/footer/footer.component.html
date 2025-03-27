@@ -1,11 +1,20 @@
-footer works! {{ song()?.name }}
-<span (click)="decrement()">decrement</span>
-<span (click)="increment()">increment</span>
+<div>
+    {{ song()?.name }}
+</div>
 
 <audio
     [src]="srcSong()"
     controls
     autoplay
     (ended)="increment()"
+    (ended)="addHistorical()"
 ></audio>
-{{ song()?.path }}
+<div>
+    <button
+        (click)="decrement()"
+        class="mr-5"
+    >
+        <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <button (click)="increment()"><i class="fa-solid fa-caret-right"></i></button>
+</div>

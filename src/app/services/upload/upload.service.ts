@@ -25,7 +25,6 @@ export class UploadService {
     }
 
     getFileUrl(path: string) {
-        console.log('path : ', path);
         return `${this.rootUrl}/${path}`;
     }
 }

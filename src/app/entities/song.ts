@@ -1,3 +1,4 @@
+import { ImageInterface } from './image-interface';
 import { LikeableItemBase } from './likeable-item';
 import { MusicalGenreBase, MusicalGenreOutputBase } from './musical-genre';
 import { PermissionEntity } from './permission-entity';
@@ -17,7 +18,7 @@ export interface SongBase extends LikeableItemBase {
     musicalGenres: MusicalGenreBase[];
 }
 
-export interface SongOutputBase extends SongBase, PermissionEntity {
+export interface SongOutputBase extends SongBase, PermissionEntity, ImageInterface {
     songArtists: SongArtistOutputBase[];
     songAlbums: SongAlbumOutputBase[];
     songPlaylists: SongPlaylistOutputBase[];

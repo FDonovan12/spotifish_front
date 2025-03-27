@@ -6,7 +6,9 @@ export interface LikeableItemBase {
     isLiked: isLiked;
 }
 
-export interface LikeableItemOutputBase extends SluggerEntity, LikeableItemBase {}
+export interface LikeableItemOutputBase extends SluggerEntity, LikeableItemBase {
+    image?: string;
+}
 
 interface isLiked {
     liked: boolean;

@@ -2,7 +2,7 @@ import { PermissionEntity } from './permission-entity';
 import { PlaylistBase, PlaylistOutputBase } from './playlist';
 
 export interface SharedBase {
-    espireAt: Date;
+    expireAt: Date;
     remainingInvitation: number;
     playlist: PlaylistBase;
     slug: string;

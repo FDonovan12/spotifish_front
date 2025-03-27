@@ -1,12 +1,12 @@
 <p>music-list works!</p>
-<a routerLink="/music/create">Nouvelle musique</a>
+<a routerLink="/song/create">Nouvelle musique</a>
 <div></div>
 @for (music of musics; track music.slug) {
 <span>{{ music.name }} </span>
-<a [routerLink]="['/music', music.slug]">detail</a>
+<a [routerLink]="['/song', music.slug]">detail</a>
 <span> | </span>
 @if (music.permission.canEdit) {
-<a [routerLink]="['/music/edit', music.slug]">edit</a>
+<a [routerLink]="['/song/edit', music.slug]">edit</a>
 }
 <br />
 }

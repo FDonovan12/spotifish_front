@@ -30,7 +30,7 @@ export const routes: Routes = [
         canActivate: [noAuthGuard],
     },
     {
-        path: 'music',
+        path: 'song',
         children: [
             // { path: '', redirectTo: '/list' },
             { path: 'list', component: MusicListComponent },

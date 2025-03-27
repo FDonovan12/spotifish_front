@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(asset/style/bootfish.css);
 :root {
     --spacer: 0.2em; /* affect margin padding .btn*/
     --background-color: hsla(0, 0%, 0%, 0);
@@ -25,6 +26,7 @@
     --secondary-color-text: hsl(0, 0%, 0%);
     --secondary-color-dark-background: hsl(85, 100%, 25%);
 
+    --fs-200: clamp(0.7rem, calc(0.8rem + 0.05vw), 0.75rem);
     --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
     --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
     --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
@@ -33,13 +35,11 @@
     --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
     --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
 }
-* {
-    margin: 0;
-    padding: 0;
-}
+
 body {
     height: 100svh;
     display: grid;
+    padding: 0.5em 0.5em 0 0.5em;
 }
 input {
     border: 3px solid;
@@ -62,10 +62,82 @@ input {
     }
     outline: none;
 }
+a {
+    text-decoration: none;
+    color: hsl(0 0 0);
+}
+button {
+    border: none;
+    background-color: transparent;
+}
 
 .table-song-storage {
     width: 100%;
     & * {
         text-align: start;
     }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-self-end {
+    justify-self: end;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.wrapper-card {
+    --max-card-size: 20ch;
+    --max-img-height: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--max-card-size), 1fr));
+    gap: 0.2em;
+}
+
+.search-card {
+    min-width: min(var(--max-card-size), 100%);
+    max-width: calc(4 / 3 * var(--max-card-size));
+    padding: 0.2em;
+    border-left: solid var(--primary-color) 5px;
+}
+
+.complementary-info {
+    font-size: var(--fs-200);
+    color: hsl(0 0 30) !important;
+    & * {
+        color: hsl(0 0 30) !important;
+    }
+}
+
+.search-content {
+    & img {
+        object-fit: cover;
+        max-height: var(--max-img-height);
+        width: 100%;
+    }
+    /* display: grid;
+  grid-template-columns: repeat(auto-fit, var(--max-card-size)); */
+}
+
+table tr {
+    border-bottom: solid var(--primary-color) 2px;
+}
+.align-items-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.2em;
 }

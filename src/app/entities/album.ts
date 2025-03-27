@@ -1,8 +1,9 @@
 import { ArtistOutputBase } from './artist';
+import { ImageInterface } from './image-interface';
 import { LikeableItemOutputBase } from './likeable-item';
 import { SongAlbumOutputBase } from './song-album';
 
-export interface AlbumOutputBase extends LikeableItemOutputBase {
+export interface AlbumOutputBase extends LikeableItemOutputBase, ImageInterface {
     image: string;
 }
 

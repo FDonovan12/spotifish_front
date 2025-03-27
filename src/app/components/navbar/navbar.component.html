@@ -1,21 +1,27 @@
-<div class="auto-grid button-group">
-    @if (token$ | async) { @if (authService.isArtist) {
+<!-- <div class="navbar"> -->
+@if (token$ | async) { @if (authService.isArtist) {
 
-    <a routerLink="/music/list"> Music </a>
-    }
-    <a routerLink="/library">Bibliotéque</a>
-    <input
-        id="searchInput"
-        type="text"
-        placeholder="Rechercher..."
-        (input)="submitSearch($event)"
-    />
-    <button (click)="disconect()">Deconnexion</button>
-    } @else {
+<a routerLink="/song/list"> Music </a>
+}
+<a routerLink="/library">Bibliotéque</a>
+<input
+    id="searchInput"
+    type="text"
+    placeholder="Rechercher..."
+    (input)="submitSearch($event)"
+/>
+<button
+    class="btn-danger"
+    (click)="disconect()"
+    title="Deconnection"
+>
+    <i class="fa-solid fa-right-from-bracket"></i>
+</button>
+} @else {
 
-    <a routerLink="/register"> Register </a>
-    @if(isVisible$ | async) {
+<a routerLink="/register"> Register </a>
+@if(isVisible$ | async) {
 
-    <a routerLink="/login"> Login </a>
-    } }
-</div>
+<a routerLink="/login"> Login </a>
+} }
+<!-- </div> -->

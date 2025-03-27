@@ -1,7 +1,7 @@
 <button
     (click)="interact(likeableItem().slug)"
     (mouseover)="over()"
-    (mouseleave)="leave()">
+    (mouseleave)="leave()"
+>
     <fa-icon [icon]="getIcon()"></fa-icon>
 </button>
-{{ likeableItem().isLiked.liked }}
