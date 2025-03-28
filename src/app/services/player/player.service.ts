@@ -68,6 +68,10 @@ export class PlayerService {
         if (likeableItemBase.type === 'playlist') return this.fromPlaylist(likeableItemBase as PlaylistOutputBase);
     }
 
+    public async fromLikedSong() {
+        return this.fromList(await this.likeableItemService.meSong());
+    }
+
     public increment() {
         this.currentNumber.update((value) => (value + 1) % this.currentListenList().length);
         this.fromNumber();

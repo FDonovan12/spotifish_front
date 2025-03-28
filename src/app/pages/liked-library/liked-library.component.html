@@ -6,7 +6,7 @@
     @if (numberOfLikedSong != undefined) {
     <div class="search-card">
         <img [src]="this.uploadService.getFileUrl('images/default.png')" />
-
+        <app-change-playlist-player class="mr-2"></app-change-playlist-player>
         <app-link-show href="/library/songs">{{ numberOfLikedSong }} musiques</app-link-show>
     </div>
 

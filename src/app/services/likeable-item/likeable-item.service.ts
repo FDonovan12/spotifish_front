@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment.development';
 import { lastValueFrom, Observable } from 'rxjs';
 import { CustomResponse, CustomListResponse, MapLikeableItem } from '../../entities/response';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
+import { SongOutputBase } from '../../entities/song';
 
 @Injectable({
     providedIn: 'root',
@@ -17,6 +18,13 @@ export class LikeableItemService {
         const http$: Observable<CustomListResponse<LikeableItemOutputBase>> = this.httpClient.get<
             CustomListResponse<LikeableItemOutputBase>
         >(`${this.apiUrl}/${this.resource}/me`);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    async meSong(): Promise<SongOutputBase[]> {
+        const http$: Observable<CustomListResponse<SongOutputBase>> = this.httpClient.get<
+            CustomListResponse<SongOutputBase>
+        >(`${this.apiUrl}/${this.resource}/me/songs`);
         return lastValueFrom(http$).then((res) => res.body);
     }
 

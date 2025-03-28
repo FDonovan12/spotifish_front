@@ -1,0 +1,25 @@
+.custom-select {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    z-index: 1000;
+}
+
+.custom-select ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-select li {
+    padding: 8px 12px;
+    &.option {
+        cursor: pointer;
+    }
+}
+
+.custom-select li:hover.option {
+    background: #eee;
+}

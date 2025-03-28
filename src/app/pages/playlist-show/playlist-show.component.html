@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (songPlaylist of playlist?.songPlaylists; track $index) {
+        @for (songPlaylist of playlist.songPlaylists; track $index) {
         <tr>
             <td data-break-point="500px">{{ songPlaylist.position }}</td>
             <td>

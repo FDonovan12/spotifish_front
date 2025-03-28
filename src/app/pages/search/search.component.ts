@@ -1,4 +1,4 @@
-import { Component, inject, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, inject, input, Input, InputSignal, ViewChild, ViewContainerRef } from '@angular/core';
 import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
 import { MapLikeableItem } from '../../entities/response';
 import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-playlist.component';
@@ -22,7 +22,7 @@ import { LikeButtonComponent } from '../../components/like-button/like-button.co
     styleUrl: './search.component.css',
 })
 export class SearchComponent {
-    @Input() search?: string;
+    search: InputSignal<string> = input.required<string>();
 
     private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
     readonly uploadService: UploadService = inject(UploadService);
@@ -30,9 +30,6 @@ export class SearchComponent {
     result!: MapLikeableItem;
 
     async ngOnChanges(): Promise<void> {
-        this.result = await this.likeableItemService.search(this.search || '');
-        console.log(this.result.playlists);
-        console.log(this.result.songs);
-        console.log(this.result.albums);
+        this.result = await this.likeableItemService.search(this.search());
     }
 }

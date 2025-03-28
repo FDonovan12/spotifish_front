@@ -1,1 +1,28 @@
-<p>songs-liked works!</p>
+<h1>Musique aimé</h1>
+<table class="table-song-storage">
+    <thead>
+        <tr>
+            <th data-break-point="500px">#</th>
+            <th>Titre</th>
+            <th>Like</th>
+            <th data-break-point="800px">Durée</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (song of songs; track $index) {
+        <tr>
+            <td data-break-point="500px">{{ song.name }}</td>
+            <td>
+                <div>{{ song.name }}</div>
+                <app-list-artists [items]="song.songArtists"></app-list-artists>
+            </td>
+            <td>
+                <app-like-button [likeableItem]="song"></app-like-button>
+            </td>
+            <td data-break-point="800px">{{ song.duration }}</td>
+            <td><app-add-to-playlist [song]="song"></app-add-to-playlist></td>
+        </tr>
+        }
+    </tbody>
+</table>

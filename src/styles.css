@@ -134,6 +134,18 @@ table tr {
     flex-wrap: wrap;
 }
 
+.d-grid {
+    display: grid;
+}
+.place-item-center {
+    place-items: center;
+}
+.h-100 {
+    height: 100%;
+}
+.text-center {
+    text-align: center;
+}
 header {
     display: flex;
     align-items: center;

@@ -25,6 +25,6 @@ export class ChangePlaylistPlayerComponent {
         if (this.playlist()) return this.playerService.fromPlaylist(this.playlist()!);
         if (this.artist()) return this.playerService.fromArtist(this.artist()!);
         if (this.likeableItem()) return this.playerService.fromLikeableItem(this.likeableItem()!);
-        return;
+        return this.playerService.fromLikedSong();
     }
 }
