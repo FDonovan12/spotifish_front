@@ -5,23 +5,7 @@
         <h2>Artiste</h2>
         <div class="wrapper-card">
             @for (artist of result.artists; track $index) {
-            <div class="search-card">
-                <img
-                    [src]="this.uploadService.getFileUrl(artist.image)"
-                    alt="image de {{ artist.name }}"
-                />
-
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <app-change-playlist-player
-                            [artist]="artist"
-                            class="mr-2"
-                        ></app-change-playlist-player>
-                        <app-link-show [entity]="artist">{{ artist.name }}</app-link-show>
-                    </div>
-                    <app-like-button [likeableItem]="artist"></app-like-button>
-                </div>
-            </div>
+            <app-card-likeable-item [entity]="artist"></app-card-likeable-item>
             }
         </div>
     </section>
@@ -54,6 +38,8 @@
                 </div>
                 <app-list-artists [items]="song.songArtists"></app-list-artists>
             </div>
+
+            <app-card-likeable-item [entity]="song"></app-card-likeable-item>
             }
         </div>
     </section>

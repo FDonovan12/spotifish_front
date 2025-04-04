@@ -1,8 +1,18 @@
-<h1>
-    {{ artist.name }}
-</h1>
-<div>
-    @for (album of artist.albums; track $index) {
-    <app-link-show [entity]="album">{{ album.name }}</app-link-show>
+@if (artist) {
+<div class="d-flex align-items-center">
+    <h1 class="mr-2">{{ artist.name }}</h1>
+    <app-change-playlist-player [artist]="artist"></app-change-playlist-player>
+</div>
+<div class="search-content">
+    @if (artist.albums.length) {
+    <section>
+        <h2>Album</h2>
+        <div class="wrapper-card">
+            @for (album of artist.albums; track $index) {
+            <div class="search-card"></div>
+            }
+        </div>
+    </section>
     }
 </div>
+}

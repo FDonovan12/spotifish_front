@@ -7,6 +7,7 @@ import { LinkShowComponent } from '../../components/link-show/link-show.componen
 import { UploadService } from '../../services/upload/upload.service';
 import { ListArtistsComponent } from '../../components/list-artists/list-artists.component';
 import { LikeButtonComponent } from '../../components/like-button/like-button.component';
+import { CardLikeableItemComponent } from '../../components/card-likeable-item/card-likeable-item.component';
 
 @Component({
     selector: 'app-search',
@@ -17,6 +18,7 @@ import { LikeButtonComponent } from '../../components/like-button/like-button.co
         LinkShowComponent,
         ListArtistsComponent,
         LikeButtonComponent,
+        CardLikeableItemComponent,
     ],
     templateUrl: './search.component.html',
     styleUrl: './search.component.css',

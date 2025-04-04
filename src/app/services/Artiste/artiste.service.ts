@@ -18,6 +18,9 @@ export class ArtisteService {
         const http$: Observable<CustomResponse<ArtistOutputShow>> = this.httpClient.get<
             CustomResponse<ArtistOutputShow>
         >(`${this.apiUrl}/${this.resource}/${slug}`);
-        return lastValueFrom(http$).then((res) => res.body);
+        return lastValueFrom(http$).then((res) => {
+            console.log(res);
+            return res.body;
+        });
     }
 }

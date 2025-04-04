@@ -14,8 +14,8 @@ export interface AlbumBase extends AlbumOutputBase {}
 export interface AlbumOutputList extends AlbumOutputBase {
     artist: ArtistOutputBase;
 }
-export interface AlbumOutputShow extends AlbumOutputBase {
-    artist: AlbumOutputBase;
+export interface AlbumOutputShow extends AlbumOutputList {
+    artist: ArtistOutputBase;
     songAlbums: SongAlbumOutputBase[];
 }
 

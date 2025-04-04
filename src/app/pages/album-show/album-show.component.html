@@ -1,3 +1,8 @@
+@if (album) {
+<div class="d-flex align-items-center">
+    <h1 class="mr-2">{{ album.name }}</h1>
+    <app-change-playlist-player [album]="album"></app-change-playlist-player>
+</div>
 <table class="table-song-storage">
     <thead>
         <tr>
@@ -20,3 +25,5 @@
         }
     </tbody>
 </table>
+
+}

@@ -10,13 +10,13 @@ export interface Permission {
 }
 
 export enum Type {
-    album,
-    artist,
-    contributor,
-    historical,
-    musicalGenre,
-    playlist,
-    shared,
-    song,
-    user,
+    album = 'album',
+    artist = 'artist',
+    contributor = 'contributor',
+    historical = 'historical',
+    musicalGenre = 'musicalGenre',
+    playlist = 'playlist',
+    shared = 'shared',
+    song = 'song',
+    user = 'user',
 }

@@ -1,0 +1,27 @@
+<div class="search-card">
+    <img
+        [src]="this.uploadService.getFileUrl(entity().image)"
+        alt="image de {{ entity().name }}"
+    />
+
+    <div class="d-flex justify-content-between">
+        <div>
+            @if (!isSong) {
+            <app-change-playlist-player
+                [likeableItem]="entity()"
+                class="mr-2"
+            ></app-change-playlist-player
+            >}
+            <div>
+                <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
+                @if (isSong()) { @if (entity().permission.canEdit) {
+                <app-link-show href="/upload/{{ entity().slug }}">
+                    <i class="fa-solid fa-upload mr-2"></i>
+                </app-link-show>
+                }
+                <span> <app-add-to-playlist [song]="getSong()"></app-add-to-playlist> </span>}
+            </div>
+        </div>
+        <app-like-button [likeableItem]="entity()"></app-like-button>
+    </div>
+</div>
