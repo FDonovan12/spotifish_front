@@ -23,15 +23,21 @@ export class PlaylistService {
     async me(): Promise<PlaylistOutputBase[]> {
         const http$: Observable<CustomResponse<PlaylistOutputBase[]>> = this.httpClient.get<
             CustomResponse<PlaylistOutputBase[]>
-        >(`${this.apiUrl}/${this.resource}/mine/me`);
+        >(`${this.apiUrl}/${this.resource}/show/me`);
         return lastValueFrom(http$).then((res) => res.body);
     }
 
     async new(playlistInput: PlaylistBase): Promise<PlaylistOutputBase> {
-        console.log(playlistInput);
         const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.post<
             CustomResponse<PlaylistOutputBase>
         >(`${this.apiUrl}/${this.resource}/new`, playlistInput);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    async edit(playlistInput: PlaylistBase): Promise<PlaylistOutputBase> {
+        const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.put<
+            CustomResponse<PlaylistOutputBase>
+        >(`${this.apiUrl}/${this.resource}/edit`, playlistInput);
         return lastValueFrom(http$).then((res) => res.body);
     }
 }

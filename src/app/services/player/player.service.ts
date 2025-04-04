@@ -8,6 +8,7 @@ import { PlaylistService } from '../playlist/playlist.service';
 import { ArtisteService } from '../Artiste/artiste.service';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { LikeableItemService } from '../likeable-item/likeable-item.service';
+import { Type } from '../../entities/permission-entity';
 
 @Injectable({
     providedIn: 'root',
@@ -63,9 +64,9 @@ export class PlayerService {
     }
 
     public async fromLikeableItem(likeableItemBase: LikeableItemOutputBase) {
-        if (likeableItemBase.type === 'album') return this.fromAlbum(likeableItemBase as AlbumOutputBase);
-        if (likeableItemBase.type === 'artist') return this.fromArtist(likeableItemBase as ArtistOutputBase);
-        if (likeableItemBase.type === 'playlist') return this.fromPlaylist(likeableItemBase as PlaylistOutputBase);
+        if (likeableItemBase.type === Type.album) return this.fromAlbum(likeableItemBase as AlbumOutputBase);
+        if (likeableItemBase.type === Type.artist) return this.fromArtist(likeableItemBase as ArtistOutputBase);
+        if (likeableItemBase.type === Type.playlist) return this.fromPlaylist(likeableItemBase as PlaylistOutputBase);
     }
 
     public async fromLikedSong() {

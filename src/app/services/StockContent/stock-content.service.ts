@@ -7,17 +7,15 @@ import { PlaylistService } from '../playlist/playlist.service';
 })
 export class StockContentService {
     private playlists: WritableSignal<PlaylistOutputBase[]> = signal<PlaylistOutputBase[]>([]);
-    private _init = false;
+    private _dateStock: Date = new Date(0);
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
 
     public get getPlaylistsSignal(): Signal<PlaylistOutputBase[]> {
-        if (!this._init) {
-            this._init = true;
-            this.playlistService.me().then((res) => {
-                this.playlists.set(res);
-                console.log(res);
-            });
+        const dateStockIsOld = Date.now() - this._dateStock.getTime() > 1000 * 15; //15 seconds
+        if (dateStockIsOld) {
+            this._dateStock = new Date();
+            this.playlistService.me().then((res) => this.playlists.set(res));
         }
         return this.playlists;
     }

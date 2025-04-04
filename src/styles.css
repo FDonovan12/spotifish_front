@@ -48,13 +48,13 @@ input {
     padding-inline: 0.2em;
     --_color-input: black;
     border-color: var(--_color-input);
-    &:is(:valid:not(.ng-invalid), .ng-valid) {
+    &[required]:is(:valid:not(.ng-invalid), .ng-valid) {
         --_color-input: var(--success-color);
     }
-    &:is(:user-invalid, .ng-invalid:where(.ng-dirty, .ng-touched)) {
+    &[required]:is(:user-invalid, .ng-invalid:where(.ng-dirty, .ng-touched)) {
         --_color-input: var(--danger-color);
     }
-    &:focus:is(:invalid, .ng-invalid) {
+    &[required]:focus:is(:invalid, .ng-invalid) {
         --_color-input: var(--warning-color);
     }
     &:focus {
@@ -90,14 +90,6 @@ button {
     justify-content: space-between;
 }
 
-.wrapper-card {
-    --max-card-size: 20ch;
-    --max-img-height: 100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--max-card-size), 1fr));
-    gap: 0.2em;
-}
-
 .search-card {
     min-width: min(var(--max-card-size), 100%);
     max-width: calc(4 / 3 * var(--max-card-size));
@@ -114,13 +106,31 @@ button {
 }
 
 .search-content {
+    --max-card-size: 20ch;
+    --max-img-height: 100px;
     & img {
         object-fit: cover;
         max-height: var(--max-img-height);
         width: 100%;
     }
-    /* display: grid;
-  grid-template-columns: repeat(auto-fit, var(--max-card-size)); */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--max-card-size), 1fr));
+    & > section {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        & > h2 {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: 1 / -1;
+        }
+        & > .wrapper-card {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: 1 / -1;
+            gap: 0.2em;
+        }
+    }
 }
 
 table tr {

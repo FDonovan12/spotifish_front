@@ -1,8 +1,9 @@
-import { PermissionEntity } from './permission-entity';
+import { PermissionEntity, Type } from './permission-entity';
 import { SongBase, SongOutputBase } from './song';
 import { UserBase, UserOutputBase } from './user';
 
-export interface ContributorBase {
+export interface HistoricalBase {
+    type: Type.historical;
     numberOflisten: number;
     listenAt: Date;
     user: UserBase;

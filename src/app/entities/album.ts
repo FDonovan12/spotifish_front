@@ -1,9 +1,11 @@
 import { ArtistOutputBase } from './artist';
 import { ImageInterface } from './image-interface';
 import { LikeableItemOutputBase } from './likeable-item';
+import { Type } from './permission-entity';
 import { SongAlbumOutputBase } from './song-album';
 
 export interface AlbumOutputBase extends LikeableItemOutputBase, ImageInterface {
+    type: Type.album;
     image: string;
 }
 

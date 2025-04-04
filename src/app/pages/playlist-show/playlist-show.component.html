@@ -1,4 +1,9 @@
-<h1>{{ playlist.name }}</h1>
+@if (playlist) {
+
+<div class="d-flex align-items-center">
+    <h1 class="mr-2">{{ playlist.name }}</h1>
+    <app-change-playlist-player [playlist]="playlist"></app-change-playlist-player>
+</div>
 <table class="table-song-storage">
     <thead>
         <tr>
@@ -22,7 +27,16 @@
                 <app-like-button [likeableItem]="songPlaylist.song"></app-like-button>
             </td>
             <td data-break-point="800px">{{ songPlaylist.song.duration }}</td>
+            <td>
+                <app-add-to-playlist
+                    [song]="songPlaylist.song"
+                    [songPlaylist]="songPlaylist"
+                    (removeSongPlaylist)="removeSongPlaylist($event)"
+                ></app-add-to-playlist>
+            </td>
         </tr>
         }
     </tbody>
 </table>
+
+}

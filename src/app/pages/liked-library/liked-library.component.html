@@ -2,28 +2,32 @@
     <i class="fa-solid fa-plus"></i>
     creation playlist
 </div>
-<div class="wrapper-card">
-    @if (numberOfLikedSong != undefined) {
-    <div class="search-card">
-        <img [src]="this.uploadService.getFileUrl('images/default.png')" />
-        <app-change-playlist-player class="mr-2"></app-change-playlist-player>
-        <app-link-show href="/library/songs">{{ numberOfLikedSong }} musiques</app-link-show>
-    </div>
+<div class="search-content">
+    <section>
+        <div class="wrapper-card">
+            @if (numberOfLikedSong != undefined) {
+            <div class="search-card">
+                <img [src]="this.uploadService.getFileUrl('images/default.png')" />
+                <app-change-playlist-player class="mr-2"></app-change-playlist-player>
+                <app-link-show href="/library/songs">{{ numberOfLikedSong }} musiques</app-link-show>
+            </div>
 
-    } @for (likeableItem of likeableItems; track $index) {
-    <div class="search-card">
-        <img
-            [src]="this.uploadService.getFileUrl(likeableItem.image || '')"
-            alt="image de {{ likeableItem.name }}"
-        />
-        <app-change-playlist-player
-            [likeableItem]="likeableItem"
-            class="mr-2"
-        ></app-change-playlist-player>
-        <app-link-show [entity]="likeableItem">{{ likeableItem.name }}</app-link-show>
-        <div class="complementary-info">{{ likeableItem.type }}</div>
-    </div>
-    }
+            } @for (likeableItem of likeableItems; track $index) {
+            <div class="search-card">
+                <img
+                    [src]="this.uploadService.getFileUrl(likeableItem.image || '')"
+                    alt="image de {{ likeableItem.name }}"
+                />
+                <app-change-playlist-player
+                    [likeableItem]="likeableItem"
+                    class="mr-2"
+                ></app-change-playlist-player>
+                <app-link-show [entity]="likeableItem">{{ likeableItem.name }}</app-link-show>
+                <div class="complementary-info">{{ likeableItem.type }}</div>
+            </div>
+            }
+        </div>
+    </section>
 </div>
 
 <ng-container #popupContainer></ng-container>

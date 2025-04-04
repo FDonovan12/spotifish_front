@@ -16,8 +16,8 @@ export const noAuthGuard: CanActivateFn = () => {
     const authService: AuthService = inject(AuthService);
     const router: Router = inject(Router);
     if (authService.token) {
-        console.log('redirect login -> home');
-        return router.navigateByUrl('/');
+        console.log('redirect login -> library');
+        return router.navigateByUrl('/library');
     }
     return true;
 };

@@ -1,4 +1,4 @@
-import { Component, inject, input, Input, InputSignal } from '@angular/core';
+import { Component, computed, inject, input, Input, InputSignal, Signal, signal, WritableSignal } from '@angular/core';
 import { UserLikeableItemService } from '../../services/user-likeable-item/user-likeable-item.service';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,19 +15,31 @@ import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 export class LikeButtonComponent {
     likeableItem: InputSignal<LikeableItemOutputBase> = input.required<LikeableItemOutputBase>();
 
-    isHovering: boolean = false;
+    isHovering: WritableSignal<boolean> = signal(false);
+    isLiked!: WritableSignal<boolean>;
+
+    ngOnInit(): void {
+        this.isLiked = signal(this.likeableItem().isLiked.liked);
+    }
+
+    icon: Signal<IconDefinition> = computed(() => {
+        if (this.isLiked()) {
+            return this.isHovering() ? faHeartBroken : fullHeart;
+        }
+        return this.isHovering() ? fullHeart : emptyHeart;
+    });
 
     private readonly userLikeableItemService: UserLikeableItemService = inject(UserLikeableItemService);
 
     async interact(slug: string) {
         let result: boolean = false;
-        if (this.likeableItem().isLiked.liked) {
+        if (this.isLiked()) {
             result = await this.dislike(slug);
         } else {
             result = await this.like(slug);
         }
         if (result) {
-            this.likeableItem().isLiked.liked = !this.likeableItem().isLiked.liked;
+            this.isLiked.update((bool) => !bool);
         }
     }
 
@@ -40,17 +52,17 @@ export class LikeButtonComponent {
     }
 
     over(): void {
-        this.isHovering = true;
+        this.isHovering.set(true);
     }
 
     leave(): void {
-        this.isHovering = false;
+        this.isHovering.set(false);
     }
 
-    getIcon(): IconDefinition {
-        if (this.likeableItem().isLiked.liked) {
-            return this.isHovering ? faHeartBroken : fullHeart;
-        }
-        return this.isHovering ? fullHeart : emptyHeart;
-    }
+    // getIcon(): IconDefinition {
+    //     if (this.likeableItem().isLiked.liked) {
+    //         return this.isHovering ? faHeartBroken : fullHeart;
+    //     }
+    //     return this.isHovering ? fullHeart : emptyHeart;
+    // }
 }

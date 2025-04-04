@@ -12,7 +12,7 @@ import { SongBase } from '../../entities/song';
 })
 export class MusicFormComponent implements OnInit {
     @Input() musicToEdit?: SongBase;
-    @Output() formSubimtted: EventEmitter<SongBase | SongBase> = new EventEmitter();
+    @Output() formSubimtted: EventEmitter<SongBase> = new EventEmitter();
     private readonly musicService: MusicService = inject(MusicService);
 
     form!: FormGroup;
@@ -26,7 +26,7 @@ export class MusicFormComponent implements OnInit {
 
     async onFormSubmit(): Promise<void> {
         if (this.form.valid) {
-            const musicInput: SongBase | SongBase = {
+            const musicInput: SongBase = {
                 ...this.form.value,
             };
             this.formSubimtted.emit(musicInput);

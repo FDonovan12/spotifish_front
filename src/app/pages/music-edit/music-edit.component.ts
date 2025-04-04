@@ -16,12 +16,12 @@ export class MusicEditComponent {
 
     private readonly musicService: MusicService = inject(MusicService);
 
-    music?: SongBase;
+    music!: SongBase;
 
     async ngOnInit(): Promise<void> {
         this.music = await this.musicService.show(this.slug());
     }
     onMusicSubmitted(music: SongBase) {
-        throw new Error('Method not implemented.');
+        this.musicService.update(music, this.slug());
     }
 }

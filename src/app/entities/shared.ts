@@ -1,4 +1,4 @@
-import { PermissionEntity } from './permission-entity';
+import { PermissionEntity, Type } from './permission-entity';
 import { PlaylistBase, PlaylistOutputBase } from './playlist';
 
 export interface SharedBase {
@@ -9,5 +9,6 @@ export interface SharedBase {
 }
 
 export interface SharedOutputBase extends SharedBase, PermissionEntity {
+    type: Type.shared;
     playlist: PlaylistOutputBase;
 }

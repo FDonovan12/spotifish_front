@@ -6,15 +6,25 @@
     [ngStyle]="positionStyle"
 >
     <ul>
-        <li>Ajouter a une playlist</li>
-        @for (playlist of playlists(); track $index) {
+        @if (songPlaylist() && songPlaylist()?.permission?.canDelete) {
         <li
             class="option"
-            (click)="addToPlaylist(song, playlist)"
+            (click)="removeFromPlaylist(songPlaylist())"
+        >
+            Retirer de cette playlist
+        </li>
+        } @if (playlists().length) {
+        <li>Ajouter a une playlist</li>
+        } @else {
+        <li>Vous n'avez pas de playlist</li>
+        } @for (playlist of playlists(); track $index) {
+        <li
+            class="option"
+            (click)="addToPlaylist(song(), playlist)"
         >
             {{ playlist.name }}
         </li>
         }
     </ul>
 </div>
-} @else { }
+}

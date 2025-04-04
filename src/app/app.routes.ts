@@ -18,11 +18,6 @@ import { ArtistShowComponent } from './pages/artist-show/artist-show.component';
 import { SongsLikedComponent } from './pages/songs-liked/songs-liked.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent,
-        canActivate: [authGuard],
-    },
     { path: 'login', component: LoginComponent },
     {
         path: 'register',
@@ -31,6 +26,7 @@ export const routes: Routes = [
     },
     {
         path: 'song',
+        canActivate: [authGuard],
         children: [
             // { path: '', redirectTo: '/list' },
             { path: 'list', component: MusicListComponent },
@@ -41,6 +37,7 @@ export const routes: Routes = [
     },
     {
         path: 'playlist',
+        canActivate: [authGuard],
         children: [
             { path: ':slug', component: PlaylistShowComponent },
             { path: 'create', component: PlaylistCreateComponent },
@@ -48,18 +45,22 @@ export const routes: Routes = [
     },
     {
         path: 'album',
+        canActivate: [authGuard],
         children: [{ path: ':slug', component: AlbumShowComponent }],
     },
     {
         path: 'artist',
+        canActivate: [authGuard],
         children: [{ path: ':slug', component: ArtistShowComponent }],
     },
     {
         path: 'search',
+        canActivate: [authGuard],
         children: [{ path: ':search', component: SearchComponent }],
     },
     {
         path: 'library',
+        canActivate: [authGuard],
         children: [
             { path: '', component: LikedLibraryComponent },
             { path: 'songs', component: SongsLikedComponent },
@@ -67,6 +68,7 @@ export const routes: Routes = [
     },
     {
         path: 'upload',
+        canActivate: [authGuard],
         children: [{ path: ':slug', component: UploadSongComponent }],
     },
     {
