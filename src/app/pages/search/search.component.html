@@ -14,31 +14,6 @@
         <h2>Musique</h2>
         <div class="wrapper-card">
             @for (song of result.songs; track $index) {
-            <div class="search-card">
-                <img
-                    [src]="this.uploadService.getFileUrl(song.image)"
-                    alt="image de {{ song.name }}"
-                />
-                <div class="d-flex justify-content-between">
-                    <app-link-show [entity]="song">{{ song.name }}</app-link-show>
-                    <div class="align-self-end">
-                        <app-like-button
-                            [likeableItem]="song"
-                            class="mr-2"
-                        ></app-like-button>
-                        @if (song.permission.canEdit) {
-                        <app-link-show href="/upload/{{ song.slug }}">
-                            <i class="fa-solid fa-upload mr-2"></i>
-                        </app-link-show>
-                        }
-                        <span>
-                            <app-add-to-playlist [song]="song"></app-add-to-playlist>
-                        </span>
-                    </div>
-                </div>
-                <app-list-artists [items]="song.songArtists"></app-list-artists>
-            </div>
-
             <app-card-likeable-item [entity]="song"></app-card-likeable-item>
             }
         </div>
@@ -48,23 +23,7 @@
         <h2>Albums</h2>
         <div class="wrapper-card">
             @for (album of result.albums; track $index) {
-            <div class="search-card">
-                <img
-                    [src]="this.uploadService.getFileUrl(album.image)"
-                    alt="image de {{ album.name }}"
-                />
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <app-change-playlist-player
-                            [album]="album"
-                            class="mr-2"
-                        ></app-change-playlist-player>
-                        <app-link-show [entity]="album">{{ album.name }}</app-link-show>
-                    </div>
-                    <app-like-button [likeableItem]="album"></app-like-button>
-                </div>
-                <app-list-artists [items]="[album]"></app-list-artists>
-            </div>
+            <app-card-likeable-item [entity]="album"></app-card-likeable-item>
             }
         </div>
     </section>
@@ -73,22 +32,7 @@
         <h2>Playlist</h2>
         <div class="wrapper-card">
             @for (playlist of result.playlists; track $index) {
-            <div class="search-card">
-                <img
-                    [src]="this.uploadService.getFileUrl(playlist.image)"
-                    alt="image de {{ playlist.name }}"
-                />
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <app-change-playlist-player
-                            [playlist]="playlist"
-                            class="mr-2"
-                        ></app-change-playlist-player>
-                    </div>
-                    <app-like-button [likeableItem]="playlist"></app-like-button>
-                </div>
-                <app-link-show [entity]="playlist">{{ playlist.name }}</app-link-show>
-            </div>
+            <app-card-likeable-item [entity]="playlist"></app-card-likeable-item>
             }
         </div>
     </section>

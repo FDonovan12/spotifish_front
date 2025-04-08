@@ -27,6 +27,16 @@ export interface UserLoginResponse {
     refreshToken: string;
 }
 
+export interface accessTokenDecode {
+    exp: number;
+    iat: number;
+    isArtist: boolean;
+    isModerator: boolean;
+    iss: 'spotifish';
+    slug: string;
+    sub: string;
+}
+
 export interface UserRegisterInput {
     email: string;
     password: string;

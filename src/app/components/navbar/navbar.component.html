@@ -1,4 +1,3 @@
-<!-- <div class="navbar"> -->
 @if (token$ | async) { @if (authService.isArtist) {
 
 <a routerLink="/song/list"> Music </a>
@@ -10,13 +9,16 @@
     placeholder="Rechercher..."
     (input)="submitSearch($event)"
 />
-<button
-    class="btn-danger"
-    (click)="disconect()"
-    title="Deconnection"
->
-    <i class="fa-solid fa-right-from-bracket"></i>
-</button>
+<div>
+    <span>{{ authService.userName }}</span>
+    <button
+        class="btn-danger"
+        (click)="disconect()"
+        title="Deconnection"
+    >
+        <i class="fa-solid fa-right-from-bracket"></i>
+    </button>
+</div>
 } @else {
 
 <a routerLink="/register"> Register </a>
@@ -24,4 +26,3 @@
 
 <a routerLink="/login"> Login </a>
 } }
-<!-- </div> -->

@@ -12,16 +12,20 @@
                 class="mr-2"
             ></app-change-playlist-player
             >}
-            <div>
-                <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
-                @if (isSong()) { @if (entity().permission.canEdit) {
-                <app-link-show href="/upload/{{ entity().slug }}">
-                    <i class="fa-solid fa-upload mr-2"></i>
-                </app-link-show>
-                }
-                <span> <app-add-to-playlist [song]="getSong()"></app-add-to-playlist> </span>}
-            </div>
+            <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
         </div>
-        <app-like-button [likeableItem]="entity()"></app-like-button>
+        <div class="align-self-end">
+            <app-like-button [likeableItem]="entity()"></app-like-button>
+            @if (isSong()) { @if (entity().permission.canEdit) {
+            <app-link-show
+                href="/upload/{{ entity().slug }}"
+                class="ml-2"
+            >
+                <i class="fa-solid fa-upload"></i>
+            </app-link-show>
+            }
+            <span class="ml-2"> <app-add-to-playlist [song]="getSong()"></app-add-to-playlist> </span>}
+        </div>
     </div>
+    <app-list-artists [items]="getSong().songArtists"></app-list-artists>
 </div>

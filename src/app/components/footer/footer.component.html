@@ -3,18 +3,26 @@
 </div>
 
 <audio
+    id="audioPlayer"
     [src]="srcSong()"
+    (play)="play()"
+    (pause)="pause()"
+    [autoplay]="isPlayed()"
     controls
-    autoplay
     (ended)="increment()"
     (ended)="addHistorical()"
 ></audio>
 <div>
     <button
         (click)="decrement()"
-        class="mr-5"
+        class="mr-5 pointer"
     >
         <i class="fa-solid fa-caret-left"></i>
     </button>
-    <button (click)="increment()"><i class="fa-solid fa-caret-right"></i></button>
+    <button
+        (click)="increment()"
+        class="pointer"
+    >
+        <i class="fa-solid fa-caret-right"></i>
+    </button>
 </div>

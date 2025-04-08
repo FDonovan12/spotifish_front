@@ -1,4 +1,14 @@
-import { Component, computed, inject, input, Signal, WritableSignal } from '@angular/core';
+import {
+    Component,
+    computed,
+    ElementRef,
+    inject,
+    input,
+    signal,
+    Signal,
+    ViewChild,
+    WritableSignal,
+} from '@angular/core';
 import { SongOutputBase } from '../../entities/song';
 import { PlayerService } from '../../services/player/player.service';
 import { UploadService } from '../../services/upload/upload.service';
@@ -19,11 +29,13 @@ export class FooterComponent {
     private readonly historicalService: HistoricalService = inject(HistoricalService);
     private readonly authService: AuthService = inject(AuthService);
 
-    song: WritableSignal<SongOutputBase | null> = this.playerService.getSong;
-    // srcSong: string = this.uploadService.getFileUrl(this.song()?.path || '');
-    srcSong: Signal<string> = computed(() => this.uploadService.getFileUrl(this.song()?.path || ''));
+    @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
 
-    public increment() {
+    song: WritableSignal<SongOutputBase | null> = this.playerService.getSong;
+    srcSong: Signal<string> = computed(() => this.uploadService.getFileUrl(this.song()?.path || ''));
+    isPlayed: WritableSignal<boolean> = signal(true);
+
+    public increment(stillPlayed: boolean = false) {
         this.playerService.increment();
     }
 
@@ -31,14 +43,22 @@ export class FooterComponent {
         this.playerService.decrement();
     }
     public addHistorical() {
-        console.log('addHistorical');
         const historicalInput: HistoricalInput = {
             numberOflisten: 1,
             listenAt: new Date(),
             songSlug: this.song()?.slug || '',
             userSlug: this.authService.userSlug,
         };
-        console.log(historicalInput);
         this.historicalService.new(historicalInput);
+    }
+
+    public play() {
+        this.isPlayed.set(true);
+        this.audioPlayerRef.nativeElement.play();
+    }
+
+    public pause() {
+        this.isPlayed.set(false);
+        this.audioPlayerRef.nativeElement.pause();
     }
 }

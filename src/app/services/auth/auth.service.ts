@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
-import { UserLoginResponse, UserRegisterInput } from '../../entities/user';
+import { accessTokenDecode, UserLoginResponse, UserRegisterInput } from '../../entities/user';
 import { Router } from '@angular/router';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 
@@ -92,8 +92,8 @@ export class AuthService {
         return lastValueFrom(observable$);
     }
 
-    decodeToken(token: string): any {
-        return jwtDecode<JwtPayload>(token);
+    decodeToken(token: string): accessTokenDecode {
+        return jwtDecode<JwtPayload>(token) as accessTokenDecode;
     }
 
     getTokenExpirationDate(token: string): Date | null {
@@ -122,8 +122,8 @@ export class AuthService {
         return decoded?.slug;
     }
 
-    get user() {
+    get userName(): string {
         const decoded = this.decodeToken(this.token || '');
-        return null;
+        return decoded.sub;
     }
 }

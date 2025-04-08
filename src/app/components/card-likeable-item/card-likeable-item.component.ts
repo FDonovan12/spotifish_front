@@ -11,11 +11,18 @@ import { SongOutputBase } from '../../entities/song';
 import { ArtistOutputBase } from '../../entities/artist';
 import { AlbumOutputBase } from '../../entities/album';
 import { PlaylistOutputBase } from '../../entities/playlist';
+import { ListArtistsComponent } from '../list-artists/list-artists.component';
 
 @Component({
     selector: 'app-card-likeable-item',
     standalone: true,
-    imports: [ChangePlaylistPlayerComponent, LinkShowComponent, LikeButtonComponent, AddToPlaylistComponent],
+    imports: [
+        ChangePlaylistPlayerComponent,
+        LinkShowComponent,
+        LikeButtonComponent,
+        AddToPlaylistComponent,
+        ListArtistsComponent,
+    ],
     templateUrl: './card-likeable-item.component.html',
     styleUrl: './card-likeable-item.component.css',
 })
