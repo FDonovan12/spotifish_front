@@ -58,11 +58,4 @@ export class LikeButtonComponent {
     leave(): void {
         this.isHovering.set(false);
     }
-
-    // getIcon(): IconDefinition {
-    //     if (this.likeableItem().isLiked.liked) {
-    //         return this.isHovering ? faHeartBroken : fullHeart;
-    //     }
-    //     return this.isHovering ? fullHeart : emptyHeart;
-    // }
 }

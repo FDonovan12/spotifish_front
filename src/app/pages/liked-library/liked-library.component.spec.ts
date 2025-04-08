@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LikedLibraryComponent } from './LikedLibraryComponent';
+import { LikedLibraryComponent } from './liked-library.component';
 
 describe('LikedLibraryComponent', () => {
     let component: LikedLibraryComponent;
