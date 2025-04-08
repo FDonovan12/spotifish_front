@@ -3,38 +3,30 @@
     @if (result.artists.length) {
     <section>
         <h2>Artiste</h2>
-        <div class="wrapper-card">
-            @for (artist of result.artists; track $index) {
-            <app-card-likeable-item [entity]="artist"></app-card-likeable-item>
-            }
-        </div>
+        @for (artist of result.artists; track $index) {
+        <app-card-likeable-item [entity]="artist"></app-card-likeable-item>
+        }
     </section>
     } @if (result.songs.length) {
     <section>
         <h2>Musique</h2>
-        <div class="wrapper-card">
-            @for (song of result.songs; track $index) {
-            <app-card-likeable-item [entity]="song"></app-card-likeable-item>
-            }
-        </div>
+        @for (song of result.songs; track $index) {
+        <app-card-likeable-item [entity]="song"></app-card-likeable-item>
+        }
     </section>
     } @if (result.albums.length) {
     <section>
         <h2>Albums</h2>
-        <div class="wrapper-card">
-            @for (album of result.albums; track $index) {
-            <app-card-likeable-item [entity]="album"></app-card-likeable-item>
-            }
-        </div>
+        @for (album of result.albums; track $index) {
+        <app-card-likeable-item [entity]="album"></app-card-likeable-item>
+        }
     </section>
     } @if (result.playlists.length) {
     <section>
         <h2>Playlist</h2>
-        <div class="wrapper-card">
-            @for (playlist of result.playlists; track $index) {
-            <app-card-likeable-item [entity]="playlist"></app-card-likeable-item>
-            }
-        </div>
+        @for (playlist of result.playlists; track $index) {
+        <app-card-likeable-item [entity]="playlist"></app-card-likeable-item>
+        }
     </section>
     }
 </div>

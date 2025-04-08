@@ -4,9 +4,9 @@
         alt="image de {{ entity().name }}"
     />
 
-    <div class="d-flex justify-content-between">
+    <div class="card-content">
         <div>
-            @if (!isSong) {
+            @if (!isSong()) {
             <app-change-playlist-player
                 [likeableItem]="entity()"
                 class="mr-2"
@@ -14,7 +14,7 @@
             >}
             <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
         </div>
-        <div class="align-self-end">
+        <div class="align-self-end w-fit-content">
             <app-like-button [likeableItem]="entity()"></app-like-button>
             @if (isSong()) { @if (entity().permission.canEdit) {
             <app-link-show

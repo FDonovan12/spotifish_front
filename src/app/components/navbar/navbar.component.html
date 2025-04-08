@@ -1,16 +1,19 @@
-@if (token$ | async) { @if (authService.isArtist) {
+@if (token$ | async) {
+<div class="d-flex justify-content-between">
+    @if (authService.isArtist) {
 
-<a routerLink="/song/list"> Music </a>
-}
-<a routerLink="/library">Bibliotéque</a>
+    <a routerLink="/song/list"> Music </a>
+    }
+    <a routerLink="/library">Bibliotéque</a>
+</div>
 <input
     id="searchInput"
     type="text"
     placeholder="Rechercher..."
     (input)="submitSearch($event)"
 />
-<div>
-    <span>{{ authService.userName }}</span>
+<div class="d-flex justify-content-between">
+    <span class="mr-2">{{ authService.userName }}</span>
     <button
         class="btn-danger"
         (click)="disconect()"

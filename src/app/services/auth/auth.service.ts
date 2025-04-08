@@ -70,8 +70,8 @@ export class AuthService {
         return lastValueFrom(observable$).then((res) => {
             this.accessToken$.next(res.accessToken);
             this.refreshToken$.next(res.refreshToken);
+            localStorage.setItem(environment.ACCESS_TOKEN_LOCAL_STORAGE, res.accessToken);
             if (this.keepConnected) {
-                localStorage.setItem(environment.ACCESS_TOKEN_LOCAL_STORAGE, res.accessToken);
                 localStorage.setItem(environment.REFRESH_TOKEN_LOCAL_STORAGE, res.refreshToken);
             }
         });
@@ -124,6 +124,6 @@ export class AuthService {
 
     get userName(): string {
         const decoded = this.decodeToken(this.token || '');
-        return decoded.sub;
+        return decoded.name;
     }
 }

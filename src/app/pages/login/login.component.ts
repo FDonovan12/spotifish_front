@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, RouterLink],
+    imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
 })
@@ -25,7 +25,7 @@ export class LoginComponent {
             const { username, password, keepConnected } = this.form.value;
             try {
                 await this.authService.login(username, password, keepConnected);
-                this.router.navigateByUrl('/');
+                this.router.navigateByUrl('/library');
             } catch (error) {
                 console.error(error);
             }

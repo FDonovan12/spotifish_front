@@ -29,19 +29,22 @@ export class FooterComponent {
     private readonly historicalService: HistoricalService = inject(HistoricalService);
     private readonly authService: AuthService = inject(AuthService);
 
-    @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
-
     song: WritableSignal<SongOutputBase | null> = this.playerService.getSong;
-    srcSong: Signal<string> = computed(() => this.uploadService.getFileUrl(this.song()?.path || ''));
+    srcSong: Signal<string> = computed(() => {
+        console.log(this.song());
+        console.log(this.song()?.path);
+        return this.uploadService.getFileUrl(this.song()?.path || '');
+    });
     isPlayed: WritableSignal<boolean> = signal(true);
 
-    public increment(stillPlayed: boolean = false) {
+    public increment() {
         this.playerService.increment();
     }
 
     public decrement() {
         this.playerService.decrement();
     }
+
     public addHistorical() {
         const historicalInput: HistoricalInput = {
             numberOflisten: 1,
@@ -54,11 +57,9 @@ export class FooterComponent {
 
     public play() {
         this.isPlayed.set(true);
-        this.audioPlayerRef.nativeElement.play();
     }
 
     public pause() {
         this.isPlayed.set(false);
-        this.audioPlayerRef.nativeElement.pause();
     }
 }

@@ -28,6 +28,7 @@ export interface UserLoginResponse {
 }
 
 export interface accessTokenDecode {
+    name: string;
     exp: number;
     iat: number;
     isArtist: boolean;

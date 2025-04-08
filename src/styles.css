@@ -91,10 +91,12 @@ button {
 }
 
 .search-card {
-    min-width: min(var(--max-card-size), 100%);
-    max-width: calc(4 / 3 * var(--max-card-size));
     padding: 0.2em;
     border-left: solid var(--primary-color) 5px;
+    & .card-content {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+    }
 }
 
 .complementary-info {
@@ -106,7 +108,7 @@ button {
 }
 
 .search-content {
-    --max-card-size: 20ch;
+    --min-card-size: 22ch;
     --max-img-height: 100px;
     & img {
         object-fit: cover;
@@ -114,22 +116,20 @@ button {
         width: 100%;
     }
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--max-card-size), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-card-size), 1fr));
     & > section {
         display: grid;
         grid-template-columns: subgrid;
         grid-column: 1 / -1;
+        gap: 0.2em;
         & > h2 {
+            grid-column: 1 / -1;
+        }
+        /* & > .wrapper-card {
             display: grid;
             grid-template-columns: subgrid;
             grid-column: 1 / -1;
-        }
-        & > .wrapper-card {
-            display: grid;
-            grid-template-columns: subgrid;
-            grid-column: 1 / -1;
-            gap: 0.2em;
-        }
+        } */
     }
 }
 
@@ -157,13 +157,38 @@ table tr {
     text-align: center;
 }
 header {
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: space-between;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'link'
+        'user'
+        'search';
     width: 100%;
     gap: 0.2em;
+    padding-bottom: 0.125em;
+    border-bottom: 6px solid var(--primary-color);
+    @media screen and (min-width: 600px) {
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        grid-template-areas: 'link search user';
+    }
+    & > *:first-child {
+        grid-area: link;
+    }
+    & > *:nth-child(2) {
+        grid-area: search;
+    }
+    & > *:last-child(1) {
+        grid-area: user;
+    }
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.w-fit-content {
+    width: max-content;
 }
