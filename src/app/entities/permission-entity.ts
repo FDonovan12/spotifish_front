@@ -1,3 +1,5 @@
+import { StrictBuilder } from 'builder-pattern';
+
 export interface PermissionEntity {
     type: Type;
     permission: Permission;
@@ -19,4 +21,8 @@ export enum Type {
     shared = 'shared',
     song = 'song',
     user = 'user',
+}
+
+export function defaultPermission() {
+    return StrictBuilder<Permission>().canDelete(false).canEdit(false).idEntity('identity');
 }

@@ -19,7 +19,8 @@ export class LikeButtonComponent {
     isLiked!: WritableSignal<boolean>;
 
     ngOnInit(): void {
-        this.isLiked = signal(this.likeableItem().isLiked.liked);
+        this.isLiked = signal(this.likeableItem().isLiked.liked || false);
+        console.log(this.likeableItem());
     }
 
     icon: Signal<IconDefinition> = computed(() => {
@@ -38,7 +39,10 @@ export class LikeButtonComponent {
         } else {
             result = await this.like(slug);
         }
+        console.log('result : ', result);
+        console.log('this.isLiked : ', this.isLiked());
         if (result) {
+            console.log('slug : ', slug);
             this.isLiked.update((bool) => !bool);
         }
     }

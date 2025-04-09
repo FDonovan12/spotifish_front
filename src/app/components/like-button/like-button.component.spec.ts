@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LikeButtonComponent } from './like-button.component';
 import { UserLikeableItemService } from '../../services/user-likeable-item/user-likeable-item.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LikeableItemOutputBase } from '../../entities/likeable-item';
-import { signal } from '@angular/core';
+import { LikeableItemOutputBase, defaultIsLiked, defaultLikeableItemOutputBase } from '../../entities/likeable-item';
+import { StrictBuilder } from 'builder-pattern';
 
 describe('LikeButtonComponent', () => {
     let component: LikeButtonComponent;
@@ -15,7 +15,7 @@ describe('LikeButtonComponent', () => {
         mockService = jasmine.createSpyObj<UserLikeableItemService>('UserLikeableItemService', ['like', 'dislike']);
 
         TestBed.configureTestingModule({
-            imports: [FontAwesomeModule], // nécessaire si tu utilises les icônes dans le template
+            imports: [FontAwesomeModule],
             declarations: [],
             providers: [{ provide: UserLikeableItemService, useValue: mockService }],
         }).compileComponents();
@@ -23,10 +23,8 @@ describe('LikeButtonComponent', () => {
         fixture = TestBed.createComponent(LikeButtonComponent);
         component = fixture.componentInstance;
 
-        fixture.componentRef.setInput('likeableItem', {
-            slug: 'example-slug',
-            isLiked: { liked: false },
-        } as LikeableItemOutputBase);
+        const likeableItem = defaultLikeableItemOutputBase().isLiked(defaultIsLiked().liked(false).build()).build();
+        fixture.componentRef.setInput('likeableItem', likeableItem);
 
         component.ngOnInit();
         fixture.detectChanges();
@@ -39,9 +37,9 @@ describe('LikeButtonComponent', () => {
     it('should like an unlikeItem', async () => {
         mockService.like.and.resolveTo(true);
 
-        await component.interact('example-slug');
+        await component.interact('slug');
 
-        expect(mockService.like).toHaveBeenCalledWith('example-slug');
+        expect(mockService.like).toHaveBeenCalledWith('slug');
         expect(component.isLiked()).toBeTrue();
     });
 
@@ -49,17 +47,18 @@ describe('LikeButtonComponent', () => {
         component.isLiked.set(true);
         mockService.dislike.and.resolveTo(true);
 
-        await component.interact('example-slug');
+        await component.interact('slug');
 
-        expect(mockService.dislike).toHaveBeenCalledWith('example-slug');
+        expect(mockService.dislike).toHaveBeenCalledWith('slug');
         expect(component.isLiked()).toBeFalse();
     });
 
     it('should stay unlike if request fail', async () => {
         mockService.like.and.resolveTo(false);
 
-        await component.interact('example-slug');
+        await component.interact('slug');
 
+        expect(mockService.like).toHaveBeenCalledWith('slug');
         expect(component.isLiked()).toBeFalse();
     });
 
