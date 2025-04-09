@@ -20,7 +20,6 @@ export class LikeButtonComponent {
 
     ngOnInit(): void {
         this.isLiked = signal(this.likeableItem().isLiked.liked || false);
-        console.log(this.likeableItem());
     }
 
     icon: Signal<IconDefinition> = computed(() => {
