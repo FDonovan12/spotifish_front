@@ -10,7 +10,6 @@ export interface PlaylistBase extends LikeableItemBase {
     image: string;
     createdAt: Date;
     isPrivate: boolean;
-    shared: SharedBase[];
     contributors: ContributorBase[];
     songPlaylists: SongPlaylistOutputBase[];
     slug: string;
@@ -18,7 +17,6 @@ export interface PlaylistBase extends LikeableItemBase {
 
 export interface PlaylistOutputBase extends PlaylistBase, PermissionEntity, ImageInterface {
     type: Type.playlist;
-    shared: SharedOutputBase[];
     contributors: ContributorOutputBase[];
     songPlaylists: SongPlaylistOutputBase[];
 }

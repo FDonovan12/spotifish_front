@@ -13,9 +13,9 @@ import { AlbumShowComponent } from './pages/album-show/album-show.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
 import { UploadSongComponent } from './pages/upload-song/upload-song.component';
-import { PlaylistCreateComponent } from './pages/playlist-create/playlist-create.component';
 import { ArtistShowComponent } from './pages/artist-show/artist-show.component';
 import { SongsLikedComponent } from './pages/songs-liked/songs-liked.component';
+import { NewContibutorComponent } from './pages/new-contibutor/new-contibutor.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -38,10 +38,7 @@ export const routes: Routes = [
     {
         path: 'playlist',
         canActivate: [authGuard],
-        children: [
-            { path: ':slug', component: PlaylistShowComponent },
-            { path: 'create', component: PlaylistCreateComponent },
-        ],
+        children: [{ path: ':slug', component: PlaylistShowComponent }],
     },
     {
         path: 'album',
@@ -70,6 +67,11 @@ export const routes: Routes = [
         path: 'upload',
         canActivate: [authGuard],
         children: [{ path: ':slug', component: UploadSongComponent }],
+    },
+    {
+        path: 'shared',
+        canActivate: [authGuard],
+        children: [{ path: ':slug', component: NewContibutorComponent }],
     },
     {
         path: 'not-found',

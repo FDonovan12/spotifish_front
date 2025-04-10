@@ -1,7 +1,7 @@
 <span class="complementary-info">
     @for (item of items(); track $index; let last = $last) {
 
-    <app-link-show [entity]="item.artist">{{ item.artist.name }}</app-link-show>
+    <app-link-show [entity]="item.artist">{{ item.artist?.name }}</app-link-show>
     {{ last ? '' : ', ' }}
     }
 </span>

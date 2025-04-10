@@ -11,4 +11,13 @@ export interface SharedBase {
 export interface SharedOutputBase extends SharedBase, PermissionEntity {
     type: Type.shared;
     playlist: PlaylistOutputBase;
+    remainingInvitation: number;
+    expireAt: Date;
+    slug: string;
+}
+
+export interface SharedInput {
+    playlistSlug: string;
+    remainingInvitation: number;
+    expireAt: Date;
 }

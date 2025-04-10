@@ -1,3 +1,4 @@
+import { Type } from './permission-entity';
 import { PlaylistBase, PlaylistOutputBase } from './playlist';
 import { SluggerEntity } from './slugger-entity';
 import { SongBase, SongOutputBase } from './song';

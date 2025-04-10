@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, input, Input, Signal } from '@angular/core';
+import { Component, HostListener, inject, input, Input, Signal, ViewChild, ViewContainerRef } from '@angular/core';
 import { PlaylistService } from '../../services/playlist/playlist.service';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { DatePipe } from '@angular/common';
@@ -8,6 +8,8 @@ import { ListArtistsComponent } from '../../components/list-artists/list-artists
 import { ChangePlaylistPlayerComponent } from '../../components/change-playlist-player/change-playlist-player.component';
 import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-playlist.component';
 import { SongPlaylistOutputBase } from '../../entities/song-playlist';
+import { PopupService } from '../../services/popup/popup.service';
+import { ContributorOutputBase } from '../../entities/contributor';
 
 @Component({
     selector: 'app-playlist-show',
@@ -23,10 +25,12 @@ import { SongPlaylistOutputBase } from '../../entities/song-playlist';
     styleUrl: './playlist-show.component.css',
 })
 export class PlaylistShowComponent {
+    @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
     slug: Signal<string> = input.required();
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
     private readonly tableResizeService: TableResizeService = inject(TableResizeService);
+    private readonly popupService: PopupService = inject(PopupService);
 
     playlist!: PlaylistOutputBase;
 
@@ -41,11 +45,24 @@ export class PlaylistShowComponent {
         setTimeout(() => {
             this.tableResizeService.updateDisplay();
         }, 0);
+        console.log('this.playlist : ', this.playlist);
     }
 
     removeSongPlaylist(removeSongPlaylist: SongPlaylistOutputBase) {
         this.playlist.songPlaylists = this.playlist.songPlaylists.filter(
             (songPlaylist) => songPlaylist != removeSongPlaylist
         );
+    }
+
+    ngAfterViewInit() {
+        this.popupService.setViewContainerRef(this.popupContainer);
+    }
+
+    openSharedPlaylist() {
+        this.popupService.openSharedPlaylist(this.playlist);
+    }
+
+    public get owner(): ContributorOutputBase {
+        return this.playlist.contributors.filter((contributor) => contributor.isOwner)[0];
     }
 }

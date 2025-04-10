@@ -2,20 +2,24 @@
     [formGroup]="form"
     (ngSubmit)="onFormSubmit()"
 >
-    <label for="name">Name : </label>
-    <input
-        required
-        type="text"
-        id="name"
-        formControlName="name"
-    />
-    <label for="createdAt">Date de creation : </label>
-    <input
-        required
-        type="date"
-        id="createdAt"
-        formControlName="createdAt"
-    />
+    <div>
+        <label for="name">Name : </label>
+        <input
+            required
+            type="text"
+            id="name"
+            formControlName="name"
+        />
+    </div>
+    <div>
+        <label for="createdAt">Date de creation : </label>
+        <input
+            required
+            type="date"
+            id="createdAt"
+            formControlName="createdAt"
+        />
+    </div>
 
     <button type="submit">Submit</button>
 </form>

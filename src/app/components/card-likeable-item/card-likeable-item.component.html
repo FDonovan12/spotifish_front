@@ -4,28 +4,32 @@
         alt="image de {{ entity().name }}"
     />
 
-    <div class="card-content">
-        <div>
-            @if (!isSong()) {
-            <app-change-playlist-player
-                [likeableItem]="entity()"
-                class="mr-2"
-            ></app-change-playlist-player
-            >}
-            <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
+    <div>
+        <div class="card-content">
+            <div>
+                @if (!isSong()) {
+                <app-change-playlist-player
+                    [likeableItem]="entity()"
+                    class="mr-2"
+                ></app-change-playlist-player>
+                <app-link-show [entity]="entity()">{{ entity().name }}</app-link-show>
+                } @else {
+                <span>{{ entity().name }}</span>
+                }
+            </div>
+            <div class="align-self-end w-fit-content">
+                <app-like-button [likeableItem]="entity()"></app-like-button>
+                @if (isSong()) { @if (entity().permission.canEdit) {
+                <app-link-show
+                    href="/upload/{{ entity().slug }}"
+                    class="ml-2"
+                >
+                    <i class="fa-solid fa-upload"></i>
+                </app-link-show>
+                }
+                <span class="ml-2"> <app-add-to-playlist [song]="getSong()"></app-add-to-playlist> </span>}
+            </div>
         </div>
-        <div class="align-self-end w-fit-content">
-            <app-like-button [likeableItem]="entity()"></app-like-button>
-            @if (isSong()) { @if (entity().permission.canEdit) {
-            <app-link-show
-                href="/upload/{{ entity().slug }}"
-                class="ml-2"
-            >
-                <i class="fa-solid fa-upload"></i>
-            </app-link-show>
-            }
-            <span class="ml-2"> <app-add-to-playlist [song]="getSong()"></app-add-to-playlist> </span>}
-        </div>
+        <app-list-artists [items]="getSong().songArtists"></app-list-artists>
     </div>
-    <app-list-artists [items]="getSong().songArtists"></app-list-artists>
 </div>

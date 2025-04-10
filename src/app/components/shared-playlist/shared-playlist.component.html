@@ -1,0 +1,41 @@
+<div class="popup">
+    <div>
+        <button
+            class="text-danger mt-2 float-right"
+            (click)="close()"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3>Partage de playlist</h3>
+    </div>
+    <form
+        [formGroup]="form"
+        (ngSubmit)="onFormSubmit()"
+    >
+        <div>
+            <label for="expireAt">Date d'expiration : </label>
+            <input
+                required
+                type="date"
+                id="expireAt"
+                formControlName="expireAt"
+            />
+        </div>
+        <div>
+            <label for="remainingInvitation">Nombre d'invitation : </label>
+            <input
+                required
+                type="number"
+                id="remainingInvitation"
+                formControlName="remainingInvitation"
+            />
+        </div>
+
+        <button
+            class="btn-dark text-dark"
+            type="submit"
+        >
+            Copier le lien
+        </button>
+    </form>
+</div>

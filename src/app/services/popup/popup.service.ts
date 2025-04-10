@@ -1,11 +1,14 @@
-import { ComponentRef, Injectable, signal, ViewContainerRef, WritableSignal } from '@angular/core';
-import { PlaylistCreateComponent } from '../../pages/playlist-create/playlist-create.component';
+import { ComponentRef, Injectable, input, signal, ViewContainerRef, WritableSignal } from '@angular/core';
+import { PlaylistCreateComponent } from '../../components/playlist-create/playlist-create.component';
+import { SharedPlaylistComponent } from '../../components/shared-playlist/shared-playlist.component';
+import { PlaylistOutputBase } from '../../entities/playlist';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PopupService {
-    private popupRef?: ComponentRef<PlaylistCreateComponent>;
+    private popupRefPlaylist?: ComponentRef<PlaylistCreateComponent>;
+    private popupRefShared?: ComponentRef<SharedPlaylistComponent>;
     private viewContainerRef?: ViewContainerRef;
 
     setViewContainerRef(viewContainerRef: ViewContainerRef) {
@@ -13,16 +16,30 @@ export class PopupService {
     }
 
     openPlaylistCreate() {
-        if (!this.viewContainerRef || this.popupRef) return;
+        if (!this.viewContainerRef || this.popupRefPlaylist) return;
 
-        this.popupRef = this.viewContainerRef.createComponent(PlaylistCreateComponent);
-        this.popupRef.instance.closed.subscribe(() => this.closePlaylistCreate());
+        this.popupRefPlaylist = this.viewContainerRef.createComponent(PlaylistCreateComponent);
+        this.popupRefPlaylist.instance.closed.subscribe(() => this.closePlaylistCreate());
     }
 
     private closePlaylistCreate() {
-        if (this.popupRef) {
-            this.popupRef.destroy();
-            this.popupRef = undefined;
+        if (this.popupRefPlaylist) {
+            this.popupRefPlaylist.destroy();
+            this.popupRefPlaylist = undefined;
+        }
+    }
+
+    openSharedPlaylist(playlist: PlaylistOutputBase) {
+        if (!this.viewContainerRef || this.popupRefShared) return;
+        this.popupRefShared = this.viewContainerRef.createComponent(SharedPlaylistComponent);
+        this.popupRefShared.setInput('playlist', playlist);
+        this.popupRefShared.instance.closed.subscribe(() => this.closeSharedPlaylist());
+    }
+
+    private closeSharedPlaylist() {
+        if (this.popupRefShared) {
+            this.popupRefShared.destroy();
+            this.popupRefShared = undefined;
         }
     }
 }

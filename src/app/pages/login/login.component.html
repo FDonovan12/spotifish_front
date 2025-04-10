@@ -2,23 +2,34 @@
     [formGroup]="form"
     (ngSubmit)="onLoginSubmit()"
 >
-    <label for="username">Username : </label>
-    <input
-        type="text"
-        id="username"
-        formControlName="username"
-    />
-    <label for="password">Password : </label>
-    <input
-        type="password"
-        id="password"
-        formControlName="password"
-    />
-    <label for="keepConnected">Restez connecté ? </label>
-    <input
-        type="checkbox"
-        id="keepConnected"
-        formControlName="keepConnected"
-    />
-    <button type="submit">Submit</button>
+    <div>
+        <label for="username">Username : </label>
+        <input
+            type="text"
+            id="username"
+            formControlName="username"
+        />
+    </div>
+    <div>
+        <label for="password">Password : </label>
+        <input
+            type="password"
+            id="password"
+            formControlName="password"
+        />
+    </div>
+    <div>
+        <label for="keepConnected">Restez connecté ? </label>
+        <input
+            type="checkbox"
+            id="keepConnected"
+            formControlName="keepConnected"
+        />
+    </div>
+    <button
+        type="submit"
+        class="btn ml-2"
+    >
+        Submit
+    </button>
 </form>

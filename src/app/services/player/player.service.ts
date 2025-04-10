@@ -47,13 +47,17 @@ export class PlayerService {
 
     public async fromPlaylist(playlistbase: PlaylistOutputBase) {
         const playlist: PlaylistOutputBase = await this.playlistService.show(playlistbase.slug);
-        const songs = playlist.songPlaylists.map((songPlaylist) => songPlaylist.song);
+        const songs = playlist.songPlaylists
+            .sort((sp1, sp2) => sp1.position - sp2.position)
+            .map((songPlaylist) => songPlaylist.song);
         this.fromList(songs);
     }
 
     public async fromAlbum(albumBase: AlbumOutputBase) {
         const album: AlbumOutputShow = await this.albumService.show(albumBase.slug);
-        const songs = album.songAlbums.map((songAlbum) => songAlbum.song);
+        const songs = album.songAlbums
+            .sort((sa1, sa2) => sa1.position - sa2.position)
+            .map((songAlbum) => songAlbum.song);
         this.fromList(songs);
     }
 
