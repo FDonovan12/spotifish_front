@@ -9,8 +9,7 @@
     (pause)="pause()"
     [autoplay]="isPlayed()"
     controls
-    (ended)="increment()"
-    (ended)="addHistorical()"
+    (ended)="ended()"
 ></audio>
 <div>
     <button

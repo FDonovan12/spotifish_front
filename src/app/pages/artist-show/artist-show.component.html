@@ -7,11 +7,16 @@
     @if (artist.albums.length) {
     <section>
         <h2>Album</h2>
-        <div class="wrapper-card">
-            @for (album of artist.albums; track $index) {
-            <div class="search-card"></div>
-            }
-        </div>
+        @for (album of artist.albums; track $index) {
+        <app-card-likeable-item [entity]="album"></app-card-likeable-item>
+        }
+    </section>
+    } @if (artist.songArtists.length) {
+    <section>
+        <h2>Musique</h2>
+        @for (songArtist of artist.songArtists; track $index) {
+        <app-card-likeable-item [entity]="songArtist.song"></app-card-likeable-item>
+        }
     </section>
     }
 </div>

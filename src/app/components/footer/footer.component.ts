@@ -31,13 +31,25 @@ export class FooterComponent {
 
     song: WritableSignal<SongOutputBase | null> = this.playerService.getSong;
     srcSong: Signal<string> = computed(() => {
-        console.log(this.song());
-        console.log(this.song()?.path);
         return this.uploadService.getFileUrl(this.song()?.path || '');
     });
     isPlayed: WritableSignal<boolean> = signal(true);
 
+    private audioElement!: HTMLAudioElement;
+
+    ngAfterViewInit() {
+        this.audioElement = document.getElementById('audioPlayer') as HTMLAudioElement;
+    }
+
+    public ended() {
+        console.log('ended', this.isPlayed());
+        this.addHistorical();
+        this.increment();
+        this.play();
+    }
+
     public increment() {
+        console.log('increment', this.isPlayed());
         this.playerService.increment();
     }
 
@@ -56,10 +68,15 @@ export class FooterComponent {
     }
 
     public play() {
+        console.log('play', this.isPlayed());
         this.isPlayed.set(true);
+        this.audioElement.play();
+        console.log('play', this.isPlayed());
     }
 
     public pause() {
+        console.log('pause', this.isPlayed());
         this.isPlayed.set(false);
+        console.log('pause', this.isPlayed());
     }
 }
