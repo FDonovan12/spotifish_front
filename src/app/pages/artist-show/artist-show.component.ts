@@ -21,6 +21,5 @@ export class ArtistShowComponent {
 
     async ngOnInit(): Promise<void> {
         this.artist = await this.artisteService.show(this.slug());
-        console.log(this.artist);
     }
 }

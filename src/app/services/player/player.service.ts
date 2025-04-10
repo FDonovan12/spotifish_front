@@ -41,8 +41,6 @@ export class PlayerService {
 
     private fromList(songs: SongOutputBase[]) {
         const test = songs.filter((song) => song.duration);
-        console.log(songs);
-        console.log(test);
         this.setList(test);
         this.currentNumber.set(0);
         this.fromNumber();
@@ -66,7 +64,6 @@ export class PlayerService {
 
     public async fromArtist(artistbase: ArtistOutputBase) {
         const artist: ArtistOutputShow = await this.artisteService.show(artistbase.slug);
-        console.log(artist);
         const songs = artist.songArtists.map((songArtist) => songArtist.song);
         this.fromList(songs);
     }

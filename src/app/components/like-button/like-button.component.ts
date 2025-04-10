@@ -38,10 +38,7 @@ export class LikeButtonComponent {
         } else {
             result = await this.like(slug);
         }
-        console.log('result : ', result);
-        console.log('this.isLiked : ', this.isLiked());
         if (result) {
-            console.log('slug : ', slug);
             this.isLiked.update((bool) => !bool);
         }
     }

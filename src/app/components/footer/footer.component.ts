@@ -42,14 +42,12 @@ export class FooterComponent {
     }
 
     public ended() {
-        console.log('ended', this.isPlayed());
         this.addHistorical();
         this.increment();
         this.play();
     }
 
     public increment() {
-        console.log('increment', this.isPlayed());
         this.playerService.increment();
     }
 
@@ -68,15 +66,12 @@ export class FooterComponent {
     }
 
     public play() {
-        console.log('play', this.isPlayed());
         this.isPlayed.set(true);
         this.audioElement.play();
-        console.log('play', this.isPlayed());
     }
 
     public pause() {
-        console.log('pause', this.isPlayed());
         this.isPlayed.set(false);
-        console.log('pause', this.isPlayed());
+        this.audioElement.pause();
     }
 }

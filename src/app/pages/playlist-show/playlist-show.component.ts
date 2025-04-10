@@ -45,7 +45,6 @@ export class PlaylistShowComponent {
         setTimeout(() => {
             this.tableResizeService.updateDisplay();
         }, 0);
-        console.log('this.playlist : ', this.playlist);
     }
 
     removeSongPlaylist(removeSongPlaylist: SongPlaylistOutputBase) {
