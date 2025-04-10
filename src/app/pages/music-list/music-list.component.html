@@ -1,16 +1,9 @@
 <a routerLink="/song/create">Nouvelle musique</a>
 
-@if (musics?.length) {
+@if (musics) {
 <div class="search-content">
     <section>
         @for (music of musics; track music.slug) {
-        <!-- <span>{{ music.name }} </span>
-<a [routerLink]="['/song', music.slug]">detail</a>
-<span> | </span>
-@if (music.permission.canEdit) {
-<a [routerLink]="['/song/edit', music.slug]">edit</a>
-}
-<br /> -->
         <app-card-likeable-item [entity]="music"></app-card-likeable-item>
         }
     </section>

@@ -14,7 +14,7 @@ import { CardLikeableItemComponent } from '../../components/card-likeable-item/c
 export class MusicListComponent implements OnInit {
     private readonly musicService: MusicService = inject(MusicService);
 
-    musics!: SongOutputBase[];
+    musics?: SongOutputBase[];
 
     ngOnInit(): void {
         this.musicService.list().then((res) => (this.musics = res));
