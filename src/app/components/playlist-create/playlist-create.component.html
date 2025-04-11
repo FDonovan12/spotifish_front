@@ -4,26 +4,32 @@
         [formGroup]="form"
         (ngSubmit)="onFormSubmit()"
     >
-        <label for="name">Name : </label>
-        <input
-            required
-            type="text"
-            id="name"
-            formControlName="name"
-        />
-        <label for="description">Description : </label>
-        <input
-            required
-            type="text"
-            id="description"
-            formControlName="description"
-        />
-        <label for="isPrivate">Privée : </label>
-        <input
-            type="checkbox"
-            id="isPrivate"
-            formControlName="isPrivate"
-        />
+        <div>
+            <label for="name">Name : </label>
+            <input
+                required
+                type="text"
+                id="name"
+                formControlName="name"
+            />
+        </div>
+        <div>
+            <label for="description">Description : </label>
+            <input
+                required
+                type="text"
+                id="description"
+                formControlName="description"
+            />
+        </div>
+        <div>
+            <label for="isPrivate">Privée : </label>
+            <input
+                type="checkbox"
+                id="isPrivate"
+                formControlName="isPrivate"
+            />
+        </div>
 
         <button type="submit">Submit</button>
     </form>

@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center flex-wrap">
+    <h1 class="mr-2">{{ entity().name }}</h1>
+    <div>
+        <app-change-playlist-player
+            class="mr-2"
+            [likeableItem]="entity()"
+        ></app-change-playlist-player>
+        <app-like-button [likeableItem]="entity()"></app-like-button>
+        @if(isPlaylist && entity().permission.canEdit) {
+        <button
+            (click)="openSharedPlaylist()"
+            class="ml-3"
+            title="Ajouter des contributeurs"
+        >
+            <i class="fa-solid fa-users"></i>
+        </button>
+        }
+    </div>
+</div>

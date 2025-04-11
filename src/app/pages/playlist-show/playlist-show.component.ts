@@ -10,17 +10,12 @@ import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-
 import { SongPlaylistOutputBase } from '../../entities/song-playlist';
 import { PopupService } from '../../services/popup/popup.service';
 import { ContributorOutputBase } from '../../entities/contributor';
+import { TitleSectionComponent } from '../../components/title-section/title-section.component';
 
 @Component({
     selector: 'app-playlist-show',
     standalone: true,
-    imports: [
-        DatePipe,
-        LikeButtonComponent,
-        ListArtistsComponent,
-        ChangePlaylistPlayerComponent,
-        AddToPlaylistComponent,
-    ],
+    imports: [DatePipe, LikeButtonComponent, ListArtistsComponent, AddToPlaylistComponent, TitleSectionComponent],
     templateUrl: './playlist-show.component.html',
     styleUrl: './playlist-show.component.css',
 })

@@ -37,11 +37,11 @@ export class CardLikeableItemComponent {
     protected readonly uploadService: UploadService = inject(UploadService);
     Type = Type;
 
-    isSong(): boolean {
+    public get isSong(): boolean {
         return this.entity().type === Type.song;
     }
 
-    getSong(): SongOutputBase {
+    public get getSong(): SongOutputBase {
         return this.entity() as SongOutputBase;
     }
 }

@@ -1,8 +1,5 @@
 @if (artist) {
-<div class="d-flex align-items-center">
-    <h1 class="mr-2">{{ artist.name }}</h1>
-    <app-change-playlist-player [artist]="artist"></app-change-playlist-player>
-</div>
+<app-title-section [entity]="artist"></app-title-section>
 <div class="search-content">
     @if (artist.albums.length) {
     <section>

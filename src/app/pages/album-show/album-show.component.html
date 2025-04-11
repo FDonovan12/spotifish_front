@@ -1,26 +1,26 @@
 @if (album) {
-<div class="d-flex align-items-center">
-    <h1 class="mr-2">{{ album.name }}</h1>
-    <app-change-playlist-player [album]="album"></app-change-playlist-player>
-</div>
+<app-title-section [entity]="album"></app-title-section>
 <table class="table-song-storage">
     <thead>
         <tr>
-            <th>#</th>
+            <th data-break-point="500px">#</th>
             <th>Titre</th>
             <th>Like</th>
-            <th>Durée</th>
+            <th data-break-point="700px">Durée</th>
         </tr>
     </thead>
     <tbody>
         @for (songAlbum of album.songAlbums; track $index) {
         <tr>
-            <td>{{ songAlbum.position }}</td>
+            <td data-break-point="500px">{{ songAlbum.position }}</td>
             <td>{{ songAlbum.song.name }}</td>
             <td>
                 <app-like-button [likeableItem]="songAlbum.song"></app-like-button>
             </td>
-            <td>{{ songAlbum.song.duration }}</td>
+            <td data-break-point="700px">{{ songAlbum.song.duration }}</td>
+            <td>
+                <app-add-to-playlist [song]="songAlbum.song"></app-add-to-playlist>
+            </td>
         </tr>
         }
     </tbody>

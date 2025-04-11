@@ -34,7 +34,7 @@ describe('LikeButtonComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should like an unlikeItem', async () => {
+    it('should like an unlike Item', async () => {
         mockService.like.and.resolveTo(true);
 
         await component.interact('slug');
@@ -43,7 +43,7 @@ describe('LikeButtonComponent', () => {
         expect(component.isLiked()).toBeTrue();
     });
 
-    it('should dislike an likeItem', async () => {
+    it('should dislike a like Item', async () => {
         component.isLiked.set(true);
         mockService.dislike.and.resolveTo(true);
 

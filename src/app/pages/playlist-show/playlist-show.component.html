@@ -1,20 +1,6 @@
 @if (playlist) {
 
-<div class="d-flex align-items-center flex-wrap">
-    <h1 class="mr-2">{{ playlist.name }}</h1>
-    <div>
-        <app-change-playlist-player [playlist]="playlist"></app-change-playlist-player>
-        @if(playlist.permission.canEdit) {
-        <button
-            (click)="openSharedPlaylist()"
-            class="ml-3"
-            title="Ajouter des contributeurs"
-        >
-            <i class="fa-solid fa-users"></i>
-        </button>
-        }
-    </div>
-</div>
+<app-title-section [entity]="playlist"></app-title-section>
 <div class="mb-5">
     <span>{{ owner.user.name }}</span>
     @if (playlist.contributors.length > 1) {

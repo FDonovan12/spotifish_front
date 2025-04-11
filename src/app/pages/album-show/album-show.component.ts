@@ -4,11 +4,13 @@ import { AlbumService } from '../../services/album/album.service';
 import { AlbumOutputShow } from '../../entities/album';
 import { TableResizeService } from '../../services/TableResize/table-resize.service';
 import { ChangePlaylistPlayerComponent } from '../../components/change-playlist-player/change-playlist-player.component';
+import { TitleSectionComponent } from '../../components/title-section/title-section.component';
+import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-playlist.component';
 
 @Component({
     selector: 'app-album-show',
     standalone: true,
-    imports: [LikeButtonComponent, ChangePlaylistPlayerComponent],
+    imports: [LikeButtonComponent, ChangePlaylistPlayerComponent, TitleSectionComponent, AddToPlaylistComponent],
     templateUrl: './album-show.component.html',
     styleUrl: './album-show.component.css',
 })
