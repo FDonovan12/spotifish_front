@@ -21,10 +21,11 @@
                 <app-like-button [likeableItem]="entity()"></app-like-button>
                 @if (isSong) { @if (entity().permission.canEdit) {
                 <app-link-show
-                    href="/upload/{{ entity().slug }}"
+                    href="/song/edit/{{ entity().slug }}"
                     class="ml-2"
                 >
-                    <i class="fa-solid fa-upload"></i>
+                    <!-- <i class="fa-solid fa-upload"></i> -->
+                    <i class="fa-solid fa-pen"></i>
                 </app-link-show>
                 }
                 <span class="ml-2"> <app-add-to-playlist [song]="getSong"></app-add-to-playlist> </span>}

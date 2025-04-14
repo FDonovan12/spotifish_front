@@ -1,8 +1,15 @@
 <form (submit)="upload()">
-    <input
-        required
-        type="file"
-        (change)="onFileSelected($event)"
-    />
-    <button type="submit">Envoyer</button>
+    <div>
+        <input
+            required
+            type="file"
+            (change)="onFileSelected($event)"
+        />
+    </div>
+    <button
+        type="submit"
+        class="btn-primary"
+    >
+        Envoyer
+    </button>
 </form>

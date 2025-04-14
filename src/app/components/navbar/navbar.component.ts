@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, map, Observable } from 'rxjs';
@@ -17,8 +17,8 @@ export class NavbarComponent implements OnInit {
     readonly authService: AuthService = inject(AuthService);
     private readonly router: Router = inject(Router);
 
-    isLoginPage: boolean | undefined;
-    isRegisterPage: boolean | undefined;
+    isLoginPage: WritableSignal<boolean> = signal(true);
+    isRegisterPage: WritableSignal<boolean> = signal(true);
     token$!: Observable<string | null>;
     isVisible$!: Observable<boolean>;
     debounceTimer: any;
@@ -31,8 +31,8 @@ export class NavbarComponent implements OnInit {
 
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {
-                this.isLoginPage = event.url?.includes('login');
-                this.isRegisterPage = event.url?.includes('register');
+                this.isLoginPage.set(event.url?.includes('login'));
+                this.isRegisterPage.set(event.url?.includes('register'));
             }
         });
         this.token$ = this.authService.token$;

@@ -3,6 +3,7 @@ import { SharedService } from '../../services/Shared/shared.service';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedInput, SharedOutputBase } from '../../entities/shared';
+import { inTheFuture } from '../../validators/in-the-future';
 
 @Component({
     selector: 'app-shared-playlist',
@@ -22,7 +23,7 @@ export class SharedPlaylistComponent {
 
     ngOnInit(): void {
         this.form = new FormGroup({
-            expireAt: new FormControl<Date>(new Date(), [Validators.required]),
+            expireAt: new FormControl<Date>(new Date(), [inTheFuture()]),
             remainingInvitation: new FormControl<string>('', [Validators.required]),
         });
     }

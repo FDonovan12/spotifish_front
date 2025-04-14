@@ -26,6 +26,6 @@ export class UploadSongComponent {
             return;
         }
         this.uploadService.song(this.file, this.slug());
-        this.router.navigateByUrl('song/' + this.slug());
+        this.router.navigateByUrl('song/list');
     }
 }

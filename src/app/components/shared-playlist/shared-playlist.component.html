@@ -21,15 +21,26 @@
                 formControlName="expireAt"
             />
         </div>
+        @if (form.controls['expireAt'].invalid && form.controls['expireAt'].touched) {
+        <div>
+            <p class="text-danger">La date d'expiration est requise est doit etre dans le future</p>
+        </div>
+        }
         <div>
             <label for="remainingInvitation">Nombre d'invitation : </label>
             <input
                 required
+                min="0"
                 type="number"
                 id="remainingInvitation"
                 formControlName="remainingInvitation"
             />
         </div>
+        @if (form.controls['remainingInvitation'].invalid && form.controls['remainingInvitation'].touched) {
+        <div>
+            <p class="text-danger">La nombre d'invitation est requis</p>
+        </div>
+        }
 
         <button
             class="btn-dark text-dark"

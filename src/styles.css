@@ -45,7 +45,8 @@ body {
         padding: 0.5em 0.5em 0 0.5em;
     }
 }
-input {
+input,
+textarea {
     border: 3px solid;
     margin-block: 0.2em;
     border-radius: 5px;
@@ -251,4 +252,44 @@ input {
 
 .float-right {
     float: right;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.25em;
+    & > div {
+        display: grid;
+        grid-template-columns: subgrid;
+        align-items: center;
+        grid-column: 1 / -1;
+        & > label {
+            grid-column: 1 / 2;
+            justify-self: end;
+            text-wrap-mode: nowrap;
+        }
+        & > :where(input, textarea) {
+            grid-column: 2 / 3;
+            justify-self: start;
+            &:where(textarea) {
+                width: 100%;
+            }
+        }
+        & > *:only-child {
+            grid-column: span 2;
+            justify-self: center;
+        }
+    }
+    & > button {
+        grid-column: span 2;
+        justify-self: center;
+    }
+}
+
+.text-danger {
+    color: var(--danger-color);
 }

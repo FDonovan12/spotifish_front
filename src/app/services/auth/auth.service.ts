@@ -126,4 +126,9 @@ export class AuthService {
         const decoded = this.decodeToken(this.token || '');
         return decoded.name;
     }
+
+    get userEmail(): string {
+        const decoded = this.decodeToken(this.token || '');
+        return decoded.sub;
+    }
 }

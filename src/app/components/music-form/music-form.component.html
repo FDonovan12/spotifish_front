@@ -11,6 +11,11 @@
             formControlName="name"
         />
     </div>
+    @if (form.controls['name'].invalid && form.controls['name'].touched) {
+    <div>
+        <p class="text-danger">Le nom de la musique est requis</p>
+    </div>
+    }
     <div>
         <label for="createdAt">Date de creation : </label>
         <input
@@ -20,6 +25,16 @@
             formControlName="createdAt"
         />
     </div>
+    @if (form.controls['name'].invalid && form.controls['name'].touched) {
+    <div>
+        <p class="text-danger">La date de création de la musique est requise</p>
+    </div>
+    }
 
-    <button type="submit">Submit</button>
+    <button
+        type="submit"
+        class="btn-primary"
+    >
+        {{ musicToEdit ? 'Modifier la musique' : 'Créer la musique' }}
+    </button>
 </form>

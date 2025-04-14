@@ -1,5 +1,18 @@
 <div>
-    {{ song()?.name }}
+    @if (song()) {
+
+    <div class="text-center">Titre : {{ song()?.name }}</div>
+    <div class="fs-300">
+        Copyright
+        <a
+            class="underline"
+            href="https://freetouse.com/music"
+            target="_blank"
+            >Free Background Music</a
+        >
+    </div>
+
+    }
 </div>
 
 <audio

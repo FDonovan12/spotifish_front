@@ -1,4 +1,15 @@
-import { Component, computed, inject, input, Input, InputSignal, Signal, signal, WritableSignal } from '@angular/core';
+import {
+    Component,
+    computed,
+    inject,
+    input,
+    Input,
+    InputSignal,
+    Signal,
+    signal,
+    SimpleChanges,
+    WritableSignal,
+} from '@angular/core';
 import { UserLikeableItemService } from '../../services/user-likeable-item/user-likeable-item.service';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,10 +27,10 @@ export class LikeButtonComponent {
     likeableItem: InputSignal<LikeableItemOutputBase> = input.required<LikeableItemOutputBase>();
 
     isHovering: WritableSignal<boolean> = signal(false);
-    isLiked!: WritableSignal<boolean>;
+    isLiked: WritableSignal<boolean> = signal(false);
 
-    ngOnInit(): void {
-        this.isLiked = signal(this.likeableItem().isLiked.liked || false);
+    ngOnChanges(changes: SimpleChanges): void {
+        this.isLiked.set(this.likeableItem().isLiked.liked || false);
     }
 
     icon: Signal<IconDefinition> = computed(() => {

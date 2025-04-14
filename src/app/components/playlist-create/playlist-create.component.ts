@@ -1,6 +1,6 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, input, InputSignal, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PlaylistBase } from '../../entities/playlist';
+import { PlaylistBase, PlaylistOutputBase } from '../../entities/playlist';
 import { PlaylistService } from '../../services/playlist/playlist.service';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PlaylistCreateComponent {
     @Output() closed = new EventEmitter<void>();
+    playlist: InputSignal<PlaylistOutputBase | undefined> = input();
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
     private readonly router: Router = inject(Router);
@@ -21,9 +22,9 @@ export class PlaylistCreateComponent {
 
     ngOnInit(): void {
         this.form = new FormGroup({
-            name: new FormControl<string>('', [Validators.required]),
-            description: new FormControl<string>('', [Validators.required]),
-            isPrivate: new FormControl<boolean>(false),
+            name: new FormControl<string>(this.playlist()?.name || '', [Validators.required]),
+            description: new FormControl<string>(this.playlist()?.description || '', [Validators.required]),
+            isPrivate: new FormControl<boolean>(this.playlist()?.isPrivate || false),
         });
     }
 
@@ -36,7 +37,13 @@ export class PlaylistCreateComponent {
             const playlistInput: PlaylistBase = {
                 ...this.form.value,
             };
-            const playlist = this.playlistService.new(playlistInput);
+            let playlist;
+            if (this.playlist()) {
+                playlist = await this.playlistService.edit(playlistInput, this.playlist()!.slug);
+                this.router.navigateByUrl('/library');
+            } else {
+                playlist = this.playlistService.new(playlistInput);
+            }
             this.close();
             this.router.navigateByUrl('/playlist/' + (await playlist).slug);
         }

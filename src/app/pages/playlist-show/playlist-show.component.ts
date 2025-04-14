@@ -11,6 +11,7 @@ import { SongPlaylistOutputBase } from '../../entities/song-playlist';
 import { PopupService } from '../../services/popup/popup.service';
 import { ContributorOutputBase } from '../../entities/contributor';
 import { TitleSectionComponent } from '../../components/title-section/title-section.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-playlist-show',
@@ -26,6 +27,7 @@ export class PlaylistShowComponent {
     private readonly playlistService: PlaylistService = inject(PlaylistService);
     private readonly tableResizeService: TableResizeService = inject(TableResizeService);
     private readonly popupService: PopupService = inject(PopupService);
+    private readonly router: Router = inject(Router);
 
     playlist!: PlaylistOutputBase;
 
@@ -48,12 +50,15 @@ export class PlaylistShowComponent {
         );
     }
 
-    ngAfterViewInit() {
-        this.popupService.setViewContainerRef(this.popupContainer);
+    removePlaylist() {
+        if (!confirm(`Voulez vous supprimer la playlist ${this.playlist.name}`)) return;
+        this.playlistService
+            .delete(this.playlist.permission.idEntity)
+            .then(() => this.router.navigateByUrl('/library'));
     }
 
-    openSharedPlaylist() {
-        this.popupService.openSharedPlaylist(this.playlist);
+    ngAfterViewInit() {
+        this.popupService.setViewContainerRef(this.popupContainer);
     }
 
     public get owner(): ContributorOutputBase {

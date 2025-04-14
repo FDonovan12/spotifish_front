@@ -1,5 +1,15 @@
 <div class="popup">
+    <button
+        class="text-danger mt-2 float-right"
+        (click)="close()"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    @if (playlist()) {
+    <h3>Modification Playlist</h3>
+    } @else {
     <h3>Creation Playlist</h3>
+    }
     <form
         [formGroup]="form"
         (ngSubmit)="onFormSubmit()"
@@ -13,15 +23,25 @@
                 formControlName="name"
             />
         </div>
+        @if (form.controls['name'].invalid && form.controls['name'].touched) {
+        <div>
+            <p class="text-danger">Le nom de la playlist est requis</p>
+        </div>
+        }
         <div>
             <label for="description">Description : </label>
-            <input
+            <textarea
                 required
                 type="text"
                 id="description"
                 formControlName="description"
-            />
+            ></textarea>
         </div>
+        @if (form.controls['description'].invalid && form.controls['description'].touched) {
+        <div>
+            <p class="text-danger">La déscription de la playlist est requise</p>
+        </div>
+        }
         <div>
             <label for="isPrivate">Privée : </label>
             <input
@@ -31,7 +51,11 @@
             />
         </div>
 
-        <button type="submit">Submit</button>
+        <button
+            type="submit"
+            class="btn-dark text-dark"
+        >
+            Créer la playlist
+        </button>
     </form>
-    <button (click)="close()">Fermer</button>
 </div>

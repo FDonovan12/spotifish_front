@@ -5,8 +5,17 @@
             class="mr-2"
             [likeableItem]="entity()"
         ></app-change-playlist-player>
+        @if (!isOwner) {
         <app-like-button [likeableItem]="entity()"></app-like-button>
-        @if(isPlaylist && entity().permission.canEdit) {
+        } @if (entity().permission.canEdit) {
+        <button
+            (click)="openModifyPlaylist()"
+            class="ml-3"
+            title="Modifier la playlist"
+        >
+            <i class="fa-solid fa-pen"></i>
+        </button>
+        } @if(isPlaylist && entity().permission.canEdit) {
         <button
             (click)="openSharedPlaylist()"
             class="ml-3"
@@ -14,6 +23,15 @@
         >
             <i class="fa-solid fa-users"></i>
         </button>
+        } @if(isPlaylist && entity().permission.canDelete) {
+
+        <button
+            (click)="onRemoveEntity()"
+            class="ml-3"
+        >
+            <i class="fa-solid fa-trash"></i>
+        </button>
         }
+        <ng-container #popupContainer></ng-container>
     </div>
 </div>

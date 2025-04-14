@@ -15,10 +15,11 @@ export class PopupService {
         this.viewContainerRef = viewContainerRef;
     }
 
-    openPlaylistCreate() {
+    openPlaylistCreate(playlist: PlaylistOutputBase | undefined = undefined) {
         if (!this.viewContainerRef || this.popupRefPlaylist) return;
 
         this.popupRefPlaylist = this.viewContainerRef.createComponent(PlaylistCreateComponent);
+        this.popupRefPlaylist.setInput('playlist', playlist);
         this.popupRefPlaylist.instance.closed.subscribe(() => this.closePlaylistCreate());
     }
 

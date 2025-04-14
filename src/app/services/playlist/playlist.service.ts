@@ -34,10 +34,17 @@ export class PlaylistService {
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async edit(playlistInput: PlaylistBase): Promise<PlaylistOutputBase> {
+    async edit(playlistInput: PlaylistBase, slug: string): Promise<PlaylistOutputBase> {
         const http$: Observable<CustomResponse<PlaylistOutputBase>> = this.httpClient.put<
             CustomResponse<PlaylistOutputBase>
-        >(`${this.apiUrl}/${this.resource}/edit`, playlistInput);
+        >(`${this.apiUrl}/${this.resource}/edit/${slug}`, playlistInput);
+        return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    async delete(idEntity: string): Promise<boolean> {
+        const http$: Observable<CustomResponse<boolean>> = this.httpClient.delete<CustomResponse<boolean>>(
+            `${this.apiUrl}/${this.resource}/delete/${idEntity}`
+        );
         return lastValueFrom(http$).then((res) => res.body);
     }
 }

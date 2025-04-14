@@ -2,76 +2,112 @@
     [formGroup]="form"
     (ngSubmit)="onSubmitRegister()"
 >
-    <label for="name">Pseudo : </label>
-    <input
-        required
-        type="text"
-        id="name"
-        formControlName="name"
-    />
-
-    <label for="email">email : </label>
-    <input
-        required
-        type="email"
-        id="email"
-        formControlName="email"
-    />
-
-    @if (form.controls['email'].invalid && form.controls['email'].dirty && form.controls['email'].touched) {
-
-    <div>{{ form.controls['email'].hasError('email') }}</div>
+    <div>
+        <label for="name">Pseudo : </label>
+        <input
+            required
+            type="text"
+            id="name"
+            formControlName="name"
+        />
+    </div>
+    @if (form.controls['name'].invalid && form.controls['name'].touched) {
+    <div>
+        <p class="text-danger">Votre pseudo est requis</p>
+    </div>
+    }
+    <div>
+        <label for="email">email : </label>
+        <input
+            required
+            type="email"
+            id="email"
+            formControlName="email"
+        />
+    </div>
+    @if (form.controls['email'].invalid && form.controls['email'].touched) {
+    <div>
+        <p class="text-danger">Votre email doit être valide</p>
+    </div>
+    }
+    <div>
+        <label for="password">Mot de passe : </label>
+        <input
+            required
+            type="password"
+            id="password"
+            formControlName="password"
+        />
+    </div>
+    @if (form.controls['password'].invalid && form.controls['password'].touched) {
+    <div>
+        <p class="text-danger">Le mot de passe doit faire au moins 5 caracteres</p>
+    </div>
     }
 
-    <label for="password">Password : </label>
-    <input
-        required
-        type="password"
-        id="password"
-        formControlName="password"
-    />
+    <div>
+        <label for="passwordConfirmed">Confirmation mot de passe : </label>
+        <input
+            required
+            type="password"
+            id="passwordConfirmed"
+            formControlName="passwordConfirmed"
+        />
+    </div>
+    @if (showErrorConfirmedPassword()) {
+    <div>
+        <p class="text-danger">Votre mot de passe doit étre confirmée</p>
+    </div>
+    }
 
-    <label for="passwordConfirmed">passwordConfirmed : </label>
-    <input
-        required
-        type="password"
-        id="passwordConfirmed"
-        formControlName="passwordConfirmed"
-    />
+    <div>
+        <label for="firstName">Prénom : </label>
+        <input
+            required
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+        />
+    </div>
+    @if (form.controls['firstName'].invalid && form.controls['firstName'].touched) {
+    <div>
+        <p class="text-danger">Votre prénom est requis</p>
+    </div>
+    }
 
-    <label for="firstName">FirstName : </label>
-    <input
-        required
-        type="text"
-        id="firstName"
-        formControlName="firstName"
-    />
-
-    <label for="lastName">LastName : </label>
-    <input
-        required
-        type="text"
-        id="lastName"
-        formControlName="lastName"
-    />
-
-    <label for="birthAt">Naissance : </label>
-    <input
-        required
-        type="date"
-        id="birthAt"
-        formControlName="birthAt"
-    />
+    <div>
+        <label for="lastName">Nom : </label>
+        <input
+            required
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+        />
+    </div>
+    @if (form.controls['lastName'].invalid && form.controls['lastName'].touched) {
+    <div>
+        <p class="text-danger">Votre nom est requis</p>
+    </div>
+    }
+    <div>
+        <label for="birthAt">Naissance : </label>
+        <input
+            required
+            type="date"
+            id="birthAt"
+            formControlName="birthAt"
+        />
+    </div>
+    @if (form.controls['birthAt'].invalid && form.controls['birthAt'].touched) {
+    <div>
+        <p class="text-danger">Votre date de naissance est requise</p>
+    </div>
+    }
     <button
         type="submit"
         [disabled]="form.invalid"
+        class="btn-primary"
     >
-        Submit
+        Créer son compte
     </button>
 </form>
-<a
-    [routerLink]="['/login']"
-    routerLinkActive="router-link-active"
->
-    Connexion</a
->

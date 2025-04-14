@@ -1,6 +1,9 @@
 @if (playlist) {
 
-<app-title-section [entity]="playlist"></app-title-section>
+<app-title-section
+    [entity]="playlist"
+    (removeEntity)="removePlaylist()"
+></app-title-section>
 <div class="mb-5">
     <span>{{ owner.user.name }}</span>
     @if (playlist.contributors.length > 1) {
@@ -14,6 +17,7 @@
             <th data-break-point="600px">Date d'ajout</th>
             <th>Like</th>
             <th data-break-point="800px">Durée</th>
+            <th data-break-point="1000px">Nombre d'écoute</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +33,7 @@
                 <app-like-button [likeableItem]="songPlaylist.song"></app-like-button>
             </td>
             <td data-break-point="800px">{{ songPlaylist.song.duration }}</td>
+            <td data-break-point="1000px">{{ songPlaylist.song.numberOfListen }}</td>
             <td>
                 <app-add-to-playlist
                     [song]="songPlaylist.song"
@@ -42,4 +47,3 @@
 </table>
 
 }
-<ng-container #popupContainer></ng-container>
