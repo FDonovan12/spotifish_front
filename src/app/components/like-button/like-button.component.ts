@@ -29,7 +29,7 @@ export class LikeButtonComponent {
     isHovering: WritableSignal<boolean> = signal(false);
     isLiked: WritableSignal<boolean> = signal(false);
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnInit(): void {
         this.isLiked.set(this.likeableItem().isLiked.liked || false);
     }
 

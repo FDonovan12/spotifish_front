@@ -3,8 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LikeButtonComponent } from './like-button.component';
 import { UserLikeableItemService } from '../../services/user-likeable-item/user-likeable-item.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LikeableItemOutputBase, defaultIsLiked, defaultLikeableItemOutputBase } from '../../entities/likeable-item';
-import { StrictBuilder } from 'builder-pattern';
+import { defaultIsLiked, defaultLikeableItemOutputBase } from '../../entities/likeable-item';
 
 describe('LikeButtonComponent', () => {
     let component: LikeButtonComponent;
