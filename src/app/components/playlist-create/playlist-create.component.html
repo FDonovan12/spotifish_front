@@ -55,7 +55,7 @@
             type="submit"
             class="btn-dark text-dark"
         >
-            Créer la playlist
+            {{ playlist() ? 'Modifier la playlist' : 'Créer la playlist' }}
         </button>
     </form>
 </div>

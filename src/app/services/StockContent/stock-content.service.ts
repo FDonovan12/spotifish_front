@@ -15,7 +15,7 @@ export class StockContentService {
         const dateStockIsOld = Date.now() - this._dateStock.getTime() > 1000 * 15; //15 seconds
         if (dateStockIsOld) {
             this._dateStock = new Date();
-            this.playlistService.me().then((res) => this.playlists.set(res));
+            this.playlistService.mine().then((res) => this.playlists.set(res));
         }
         return this.playlists;
     }

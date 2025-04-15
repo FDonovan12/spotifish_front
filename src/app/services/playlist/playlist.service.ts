@@ -20,10 +20,10 @@ export class PlaylistService {
         return lastValueFrom(http$).then((res) => res.body);
     }
 
-    async me(): Promise<PlaylistOutputBase[]> {
+    async mine(): Promise<PlaylistOutputBase[]> {
         const http$: Observable<CustomResponse<PlaylistOutputBase[]>> = this.httpClient.get<
             CustomResponse<PlaylistOutputBase[]>
-        >(`${this.apiUrl}/${this.resource}/show/me`);
+        >(`${this.apiUrl}/${this.resource}/show/mine`);
         return lastValueFrom(http$).then((res) => res.body);
     }
 

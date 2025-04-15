@@ -256,32 +256,38 @@ input {
 
 form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'label' 'input';
+    @media screen and (min-width: 600px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'label input';
+    }
     column-gap: 0.25em;
+    justify-content: center;
     & > div {
         display: grid;
         grid-template-columns: subgrid;
         align-items: center;
         grid-column: 1 / -1;
         & > label {
-            grid-column: 1 / 2;
-            justify-self: end;
-            text-wrap-mode: nowrap;
+            grid-area: label;
+            @media screen and (min-width: 600px) {
+                justify-self: end;
+            }
         }
         & > :where(input, textarea) {
-            grid-column: 2 / 3;
+            grid-area: input;
             justify-self: start;
             &:where(textarea) {
                 width: 100%;
             }
         }
         & > *:only-child {
-            grid-column: span 2;
+            grid-column: 1 / -1;
             justify-self: center;
         }
     }
     & > button {
-        grid-column: span 2;
+        grid-column: 1 / -1;
         justify-self: center;
     }
 }
