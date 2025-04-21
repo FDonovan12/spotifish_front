@@ -22,6 +22,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
             return from(NEVER);
         }
     }
-    console.log(toHandle);
     return next(toHandle);
 };

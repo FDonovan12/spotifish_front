@@ -49,7 +49,9 @@ export class AuthService {
 
     async login(username: string, password: string, keepConnected: boolean): Promise<void> {
         this.keepConnected = keepConnected;
-        localStorage.setItem(environment.KEEP_CONNECTED_LOCAL_STORAGE, 'true');
+        if (keepConnected) {
+            localStorage.setItem(environment.KEEP_CONNECTED_LOCAL_STORAGE, 'true');
+        }
         const url = `${this.apiUrl}/${this.resource}/login`;
         const observable$: Observable<UserLoginResponse> = this.httpClient.post<UserLoginResponse>(url, {
             username,

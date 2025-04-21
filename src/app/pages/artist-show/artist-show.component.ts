@@ -1,15 +1,13 @@
-import { Component, inject, input, Input, Signal } from '@angular/core';
+import { Component, inject, input, Signal } from '@angular/core';
 import { ArtistOutputShow } from '../../entities/artist';
 import { ArtisteService } from '../../services/Artiste/artiste.service';
-import { ChangePlaylistPlayerComponent } from '../../components/change-playlist-player/change-playlist-player.component';
 import { CardLikeableItemComponent } from '../../components/card-likeable-item/card-likeable-item.component';
-import { LikeButtonComponent } from '../../components/like-button/like-button.component';
 import { TitleSectionComponent } from '../../components/title-section/title-section.component';
 
 @Component({
     selector: 'app-artist-show',
     standalone: true,
-    imports: [ChangePlaylistPlayerComponent, CardLikeableItemComponent, LikeButtonComponent, TitleSectionComponent],
+    imports: [CardLikeableItemComponent, TitleSectionComponent],
     templateUrl: './artist-show.component.html',
     styleUrl: './artist-show.component.css',
 })

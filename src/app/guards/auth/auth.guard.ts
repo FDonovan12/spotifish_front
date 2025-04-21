@@ -6,7 +6,6 @@ export const authGuard: CanActivateFn = () => {
     const authService: AuthService = inject(AuthService);
     const router: Router = inject(Router);
     if (!authService.token) {
-        console.log('redirect -> login');
         authService.disconnect();
     }
     return true;

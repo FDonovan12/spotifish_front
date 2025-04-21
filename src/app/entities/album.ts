@@ -9,8 +9,6 @@ export interface AlbumOutputBase extends LikeableItemOutputBase, ImageInterface 
     image: string;
 }
 
-export interface AlbumBase extends AlbumOutputBase {}
-
 export interface AlbumOutputList extends AlbumOutputBase {
     artist: ArtistOutputBase;
 }

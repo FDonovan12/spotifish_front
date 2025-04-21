@@ -30,9 +30,6 @@ export class CardLikeableItemComponent {
     entity: InputSignal<SongOutputBase | ArtistOutputBase | AlbumOutputBase | PlaylistOutputBase> = input.required<
         SongOutputBase | ArtistOutputBase | AlbumOutputBase | PlaylistOutputBase
     >();
-    // entity: InputSignal<LikeableItemOutputBase & ImageInterface> = input.required<
-    //     LikeableItemOutputBase & ImageInterface
-    // >();
 
     protected readonly uploadService: UploadService = inject(UploadService);
     Type = Type;
