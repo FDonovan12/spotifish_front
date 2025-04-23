@@ -3,9 +3,9 @@ import {
   inject,
   input,
   InputSignal,
-  ViewChild,
   ViewContainerRef,
-  output
+  output,
+  viewChild
 } from '@angular/core';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { ChangePlaylistPlayerComponent } from '../change-playlist-player/change-playlist-player.component';
@@ -23,14 +23,14 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class TitleSectionComponent {
     readonly removeEntity = output<void>();
-    @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
+    readonly popupContainer = viewChild.required('popupContainer', { read: ViewContainerRef });
     entity: InputSignal<LikeableItemOutputBase> = input.required<LikeableItemOutputBase>();
 
     private readonly popupService: PopupService = inject(PopupService);
     private readonly authService: AuthService = inject(AuthService);
 
     ngAfterViewInit() {
-        this.popupService.setViewContainerRef(this.popupContainer);
+        this.popupService.setViewContainerRef(this.popupContainer());
     }
 
     public get isPlaylist() {

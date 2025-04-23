@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, input, Input, Signal, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, HostListener, inject, input, Input, Signal, ViewContainerRef, viewChild } from '@angular/core';
 import { PlaylistService } from '../../services/playlist/playlist.service';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { DatePipe } from '@angular/common';
@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
     styleUrl: './playlist-show.component.css',
 })
 export class PlaylistShowComponent {
-    @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
+    readonly popupContainer = viewChild.required('popupContainer', { read: ViewContainerRef });
     slug: Signal<string> = input.required();
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
@@ -57,7 +57,7 @@ export class PlaylistShowComponent {
     }
 
     ngAfterViewInit() {
-        this.popupService.setViewContainerRef(this.popupContainer);
+        this.popupService.setViewContainerRef(this.popupContainer());
     }
 
     public get owner(): ContributorOutputBase {

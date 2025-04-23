@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, inject, ViewContainerRef, viewChild } from '@angular/core';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
 import { PopupService } from '../../services/popup/popup.service';
@@ -13,7 +13,7 @@ import { UploadService } from '../../services/upload/upload.service';
     styleUrl: './liked-library.component.css',
 })
 export class LikedLibraryComponent {
-    @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
+    readonly popupContainer = viewChild.required('popupContainer', { read: ViewContainerRef });
 
     private readonly likeableItemService: LikeableItemService = inject(LikeableItemService);
     readonly uploadService: UploadService = inject(UploadService);
@@ -28,7 +28,7 @@ export class LikedLibraryComponent {
     }
 
     ngAfterViewInit() {
-        this.popupService.setViewContainerRef(this.popupContainer);
+        this.popupService.setViewContainerRef(this.popupContainer());
     }
 
     openCreatePlaylist() {
