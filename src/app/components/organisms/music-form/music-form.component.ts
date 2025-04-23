@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, input, output } from '@angular/core';
-import { MusicService } from '../../services/music/music.service';
+import { MusicService } from '../../../services/music/music.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SongBase } from '../../entities/song';
+import { SongBase } from '../../../entities/song';
 
 @Component({
     selector: 'app-music-form',

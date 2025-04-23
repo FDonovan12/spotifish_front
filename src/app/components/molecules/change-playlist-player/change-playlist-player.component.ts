@@ -1,9 +1,9 @@
 import { Component, inject, input, Input, InputSignal, Signal, signal, WritableSignal } from '@angular/core';
-import { PlayerService } from '../../services/player/player.service';
-import { AlbumOutputList } from '../../entities/album';
-import { PlaylistOutputBase } from '../../entities/playlist';
-import { ArtistOutputBase } from '../../entities/artist';
-import { LikeableItemOutputBase } from '../../entities/likeable-item';
+import { PlayerService } from '../../../services/player/player.service';
+import { AlbumOutputList } from '../../../entities/album';
+import { PlaylistOutputBase } from '../../../entities/playlist';
+import { ArtistOutputBase } from '../../../entities/artist';
+import { LikeableItemOutputBase } from '../../../entities/likeable-item';
 
 @Component({
     selector: 'app-change-playlist-player',

@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { RouterLink } from '@angular/router';
 import { SongBase, SongOutputBase } from '../../entities/song';
-import { CardLikeableItemComponent } from '../../components/card-likeable-item/card-likeable-item.component';
+import { CardLikeableItemComponent } from '../../components/molecules/card-likeable-item/card-likeable-item.component';
 
 @Component({
     selector: 'app-music-list',

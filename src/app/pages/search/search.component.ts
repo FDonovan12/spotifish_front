@@ -1,13 +1,13 @@
 import { Component, inject, input, Input, InputSignal, ViewChild, ViewContainerRef } from '@angular/core';
 import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
 import { MapLikeableItem } from '../../entities/response';
-import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-playlist.component';
-import { ChangePlaylistPlayerComponent } from '../../components/change-playlist-player/change-playlist-player.component';
-import { LinkShowComponent } from '../../components/link-show/link-show.component';
+import { AddToPlaylistComponent } from '../../components/molecules/add-to-playlist/add-to-playlist.component';
+import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';
+import { LinkShowComponent } from '../../components/atoms/link-show/link-show.component';
 import { UploadService } from '../../services/upload/upload.service';
-import { ListArtistsComponent } from '../../components/list-artists/list-artists.component';
-import { LikeButtonComponent } from '../../components/like-button/like-button.component';
-import { CardLikeableItemComponent } from '../../components/card-likeable-item/card-likeable-item.component';
+import { ListArtistsComponent } from '../../components/atoms/list-artists/list-artists.component';
+import { LikeButtonComponent } from '../../components/molecules/like-button/like-button.component';
+import { CardLikeableItemComponent } from '../../components/molecules/card-likeable-item/card-likeable-item.component';
 
 @Component({
     selector: 'app-search',

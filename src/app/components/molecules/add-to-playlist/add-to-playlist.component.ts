@@ -1,22 +1,22 @@
 import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  input,
-  Input,
-  InputSignal,
-  signal,
-  Signal,
-  WritableSignal,
-  output
+    Component,
+    effect,
+    ElementRef,
+    inject,
+    input,
+    Input,
+    InputSignal,
+    signal,
+    Signal,
+    WritableSignal,
+    output,
 } from '@angular/core';
-import { PlaylistOutputBase } from '../../entities/playlist';
-import { PlaylistService } from '../../services/playlist/playlist.service';
-import { SongOutputBase } from '../../entities/song';
-import { SongPlaylistService } from '../../services/SongPlaylist/song-playlist.service';
-import { SongPlaylistBase, SongPlaylistInput, SongPlaylistOutputBase } from '../../entities/song-playlist';
-import { StockContentService } from '../../services/StockContent/stock-content.service';
+import { PlaylistOutputBase } from '../../../entities/playlist';
+import { PlaylistService } from '../../../services/playlist/playlist.service';
+import { SongOutputBase } from '../../../entities/song';
+import { SongPlaylistService } from '../../../services/SongPlaylist/song-playlist.service';
+import { SongPlaylistBase, SongPlaylistInput, SongPlaylistOutputBase } from '../../../entities/song-playlist';
+import { StockContentService } from '../../../services/StockContent/stock-content.service';
 import { NgStyle } from '@angular/common';
 
 @Component({

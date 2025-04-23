@@ -1,5 +1,5 @@
 import { Component, computed, input, InputSignal, Signal } from '@angular/core';
-import { SluggerEntity } from '../../entities/slugger-entity';
+import { SluggerEntity } from '../../../entities/slugger-entity';
 import { RouterLink } from '@angular/router';
 
 @Component({

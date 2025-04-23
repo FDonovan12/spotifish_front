@@ -1,9 +1,9 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
-import { SharedService } from '../../services/Shared/shared.service';
-import { PlaylistOutputBase } from '../../entities/playlist';
+import { SharedService } from '../../../services/Shared/shared.service';
+import { PlaylistOutputBase } from '../../../entities/playlist';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedInput, SharedOutputBase } from '../../entities/shared';
-import { inTheFuture } from '../../validators/in-the-future';
+import { SharedInput, SharedOutputBase } from '../../../entities/shared';
+import { inTheFuture } from '../../../validators/in-the-future';
 
 @Component({
     selector: 'app-shared-playlist',

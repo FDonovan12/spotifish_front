@@ -9,12 +9,12 @@ import {
     ViewChild,
     WritableSignal,
 } from '@angular/core';
-import { SongOutputBase } from '../../entities/song';
-import { PlayerService } from '../../services/player/player.service';
-import { UploadService } from '../../services/upload/upload.service';
-import { HistoricalService } from '../../services/Historical/historical.service';
-import { HistoricalInput } from '../../entities/historical';
-import { AuthService } from '../../services/auth/auth.service';
+import { SongOutputBase } from '../../../entities/song';
+import { PlayerService } from '../../../services/player/player.service';
+import { UploadService } from '../../../services/upload/upload.service';
+import { HistoricalService } from '../../../services/Historical/historical.service';
+import { HistoricalInput } from '../../../entities/historical';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
     selector: 'footer[app-footer]',

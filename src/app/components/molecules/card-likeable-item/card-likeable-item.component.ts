@@ -1,17 +1,17 @@
 import { Component, inject, input, InputSignal } from '@angular/core';
-import { UploadService } from '../../services/upload/upload.service';
-import { LikeableItemOutputBase } from '../../entities/likeable-item';
-import { Type } from '../../entities/permission-entity';
-import { ImageInterface } from '../../entities/image-interface';
+import { UploadService } from '../../../services/upload/upload.service';
+import { LikeableItemOutputBase } from '../../../entities/likeable-item';
+import { Type } from '../../../entities/permission-entity';
+import { ImageInterface } from '../../../entities/image-interface';
 import { ChangePlaylistPlayerComponent } from '../change-playlist-player/change-playlist-player.component';
-import { LinkShowComponent } from '../link-show/link-show.component';
+import { LinkShowComponent } from '../../atoms/link-show/link-show.component';
 import { LikeButtonComponent } from '../like-button/like-button.component';
 import { AddToPlaylistComponent } from '../add-to-playlist/add-to-playlist.component';
-import { SongOutputBase } from '../../entities/song';
-import { ArtistOutputBase } from '../../entities/artist';
-import { AlbumOutputBase } from '../../entities/album';
-import { PlaylistOutputBase } from '../../entities/playlist';
-import { ListArtistsComponent } from '../list-artists/list-artists.component';
+import { SongOutputBase } from '../../../entities/song';
+import { ArtistOutputBase } from '../../../entities/artist';
+import { AlbumOutputBase } from '../../../entities/album';
+import { PlaylistOutputBase } from '../../../entities/playlist';
+import { ListArtistsComponent } from '../../atoms/list-artists/list-artists.component';
 
 @Component({
     selector: 'app-card-likeable-item',

@@ -1,6 +1,6 @@
 import { ComponentRef, Injectable, input, signal, ViewContainerRef, WritableSignal } from '@angular/core';
-import { PlaylistCreateComponent } from '../../components/playlist-create/playlist-create.component';
-import { SharedPlaylistComponent } from '../../components/shared-playlist/shared-playlist.component';
+import { PlaylistCreateComponent } from '../../components/organisms/playlist-create/playlist-create.component';
+import { SharedPlaylistComponent } from '../../components/organisms/shared-playlist/shared-playlist.component';
 import { PlaylistOutputBase } from '../../entities/playlist';
 
 @Injectable({

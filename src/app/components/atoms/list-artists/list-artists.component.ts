@@ -1,5 +1,5 @@
 import { Component, input, InputSignal, Signal } from '@angular/core';
-import { ArtistOutputBase } from '../../entities/artist';
+import { ArtistOutputBase } from '../../../entities/artist';
 import { LinkShowComponent } from '../link-show/link-show.component';
 
 @Component({

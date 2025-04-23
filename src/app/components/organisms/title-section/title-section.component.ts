@@ -1,19 +1,11 @@
-import {
-  Component,
-  inject,
-  input,
-  InputSignal,
-  ViewContainerRef,
-  output,
-  viewChild
-} from '@angular/core';
-import { LikeableItemOutputBase } from '../../entities/likeable-item';
-import { ChangePlaylistPlayerComponent } from '../change-playlist-player/change-playlist-player.component';
-import { LikeButtonComponent } from '../like-button/like-button.component';
-import { Type } from '../../entities/permission-entity';
-import { PopupService } from '../../services/popup/popup.service';
-import { PlaylistOutputBase } from '../../entities/playlist';
-import { AuthService } from '../../services/auth/auth.service';
+import { Component, inject, input, InputSignal, ViewContainerRef, output, viewChild } from '@angular/core';
+import { LikeableItemOutputBase } from '../../../entities/likeable-item';
+import { ChangePlaylistPlayerComponent } from '../../molecules/change-playlist-player/change-playlist-player.component';
+import { LikeButtonComponent } from '../../molecules/like-button/like-button.component';
+import { Type } from '../../../entities/permission-entity';
+import { PopupService } from '../../../services/popup/popup.service';
+import { PlaylistOutputBase } from '../../../entities/playlist';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
     selector: 'app-title-section',

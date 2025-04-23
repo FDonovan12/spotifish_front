@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MusicFormComponent } from '../../components/music-form/music-form.component';
+import { MusicFormComponent } from '../../components/organisms/music-form/music-form.component';
 import { Router } from '@angular/router';
 import { SongBase, SongOutputBase } from '../../entities/song';
 
