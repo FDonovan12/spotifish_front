@@ -1,16 +1,16 @@
 import { Component, HostListener, inject, input, Input, Signal, ViewContainerRef, viewChild } from '@angular/core';
-import { PlaylistService } from '../../services/playlist/playlist.service';
-import { PlaylistOutputBase } from '../../entities/playlist';
+import { PlaylistService } from '../../../repositories/playlist/playlist.service';
+import { PlaylistOutputBase } from '../../../entities/playlist';
 import { DatePipe } from '@angular/common';
-import { LikeButtonComponent } from '../../components/molecules/like-button/like-button.component';
-import { TableResizeService } from '../../services/TableResize/table-resize.service';
-import { ListArtistsComponent } from '../../components/atoms/list-artists/list-artists.component';
-import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';
-import { AddToPlaylistComponent } from '../../components/molecules/add-to-playlist/add-to-playlist.component';
-import { SongPlaylistOutputBase } from '../../entities/song-playlist';
-import { PopupService } from '../../services/popup/popup.service';
-import { ContributorOutputBase } from '../../entities/contributor';
-import { TitleSectionComponent } from '../../components/organisms/title-section/title-section.component';
+import { LikeButtonComponent } from '../../../components/molecules/like-button/like-button.component';
+import { TableResizeService } from '../../../services/table-resize/table-resize.service';
+import { ListArtistsComponent } from '../../../components/atoms/list-artists/list-artists.component';
+import { ChangePlaylistPlayerComponent } from '../../../components/molecules/change-playlist-player/change-playlist-player.component';
+import { AddToPlaylistComponent } from '../../../components/molecules/add-to-playlist/add-to-playlist.component';
+import { SongPlaylistOutputBase } from '../../../entities/song-playlist';
+import { PopupService } from '../../../services/popup/popup.service';
+import { ContributorOutputBase } from '../../../entities/contributor';
+import { TitleSectionComponent } from '../../../components/organisms/title-section/title-section.component';
 import { Router } from '@angular/router';
 
 @Component({

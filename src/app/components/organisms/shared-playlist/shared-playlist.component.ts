@@ -1,5 +1,5 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
-import { SharedService } from '../../../services/Shared/shared.service';
+import { SharedService } from '../../../repositories/shared/shared.service';
 import { PlaylistOutputBase } from '../../../entities/playlist';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedInput, SharedOutputBase } from '../../../entities/shared';

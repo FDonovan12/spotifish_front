@@ -1,5 +1,5 @@
 import { Component, inject, input, Input, InputSignal, ViewChild, ViewContainerRef } from '@angular/core';
-import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
+import { LikeableItemService } from '../../repositories/likeable-item/likeable-item.service';
 import { MapLikeableItem } from '../../entities/response';
 import { AddToPlaylistComponent } from '../../components/molecules/add-to-playlist/add-to-playlist.component';
 import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';

@@ -10,7 +10,7 @@ import {
     SimpleChanges,
     WritableSignal,
 } from '@angular/core';
-import { UserLikeableItemService } from '../../../services/user-likeable-item/user-likeable-item.service';
+import { UserLikeableItemService } from '../../../repositories/user-likeable-item/user-likeable-item.service';
 import { LikeableItemOutputBase } from '../../../entities/likeable-item';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart as fullHeart, faHeartBroken, IconDefinition } from '@fortawesome/free-solid-svg-icons';

@@ -1,7 +1,7 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlaylistBase, PlaylistOutputBase } from '../../../entities/playlist';
-import { PlaylistService } from '../../../services/playlist/playlist.service';
+import { PlaylistService } from '../../../repositories/playlist/playlist.service';
 import { Router } from '@angular/router';
 
 @Component({

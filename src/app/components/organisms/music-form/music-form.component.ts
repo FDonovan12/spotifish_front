@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, input, output } from '@angular/core';
-import { MusicService } from '../../../services/music/music.service';
+import { MusicService } from '../../../repositories/song/music.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SongBase } from '../../../entities/song';
 

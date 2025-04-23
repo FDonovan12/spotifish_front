@@ -3,11 +3,11 @@ import { SongOutputBase } from '../../entities/song';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { AlbumOutputBase, AlbumOutputList, AlbumOutputShow } from '../../entities/album';
 import { ArtistOutputBase, ArtistOutputShow } from '../../entities/artist';
-import { AlbumService } from '../album/album.service';
-import { PlaylistService } from '../playlist/playlist.service';
-import { ArtisteService } from '../Artiste/artiste.service';
+import { AlbumService } from '../../repositories/album/album.service';
+import { PlaylistService } from '../../repositories/playlist/playlist.service';
+import { ArtisteService } from '../../repositories/artist/artiste.service';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
-import { LikeableItemService } from '../likeable-item/likeable-item.service';
+import { LikeableItemService } from '../../repositories/likeable-item/likeable-item.service';
 import { Type } from '../../entities/permission-entity';
 
 @Injectable({

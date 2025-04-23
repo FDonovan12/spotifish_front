@@ -1,6 +1,6 @@
 import { inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { PlaylistOutputBase } from '../../entities/playlist';
-import { PlaylistService } from '../playlist/playlist.service';
+import { PlaylistService } from '../../repositories/playlist/playlist.service';
 
 @Injectable({
     providedIn: 'root',

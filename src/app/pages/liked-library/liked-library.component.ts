@@ -1,6 +1,6 @@
 import { Component, inject, ViewContainerRef, viewChild } from '@angular/core';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
-import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
+import { LikeableItemService } from '../../repositories/likeable-item/likeable-item.service';
 import { PopupService } from '../../services/popup/popup.service';
 import { LinkShowComponent } from '../../components/atoms/link-show/link-show.component';
 import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';

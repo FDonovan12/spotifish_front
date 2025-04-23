@@ -1,5 +1,5 @@
 import { Component, inject, input, Input, Signal, signal } from '@angular/core';
-import { UploadService } from '../../services/upload/upload.service';
+import { UploadService } from '../../../services/upload/upload.service';
 import { Router } from '@angular/router';
 
 @Component({

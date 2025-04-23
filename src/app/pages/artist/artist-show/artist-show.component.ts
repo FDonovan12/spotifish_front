@@ -1,8 +1,8 @@
 import { Component, inject, input, Signal } from '@angular/core';
-import { ArtistOutputShow } from '../../entities/artist';
-import { ArtisteService } from '../../services/Artiste/artiste.service';
-import { CardLikeableItemComponent } from '../../components/molecules/card-likeable-item/card-likeable-item.component';
-import { TitleSectionComponent } from '../../components/organisms/title-section/title-section.component';
+import { ArtistOutputShow } from '../../../entities/artist';
+import { ArtisteService } from '../../../repositories/artist/artiste.service';
+import { CardLikeableItemComponent } from '../../../components/molecules/card-likeable-item/card-likeable-item.component';
+import { TitleSectionComponent } from '../../../components/organisms/title-section/title-section.component';
 
 @Component({
     selector: 'app-artist-show',

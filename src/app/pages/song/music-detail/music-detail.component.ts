@@ -1,6 +1,6 @@
 import { Component, inject, input, Input, OnInit, Signal } from '@angular/core';
-import { MusicService } from '../../services/music/music.service';
-import { SongBase } from '../../entities/song';
+import { MusicService } from '../../../repositories/song/music.service';
+import { SongBase } from '../../../entities/song';
 
 @Component({
     selector: 'app-music-detail',

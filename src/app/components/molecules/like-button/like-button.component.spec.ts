@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LikeButtonComponent } from './like-button.component';
-import { UserLikeableItemService } from '../../../services/user-likeable-item/user-likeable-item.service';
+import { UserLikeableItemService } from '../../../repositories/user-likeable-item/user-likeable-item.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { defaultIsLiked, defaultLikeableItemOutputBase } from '../../../entities/likeable-item';
 

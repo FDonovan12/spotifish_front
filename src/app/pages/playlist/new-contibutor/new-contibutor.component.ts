@@ -1,7 +1,7 @@
 import { Component, inject, input, Signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../../services/Shared/shared.service';
-import { PlaylistOutputBase } from '../../entities/playlist';
+import { SharedService } from '../../../repositories/shared/shared.service';
+import { PlaylistOutputBase } from '../../../entities/playlist';
 
 @Component({
     selector: 'app-new-contibutor',

@@ -1,8 +1,8 @@
 import { Component, inject, input, Input, Signal } from '@angular/core';
-import { MusicService } from '../../services/music/music.service';
-import { MusicFormComponent } from '../../components/organisms/music-form/music-form.component';
+import { MusicService } from '../../../repositories/song/music.service';
+import { MusicFormComponent } from '../../../components/organisms/music-form/music-form.component';
 import { NgIf } from '@angular/common';
-import { SongBase, SongOutputBase } from '../../entities/song';
+import { SongBase, SongOutputBase } from '../../../entities/song';
 import { Router } from '@angular/router';
 
 @Component({

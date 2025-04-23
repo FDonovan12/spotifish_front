@@ -1,11 +1,11 @@
 import { Component, HostListener, inject, input, Input, Signal } from '@angular/core';
-import { LikeButtonComponent } from '../../components/molecules/like-button/like-button.component';
-import { AlbumService } from '../../services/album/album.service';
-import { AlbumOutputShow } from '../../entities/album';
-import { TableResizeService } from '../../services/TableResize/table-resize.service';
-import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';
-import { TitleSectionComponent } from '../../components/organisms/title-section/title-section.component';
-import { AddToPlaylistComponent } from '../../components/molecules/add-to-playlist/add-to-playlist.component';
+import { LikeButtonComponent } from '../../../components/molecules/like-button/like-button.component';
+import { AlbumService } from '../../../repositories/album/album.service';
+import { AlbumOutputShow } from '../../../entities/album';
+import { TableResizeService } from '../../../services/table-resize/table-resize.service';
+import { ChangePlaylistPlayerComponent } from '../../../components/molecules/change-playlist-player/change-playlist-player.component';
+import { TitleSectionComponent } from '../../../components/organisms/title-section/title-section.component';
+import { AddToPlaylistComponent } from '../../../components/molecules/add-to-playlist/add-to-playlist.component';
 
 @Component({
     selector: 'app-album-show',

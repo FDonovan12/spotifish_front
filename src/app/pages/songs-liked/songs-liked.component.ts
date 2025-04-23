@@ -1,8 +1,8 @@
 import { Component, HostListener, inject, input, InputSignal } from '@angular/core';
 import { PlaylistOutputBase } from '../../entities/playlist';
-import { PlaylistService } from '../../services/playlist/playlist.service';
-import { TableResizeService } from '../../services/TableResize/table-resize.service';
-import { LikeableItemService } from '../../services/likeable-item/likeable-item.service';
+import { PlaylistService } from '../../repositories/playlist/playlist.service';
+import { TableResizeService } from '../../services/table-resize/table-resize.service';
+import { LikeableItemService } from '../../repositories/likeable-item/likeable-item.service';
 import { SongOutputBase } from '../../entities/song';
 import { ListArtistsComponent } from '../../components/atoms/list-artists/list-artists.component';
 import { LikeButtonComponent } from '../../components/molecules/like-button/like-button.component';

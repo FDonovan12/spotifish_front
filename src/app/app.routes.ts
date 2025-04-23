@@ -4,18 +4,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { authGuard, noAuthGuard } from './guards/auth/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { MusicListComponent } from './pages/music-list/music-list.component';
-import { MusicDetailComponent } from './pages/music-detail/music-detail.component';
-import { MusicEditComponent } from './pages/music-edit/music-edit.component';
-import { MusicCreateComponent } from './pages/music-create/music-create.component';
-import { PlaylistShowComponent } from './pages/playlist-show/playlist-show.component';
-import { AlbumShowComponent } from './pages/album-show/album-show.component';
+import { MusicListComponent } from './pages/song/music-list/music-list.component';
+import { MusicDetailComponent } from './pages/song/music-detail/music-detail.component';
+import { MusicEditComponent } from './pages/song/music-edit/music-edit.component';
+import { MusicCreateComponent } from './pages/song/music-create/music-create.component';
+import { PlaylistShowComponent } from './pages/playlist/playlist-show/playlist-show.component';
+import { AlbumShowComponent } from './pages/album/album-show/album-show.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
-import { UploadSongComponent } from './pages/upload-song/upload-song.component';
-import { ArtistShowComponent } from './pages/artist-show/artist-show.component';
+import { UploadSongComponent } from './pages/song/upload-song/upload-song.component';
+import { ArtistShowComponent } from './pages/artist/artist-show/artist-show.component';
 import { SongsLikedComponent } from './pages/songs-liked/songs-liked.component';
-import { NewContibutorComponent } from './pages/new-contibutor/new-contibutor.component';
+import { NewContibutorComponent } from './pages/playlist/new-contibutor/new-contibutor.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
