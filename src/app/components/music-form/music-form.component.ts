@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output, input } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SongBase } from '../../entities/song';
@@ -10,7 +10,7 @@ import { SongBase } from '../../entities/song';
     styleUrl: './music-form.component.css',
 })
 export class MusicFormComponent implements OnInit {
-    @Input() musicToEdit?: SongBase;
+    readonly musicToEdit = input<SongBase>();
     @Output() formSubimtted: EventEmitter<SongBase> = new EventEmitter();
     private readonly musicService: MusicService = inject(MusicService);
 
@@ -18,8 +18,8 @@ export class MusicFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = new FormGroup({
-            name: new FormControl<string>(this.musicToEdit?.name || '', [Validators.required]),
-            createdAt: new FormControl<Date>(this.musicToEdit?.createdAt || new Date(), [Validators.required]),
+            name: new FormControl<string>(this.musicToEdit()?.name || '', [Validators.required]),
+            createdAt: new FormControl<Date>(this.musicToEdit()?.createdAt || new Date(), [Validators.required]),
         });
     }
 
