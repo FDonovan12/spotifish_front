@@ -7,6 +7,6 @@ import { FooterComponent } from './components/footer/footer.component';
     selector: 'body[app-root]',
     imports: [RouterOutlet, NavbarComponent, FooterComponent],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+    styleUrl: './app.component.css',
 })
 export class AppComponent {}
