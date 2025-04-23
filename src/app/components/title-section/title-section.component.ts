@@ -1,12 +1,11 @@
 import {
-    Component,
-    EventEmitter,
-    inject,
-    input,
-    InputSignal,
-    Output,
-    ViewChild,
-    ViewContainerRef,
+  Component,
+  inject,
+  input,
+  InputSignal,
+  ViewChild,
+  ViewContainerRef,
+  output
 } from '@angular/core';
 import { LikeableItemOutputBase } from '../../entities/likeable-item';
 import { ChangePlaylistPlayerComponent } from '../change-playlist-player/change-playlist-player.component';
@@ -23,7 +22,7 @@ import { AuthService } from '../../services/auth/auth.service';
     styleUrl: './title-section.component.css',
 })
 export class TitleSectionComponent {
-    @Output() removeEntity: EventEmitter<void> = new EventEmitter();
+    readonly removeEntity = output<void>();
     @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
     entity: InputSignal<LikeableItemOutputBase> = input.required<LikeableItemOutputBase>();
 

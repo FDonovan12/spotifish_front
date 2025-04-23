@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input, InputSignal, Output } from '@angular/core';
+import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlaylistBase, PlaylistOutputBase } from '../../entities/playlist';
 import { PlaylistService } from '../../services/playlist/playlist.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
     styleUrl: './playlist-create.component.css',
 })
 export class PlaylistCreateComponent {
-    @Output() closed = new EventEmitter<void>();
+    readonly closed = output<void>();
     playlist: InputSignal<PlaylistOutputBase | undefined> = input();
 
     private readonly playlistService: PlaylistService = inject(PlaylistService);
@@ -28,6 +28,7 @@ export class PlaylistCreateComponent {
     }
 
     close() {
+        // TODO: The 'emit' function requires a mandatory void argument
         this.closed.emit();
     }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, OnInit, Output, input } from '@angular/core';
+import { Component, inject, OnInit, input, output } from '@angular/core';
 import { MusicService } from '../../services/music/music.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SongBase } from '../../entities/song';
@@ -11,7 +11,7 @@ import { SongBase } from '../../entities/song';
 })
 export class MusicFormComponent implements OnInit {
     readonly musicToEdit = input<SongBase>();
-    @Output() formSubimtted: EventEmitter<SongBase> = new EventEmitter();
+    readonly formSubimtted = output<SongBase>();
     private readonly musicService: MusicService = inject(MusicService);
 
     form!: FormGroup;

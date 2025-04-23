@@ -1,16 +1,15 @@
 import {
-    Component,
-    effect,
-    ElementRef,
-    EventEmitter,
-    inject,
-    input,
-    Input,
-    InputSignal,
-    Output,
-    signal,
-    Signal,
-    WritableSignal,
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  Input,
+  InputSignal,
+  signal,
+  Signal,
+  WritableSignal,
+  output
 } from '@angular/core';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { PlaylistService } from '../../services/playlist/playlist.service';
@@ -27,7 +26,7 @@ import { NgStyle } from '@angular/common';
     styleUrl: './add-to-playlist.component.css',
 })
 export class AddToPlaylistComponent {
-    @Output() removeSongPlaylist: EventEmitter<SongPlaylistOutputBase> = new EventEmitter();
+    readonly removeSongPlaylist = output<SongPlaylistOutputBase>();
     song: InputSignal<SongOutputBase> = input.required<SongOutputBase>();
     songPlaylist: InputSignal<SongPlaylistOutputBase | null> = input<SongPlaylistOutputBase | null>(null);
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input, InputSignal, Output } from '@angular/core';
+import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { SharedService } from '../../services/Shared/shared.service';
 import { PlaylistOutputBase } from '../../entities/playlist';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,8 +12,8 @@ import { inTheFuture } from '../../validators/in-the-future';
     styleUrl: './shared-playlist.component.css',
 })
 export class SharedPlaylistComponent {
-    @Output() closed = new EventEmitter<void>();
-    @Output() shared = new EventEmitter<SharedOutputBase>();
+    readonly closed = output<void>();
+    readonly shared = output<SharedOutputBase>();
     playlist: InputSignal<PlaylistOutputBase> = input.required<PlaylistOutputBase>();
 
     private readonly sharedService: SharedService = inject(SharedService);
@@ -28,6 +28,7 @@ export class SharedPlaylistComponent {
     }
 
     close() {
+        // TODO: The 'emit' function requires a mandatory void argument
         this.closed.emit();
     }
 
