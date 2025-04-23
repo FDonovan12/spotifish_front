@@ -18,7 +18,6 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
     selector: 'footer[app-footer]',
-    standalone: true,
     imports: [],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.css',

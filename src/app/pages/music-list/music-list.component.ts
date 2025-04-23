@@ -6,7 +6,6 @@ import { CardLikeableItemComponent } from '../../components/card-likeable-item/c
 
 @Component({
     selector: 'app-music-list',
-    standalone: true,
     imports: [RouterLink, CardLikeableItemComponent],
     templateUrl: './music-list.component.html',
     styleUrl: './music-list.component.css',

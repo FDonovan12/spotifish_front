@@ -5,7 +5,6 @@ import { SongBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-form',
-    standalone: true,
     imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './music-form.component.html',
     styleUrl: './music-form.component.css',

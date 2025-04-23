@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-upload-song',
-    standalone: true,
     imports: [],
     templateUrl: './upload-song.component.html',
     styleUrl: './upload-song.component.css',

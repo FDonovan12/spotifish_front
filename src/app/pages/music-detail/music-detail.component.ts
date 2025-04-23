@@ -4,7 +4,6 @@ import { SongBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-detail',
-    standalone: true,
     imports: [],
     templateUrl: './music-detail.component.html',
     styleUrl: './music-detail.component.css',

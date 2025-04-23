@@ -9,7 +9,6 @@ import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-
 
 @Component({
     selector: 'app-album-show',
-    standalone: true,
     imports: [LikeButtonComponent, ChangePlaylistPlayerComponent, TitleSectionComponent, AddToPlaylistComponent],
     templateUrl: './album-show.component.html',
     styleUrl: './album-show.component.css',

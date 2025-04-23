@@ -9,7 +9,6 @@ import { emailvalidator } from '../../validators/email-validator';
 
 @Component({
     selector: 'app-register',
-    standalone: true,
     imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './register.component.html',
     styleUrl: './register.component.css',

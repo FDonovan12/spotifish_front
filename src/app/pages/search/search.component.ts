@@ -11,7 +11,6 @@ import { CardLikeableItemComponent } from '../../components/card-likeable-item/c
 
 @Component({
     selector: 'app-search',
-    standalone: true,
     imports: [
         AddToPlaylistComponent,
         ChangePlaylistPlayerComponent,

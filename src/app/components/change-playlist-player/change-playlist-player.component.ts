@@ -7,7 +7,6 @@ import { LikeableItemOutputBase } from '../../entities/likeable-item';
 
 @Component({
     selector: 'app-change-playlist-player',
-    standalone: true,
     imports: [],
     templateUrl: './change-playlist-player.component.html',
     styleUrl: './change-playlist-player.component.css',

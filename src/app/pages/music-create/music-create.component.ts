@@ -7,7 +7,6 @@ import { SongBase, SongOutputBase } from '../../entities/song';
 
 @Component({
     selector: 'app-music-create',
-    standalone: true,
     imports: [MusicFormComponent],
     templateUrl: './music-create.component.html',
     styleUrl: './music-create.component.css',

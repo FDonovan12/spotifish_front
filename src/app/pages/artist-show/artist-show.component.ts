@@ -6,7 +6,6 @@ import { TitleSectionComponent } from '../../components/title-section/title-sect
 
 @Component({
     selector: 'app-artist-show',
-    standalone: true,
     imports: [CardLikeableItemComponent, TitleSectionComponent],
     templateUrl: './artist-show.component.html',
     styleUrl: './artist-show.component.css',

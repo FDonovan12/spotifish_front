@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-link-show',
-    standalone: true,
     imports: [RouterLink],
     templateUrl: './link-show.component.html',
     styleUrl: './link-show.component.css',

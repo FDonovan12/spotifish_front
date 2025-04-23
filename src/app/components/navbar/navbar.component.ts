@@ -8,7 +8,6 @@ const NO_NAVABAR_URLS = ['login'];
 
 @Component({
     selector: 'header[app-navbar]',
-    standalone: true,
     imports: [RouterLink, AsyncPipe],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',

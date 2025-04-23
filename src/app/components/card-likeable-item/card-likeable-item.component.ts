@@ -15,7 +15,6 @@ import { ListArtistsComponent } from '../list-artists/list-artists.component';
 
 @Component({
     selector: 'app-card-likeable-item',
-    standalone: true,
     imports: [
         ChangePlaylistPlayerComponent,
         LinkShowComponent,

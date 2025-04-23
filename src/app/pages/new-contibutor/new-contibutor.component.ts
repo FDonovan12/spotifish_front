@@ -5,7 +5,6 @@ import { PlaylistOutputBase } from '../../entities/playlist';
 
 @Component({
     selector: 'app-new-contibutor',
-    standalone: true,
     imports: [],
     templateUrl: './new-contibutor.component.html',
     styleUrl: './new-contibutor.component.css',

@@ -22,7 +22,6 @@ import { NgStyle } from '@angular/common';
 
 @Component({
     selector: 'app-add-to-playlist',
-    standalone: true,
     imports: [NgStyle],
     templateUrl: './add-to-playlist.component.html',
     styleUrl: './add-to-playlist.component.css',

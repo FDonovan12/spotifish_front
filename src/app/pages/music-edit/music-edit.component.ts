@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-music-edit',
-    standalone: true,
     imports: [MusicFormComponent, NgIf],
     templateUrl: './music-edit.component.html',
     styleUrl: './music-edit.component.css',

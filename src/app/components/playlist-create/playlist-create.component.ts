@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-playlist-create',
-    standalone: true,
     imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './playlist-create.component.html',
     styleUrl: './playlist-create.component.css',

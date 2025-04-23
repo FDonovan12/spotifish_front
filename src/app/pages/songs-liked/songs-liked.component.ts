@@ -10,7 +10,6 @@ import { AddToPlaylistComponent } from '../../components/add-to-playlist/add-to-
 
 @Component({
     selector: 'app-songs-liked',
-    standalone: true,
     imports: [ListArtistsComponent, LikeButtonComponent, AddToPlaylistComponent],
     templateUrl: './songs-liked.component.html',
     styleUrl: './songs-liked.component.css',

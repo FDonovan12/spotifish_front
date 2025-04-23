@@ -8,7 +8,6 @@ import { UploadService } from '../../services/upload/upload.service';
 
 @Component({
     selector: 'app-liked-library',
-    standalone: true,
     imports: [LinkShowComponent, ChangePlaylistPlayerComponent],
     templateUrl: './liked-library.component.html',
     styleUrl: './liked-library.component.css',

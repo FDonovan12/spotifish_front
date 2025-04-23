@@ -7,7 +7,6 @@ import { inTheFuture } from '../../validators/in-the-future';
 
 @Component({
     selector: 'app-shared-playlist',
-    standalone: true,
     imports: [FormsModule, ReactiveFormsModule],
     templateUrl: './shared-playlist.component.html',
     styleUrl: './shared-playlist.component.css',

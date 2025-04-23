@@ -18,7 +18,6 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
     selector: 'app-title-section',
-    standalone: true,
     imports: [ChangePlaylistPlayerComponent, LikeButtonComponent],
     templateUrl: './title-section.component.html',
     styleUrl: './title-section.component.css',

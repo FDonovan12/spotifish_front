@@ -18,7 +18,6 @@ import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
     selector: 'app-like-button',
-    standalone: true,
     imports: [FontAwesomeModule],
     templateUrl: './like-button.component.html',
     styleUrl: './like-button.component.css',
