@@ -263,7 +263,8 @@ form {
     }
     column-gap: 0.25em;
     justify-content: center;
-    & > div {
+    & > div,
+    & > app-form-control > div {
         display: grid;
         grid-template-columns: subgrid;
         align-items: center;

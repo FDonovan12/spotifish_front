@@ -1,14 +1,16 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { filter, map, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { Debounce } from 'app/decorator/debounce';
+import { filter, map, Observable } from 'rxjs';
+import { AuthService } from '../../../services/auth/auth.service';
 
 const NO_NAVABAR_URLS = ['login'];
 
 @Component({
     selector: 'header[app-navbar]',
-    imports: [RouterLink, AsyncPipe],
+    imports: [RouterLink, AsyncPipe, FormsModule],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
 })
@@ -21,6 +23,8 @@ export class NavbarComponent implements OnInit {
     token$!: Observable<string | null>;
     isVisible$!: Observable<boolean>;
     debounceTimer: any;
+
+    search = signal('');
 
     ngOnInit(): void {
         this.isVisible$ = this.router.events.pipe(
@@ -37,19 +41,15 @@ export class NavbarComponent implements OnInit {
         this.token$ = this.authService.token$;
     }
 
-    disconect() {
+    disconnect() {
         this.authService.disconnect();
     }
 
-    submitSearch(eventSearch: Event) {
-        const inputElement = eventSearch.target as HTMLInputElement;
-        const searchValue = inputElement.value;
+    @Debounce(300)
+    submitSearch(searchValue: string) {
         if (searchValue == '') {
             return;
         }
-        clearTimeout(this.debounceTimer);
-        this.debounceTimer = setTimeout(() => {
-            this.router.navigateByUrl('/search/' + searchValue);
-        }, 200);
+        this.router.navigateByUrl('/search/' + searchValue);
     }
 }

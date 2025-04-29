@@ -3,13 +3,13 @@ import { LikeButtonComponent } from '../../../components/molecules/like-button/l
 import { AlbumService } from '../../../repositories/album/album.service';
 import { AlbumOutputShow } from '../../../entities/album';
 import { TableResizeService } from '../../../services/table-resize/table-resize.service';
-import { ChangePlaylistPlayerComponent } from '../../../components/molecules/change-playlist-player/change-playlist-player.component';
+
 import { TitleSectionComponent } from '../../../components/organisms/title-section/title-section.component';
 import { AddToPlaylistComponent } from '../../../components/molecules/add-to-playlist/add-to-playlist.component';
 
 @Component({
     selector: 'app-album-show',
-    imports: [LikeButtonComponent, ChangePlaylistPlayerComponent, TitleSectionComponent, AddToPlaylistComponent],
+    imports: [LikeButtonComponent, TitleSectionComponent, AddToPlaylistComponent],
     templateUrl: './album-show.component.html',
     styleUrl: './album-show.component.css',
 })

@@ -1,21 +1,20 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
 import { authGuard, noAuthGuard } from './guards/auth/auth.guard';
+import { AlbumShowComponent } from './pages/album/album-show/album-show.component';
+import { ArtistShowComponent } from './pages/artist/artist-show/artist-show.component';
+import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
+import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NewContibutorComponent } from './pages/playlist/new-contibutor/new-contibutor.component';
+import { PlaylistShowComponent } from './pages/playlist/playlist-show/playlist-show.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { MusicListComponent } from './pages/song/music-list/music-list.component';
+import { SearchComponent } from './pages/search/search.component';
+import { MusicCreateComponent } from './pages/song/music-create/music-create.component';
 import { MusicDetailComponent } from './pages/song/music-detail/music-detail.component';
 import { MusicEditComponent } from './pages/song/music-edit/music-edit.component';
-import { MusicCreateComponent } from './pages/song/music-create/music-create.component';
-import { PlaylistShowComponent } from './pages/playlist/playlist-show/playlist-show.component';
-import { AlbumShowComponent } from './pages/album/album-show/album-show.component';
-import { SearchComponent } from './pages/search/search.component';
-import { LikedLibraryComponent } from './pages/liked-library/liked-library.component';
+import { MusicListComponent } from './pages/song/music-list/music-list.component';
 import { UploadSongComponent } from './pages/song/upload-song/upload-song.component';
-import { ArtistShowComponent } from './pages/artist/artist-show/artist-show.component';
 import { SongsLikedComponent } from './pages/songs-liked/songs-liked.component';
-import { NewContibutorComponent } from './pages/playlist/new-contibutor/new-contibutor.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },

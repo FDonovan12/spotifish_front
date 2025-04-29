@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable, lastValueFrom } from 'rxjs';
+import { HttpClient, httpResource } from '@angular/common/http';
+import { computed, inject, Injectable, Signal } from '@angular/core';
+import { lastValueFrom, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
-import { CustomResponse } from '../../entities/response';
 import { PlaylistBase, PlaylistOutputBase } from '../../entities/playlist';
+import { CustomResponse } from '../../entities/response';
 
 @Injectable({
     providedIn: 'root',
@@ -25,6 +25,13 @@ export class PlaylistService {
             CustomResponse<PlaylistOutputBase[]>
         >(`${this.apiUrl}/${this.resource}/show/mine`);
         return lastValueFrom(http$).then((res) => res.body);
+    }
+
+    test(): Signal<PlaylistOutputBase[] | undefined> {
+        const response = httpResource<CustomResponse<PlaylistOutputBase[]>>(
+            `${this.apiUrl}/${this.resource}/show/mine`
+        );
+        return computed(() => response.value()?.body);
     }
 
     async new(playlistInput: PlaylistBase): Promise<PlaylistOutputBase> {

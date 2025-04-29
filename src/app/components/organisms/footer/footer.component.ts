@@ -1,20 +1,10 @@
-import {
-    Component,
-    computed,
-    ElementRef,
-    inject,
-    input,
-    signal,
-    Signal,
-    ViewChild,
-    WritableSignal,
-} from '@angular/core';
+import { Component, computed, inject, signal, Signal, WritableSignal } from '@angular/core';
+import { HistoricalInput } from '../../../entities/historical';
 import { SongOutputBase } from '../../../entities/song';
+import { HistoricalService } from '../../../repositories/historical/historical.service';
+import { AuthService } from '../../../services/auth/auth.service';
 import { PlayerService } from '../../../services/player/player.service';
 import { UploadService } from '../../../services/upload/upload.service';
-import { HistoricalService } from '../../../services/Historical/historical.service';
-import { HistoricalInput } from '../../../entities/historical';
-import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
     selector: 'footer[app-footer]',

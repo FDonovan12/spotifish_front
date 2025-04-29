@@ -1,46 +1,53 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
-import { Router, RouterLink } from '@angular/router';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormControlComponent } from '../../components/atoms/form-control/form-control.component';
 import { UserRegisterInput } from '../../entities/user';
+import { AuthService } from '../../services/auth/auth.service';
 import { birthAtValidator } from '../../validators/birth-date';
-import { passwordValidator } from '../../validators/password-validator';
-import { emailvalidator } from '../../validators/email-validator';
+import { emailValidator } from '../../validators/email-validator';
+import { confirmPasswordValidator } from '@validators/confirm-password';
 
 @Component({
     selector: 'app-register',
-    imports: [FormsModule, ReactiveFormsModule],
+    imports: [FormsModule, ReactiveFormsModule, FormControlComponent],
     templateUrl: './register.component.html',
     styleUrl: './register.component.css',
 })
 export class RegisterComponent implements OnInit {
     private readonly authService: AuthService = inject(AuthService);
     private readonly router: Router = inject(Router);
+    private readonly formBuilder: FormBuilder = inject(FormBuilder);
 
     form!: FormGroup;
     showErrorConfirmedPassword: WritableSignal<boolean> = signal(false);
 
     ngOnInit(): void {
-        this.form = new FormGroup({
-            name: new FormControl('', [Validators.required]),
-            firstName: new FormControl('', [Validators.required]),
-            lastName: new FormControl('', [Validators.required]),
-            password: new FormControl('', [
-                Validators.minLength(5),
-                // passwordValidator(),
-            ]),
-            passwordConfirmed: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required, emailvalidator()]),
-            birthAt: new FormControl('', [Validators.required, birthAtValidator]),
-        });
+        this.form = this.formBuilder.group(
+            {
+                name: ['', Validators.required],
+                firstName: ['', Validators.required],
+                lastName: ['', Validators.required],
+                password: ['', [Validators.minLength(5)]],
+                confirmPassword: ['', Validators.required],
+                email: ['', [Validators.required, emailValidator()]],
+                birthAt: ['', [Validators.required, birthAtValidator]],
+            },
+            { validators: confirmPasswordValidator() }
+        );
+        console.log(this.form);
+        console.log(this.form.controls['email']);
+        console.log(typeof this.form.controls['email']);
     }
 
     onSubmitRegister() {
+        this.form.markAllAsTouched();
         const samePassword = this.form.controls['password'].value === this.form.controls['passwordConfirmed'].value;
         if (!samePassword) {
             this.showErrorConfirmedPassword.set(true);
             return;
         }
+        this.showErrorConfirmedPassword.set(false);
         if (this.form.valid) {
             const user: UserRegisterInput = {
                 ...this.form.value,

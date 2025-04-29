@@ -1,24 +1,19 @@
 import { Component, inject, input, Input, InputSignal, ViewChild, ViewContainerRef } from '@angular/core';
 import { LikeableItemService } from '../../repositories/likeable-item/likeable-item.service';
 import { MapLikeableItem } from '../../entities/response';
-import { AddToPlaylistComponent } from '../../components/molecules/add-to-playlist/add-to-playlist.component';
-import { ChangePlaylistPlayerComponent } from '../../components/molecules/change-playlist-player/change-playlist-player.component';
-import { LinkShowComponent } from '../../components/atoms/link-show/link-show.component';
+
+
+
 import { UploadService } from '../../services/upload/upload.service';
-import { ListArtistsComponent } from '../../components/atoms/list-artists/list-artists.component';
-import { LikeButtonComponent } from '../../components/molecules/like-button/like-button.component';
+
+
 import { CardLikeableItemComponent } from '../../components/molecules/card-likeable-item/card-likeable-item.component';
 
 @Component({
     selector: 'app-search',
     imports: [
-        AddToPlaylistComponent,
-        ChangePlaylistPlayerComponent,
-        LinkShowComponent,
-        ListArtistsComponent,
-        LikeButtonComponent,
-        CardLikeableItemComponent,
-    ],
+    CardLikeableItemComponent
+],
     templateUrl: './search.component.html',
     styleUrl: './search.component.css',
 })

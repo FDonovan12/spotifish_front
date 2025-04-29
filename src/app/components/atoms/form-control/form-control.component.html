@@ -1,0 +1,20 @@
+<div>
+    <label [for]="formControlName()">{{ label() }}</label>
+    <input
+        [type]="type()"
+        [id]="formControlName()"
+        [formControl]="control()"
+        class="form-control"
+        [class.ng-invalid]="control().invalid"
+        [class.ng-touched]="control().touched"
+        [class.ng-dirty]="control().dirty"
+        [class.ng-valid]="control().valid"
+        [required]="isRequired()"
+        [(ngModel)]="value"
+    />
+</div>
+@if (control().invalid && control().touched) {
+<div>
+    <p class="text-danger">{{ errorMessage() }}</p>
+</div>
+}

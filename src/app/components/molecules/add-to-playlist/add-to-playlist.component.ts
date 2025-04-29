@@ -1,23 +1,21 @@
+import { NgStyle } from '@angular/common';
 import {
     Component,
     effect,
     ElementRef,
     inject,
     input,
-    Input,
     InputSignal,
+    output,
     signal,
     Signal,
     WritableSignal,
-    output,
 } from '@angular/core';
 import { PlaylistOutputBase } from '../../../entities/playlist';
-import { PlaylistService } from '../../../services/playlist/playlist.service';
 import { SongOutputBase } from '../../../entities/song';
-import { SongPlaylistService } from '../../../services/SongPlaylist/song-playlist.service';
-import { SongPlaylistBase, SongPlaylistInput, SongPlaylistOutputBase } from '../../../entities/song-playlist';
-import { StockContentService } from '../../../services/StockContent/stock-content.service';
-import { NgStyle } from '@angular/common';
+import { SongPlaylistInput, SongPlaylistOutputBase } from '../../../entities/song-playlist';
+import { SongPlaylistService } from '../../../repositories/song-playlist/song-playlist.service';
+import { StockContentService } from '../../../services/stock-content/stock-content.service';
 
 @Component({
     selector: 'app-add-to-playlist',

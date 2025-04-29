@@ -1,8 +1,8 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
-import { SharedService } from '../../../repositories/shared/shared.service';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PlaylistOutputBase } from '../../../entities/playlist';
-import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedInput, SharedOutputBase } from '../../../entities/shared';
+import { SharedService } from '../../../repositories/shared/shared.service';
 import { inTheFuture } from '../../../validators/in-the-future';
 
 @Component({
@@ -28,7 +28,6 @@ export class SharedPlaylistComponent {
     }
 
     close() {
-        // TODO: The 'emit' function requires a mandatory void argument
         this.closed.emit();
     }
 

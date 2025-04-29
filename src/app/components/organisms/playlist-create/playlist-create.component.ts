@@ -1,8 +1,8 @@
 import { Component, inject, input, InputSignal, output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PlaylistBase, PlaylistOutputBase } from '../../../entities/playlist';
 import { PlaylistService } from '../../../repositories/playlist/playlist.service';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-playlist-create',
@@ -28,7 +28,6 @@ export class PlaylistCreateComponent {
     }
 
     close() {
-        // TODO: The 'emit' function requires a mandatory void argument
         this.closed.emit();
     }
 

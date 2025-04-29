@@ -15,14 +15,15 @@
     id="searchInput"
     type="text"
     placeholder="Rechercher..."
-    (input)="submitSearch($event)"
+    [ngModel]="search()"
+    (ngModelChange)="submitSearch($event)"
 />
 <div class="d-flex justify-content-between">
     <span class="mr-2">{{ authService.userName }}</span>
     <button
         class="btn-danger"
-        (click)="disconect()"
-        title="Deconnection"
+        (click)="disconnect()"
+        title="Déconnexion"
     >
         <i class="fa-solid fa-right-from-bracket"></i>
     </button>
